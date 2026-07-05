@@ -1,14 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-
+* {
+  box-sizing: border-box;
+}
 .app {
   display: flex;
-  height: 100vh;
+  height: 100%;
 }
 html, body {
   font-family: 'Inter', system-ui, sans-serif;
   height: 100%;
   margin: 0;
+  width: 100%;
+  overflow: hidden;
 }
 
 .right-side {
@@ -72,41 +76,42 @@ html, body {
   gap: 10px;
 }
 
-.btn-outline {
-  background: transparent;
-  border: 1px solid #444;
-  color: white;
-  padding: 8px 14px;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.btn-primary {
-  background: #6c5ce7;
-  color: white;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-.run-dropdown,
-.save-dropdown {
+.btn-group {
   display: flex;
   align-items: center;
-  font-size: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  overflow: hidden;
 }
 
-.dropdown-arrow {
-  font-size: 30px;
-  background: none;
+.btn-roxo {
+  display: flex;
+  align-items: center;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #6c5ce7;
+}
+
+.btn-roxo .btn-outline,
+.btn-roxo .dropdown-arrow {
   border: none;
+  background: transparent;
   color: white;
+  padding: 8px 16px;
   cursor: pointer;
-  padding: 0 6px;
 }
 
+.btn-group .dropdown-arrow {
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+
+.btn-outline {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  color: white;
+  background-color: black
+}  
 
 
 
@@ -119,8 +124,7 @@ main {
 
 
 .io-panel {
-  border: 5px solid pink;
-  min-height: 250px;
+  min-height: 150px;
   background-color: #111219;
   width: 100%;
 }
