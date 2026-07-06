@@ -127,6 +127,10 @@ html, body {
   background-color: #111219;
 }  
 
+.salvamento:active {
+  background: #6959E0;
+}
+
 .executar {
   font-weight: 600;
   font-size: 15px;
@@ -147,9 +151,7 @@ html, body {
 }
 
 
-.salvamento:active {
-  background: #6556D9;
-}
+
 
 .inverter {
   background: #2c3e9b;
@@ -157,8 +159,8 @@ html, body {
   font-size: 15px;
   height: 30px;
 }
-.io-panel {
-  min-height: 150px;
-  background-color: #111219;
-  width: 100%;
+
+.inverter:active {
+  transform: scale(0.97);
+  background: #2c3e9bd3;
 }
