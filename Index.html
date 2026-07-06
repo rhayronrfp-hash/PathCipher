@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <link rel='stylesheet' href=Css/Style.css>
+  <link rel='stylesheet' href=Css/topbar-geral.css>
   <link rel='stylesheet' href=Css/canoas.css>
   <link rel='stylesheet' href=Css/sidebar.css>
   <link rel='stylesheet' href=Css/mobile.css>
@@ -48,17 +48,155 @@
         <button class="side-icon" title="Configurações">
           <img src="Assets/Icons/config.png" alt="Configurações">
         </button>
-      
-
-      
-      
     </div>
   
-    <div class="sidebar-blocos">
-      
-    <!-- MEXER NISSO DEPOIS ORGANIZAR EM BLOCOS DE CODIFICacao CEIPTOGRAFIA Hash e dps eu penso no resto sla" -->
+<div class="sidebar-blocos">
+
+  
+
+
+  <div class="categoria">
+    <input type="checkbox" id="cat-criptografia" class="categoria-toggle" checked>
+    <label for="cat-criptografia" class="categoria-header">
+      <span class="dot dot-azul"></span>
+      <span>Criptografia</span>
+      <span class="categoria-arrow">▾</span>
+    </label>
+    <div class="categoria-blocos">
+
+      <button class="bloco bloco-azul">
+        <img src="Assets/Icons/Icon8.png" alt="AES" class="bloco-icon">
+        AES
+      </button>
+
+      <button class="bloco bloco-azul">
+        <img src="Assets/Icons/Icon9.png" alt="RSA" class="bloco-icon">
+        RSA
+      </button>
+
+      <button class="bloco bloco-azul">
+        <img src="Assets/Icons/Icon10.png" alt="ChaCha20" class="bloco-icon">
+        ChaCha20
+      </button>
+
     </div>
   </div>
+
+
+  <div class="categoria">
+    <input type="checkbox" id="cat-hash" class="categoria-toggle" checked>
+    <label for="cat-hash" class="categoria-header">
+      <span class="dot dot-vermelho"></span>
+      <span>Hash</span>
+      <span class="categoria-arrow">▾</span>
+    </label>
+    <div class="categoria-blocos">
+
+      <button class="bloco bloco-vermelho">
+        <img src="Assets/Icons/Icon11.png" alt="SHA-256" class="bloco-icon">
+        SHA-256
+      </button>
+
+      <button class="bloco bloco-vermelho">
+        <img src="Assets/Icons/Icon12.png" alt="SHA-512" class="bloco-icon">
+        SHA-512
+      </button>
+
+      <button class="bloco bloco-vermelho">
+        <img src="Assets/Icons/Icon13.png" alt="MD5" class="bloco-icon">
+        MD5
+      </button>
+
+    </div>
+  </div>
+
+  
+  <div class="categoria">
+    <input type="checkbox" id="cat-codificacao" class="categoria-toggle" checked>
+    <label for="cat-codificacao" class="categoria-header">
+      <span class="dot dot-verde"></span>
+      <span>Codificação</span>
+      <span class="categoria-arrow">▾</span>
+    </label>
+    <div class="categoria-blocos">
+
+      <button class="bloco bloco-verde">
+        <img src="Assets/Icons/Icon1.png" alt="Base64" class="bloco-icon">
+        Base64
+      </button>
+
+      <button class="bloco bloco-verde">
+        <img src="Assets/Icons/Icon2.png" alt="Hex" class="bloco-icon">
+        Hex
+      </button>
+
+      <button class="bloco bloco-verde">
+        <img src="Assets/Icons/Icon3.png" alt="Binário" class="bloco-icon">
+        Binário
+      </button>
+
+      <button class="bloco bloco-verde">
+        <img src="Assets/Icons/Icon4.png" alt="Morse" class="bloco-icon">
+        Morse
+      </button>
+
+      <button class="bloco bloco-verde">
+        <img src="Assets/Icons/Icon5.png" alt="ASCII" class="bloco-icon">
+        ASCII
+      </button>
+
+      <button class="bloco bloco-verde">
+        <img src="Assets/Icons/Icon6.png" alt="URL Encode" class="bloco-icon">
+        URL Encode
+      </button>
+
+      <button class="bloco bloco-verde">
+        <img src="Assets/Icons/Icon7.png" alt="Unicode" class="bloco-icon">
+        Unicode
+      </button>
+
+    </div>
+  </div>
+  <div class="categoria">
+    <input type="checkbox" id="cat-classicas" class="categoria-toggle" checked>
+    <label for="cat-classicas" class="categoria-header">
+      <span class="dot dot-amarelo"></span>
+      <span>Clássicas</span>
+      <span class="categoria-arrow">▾</span>
+    </label>
+    <div class="categoria-blocos">
+      <button class="bloco bloco-amarelo">
+        <img src="Assets/Icons/Icon14.png" alt="ROT13" class="bloco-icon">
+        ROT13
+      </button>
+
+      <button class="bloco bloco-amarelo">
+        <img src="Assets/Icons/Icon15.png" alt="César" class="bloco-icon">
+        César
+      </button>
+
+      <button class="bloco bloco-amarelo">
+        <img src="Assets/Icons/Icon16.png" alt="Vigenère" class="bloco-icon">
+        Vigenère
+      </button>
+
+      <button class="bloco bloco-amarelo">
+        <img src="Assets/Icons/Icon17.png" alt="Atbash" class="bloco-icon">
+        Atbash
+      </button>
+
+    </div>
+  </div>
+
+</div>
+        
+        
+        
+        
+      
+  
+    </div>
+  
   <div class="sidebar-rodape">
     
   </div>
@@ -86,14 +224,14 @@
     <button class="setas" title="Refazer">↻</button>
     
     
-<div>
-  <button class="btn-outline">▶ Executar</button>
-</div>
 
-<button class="btn-outline">⇆ Inverter</button>
+<button class="btn-outline btn-group inverter" >Inverter</button>
+  <button class="executar">Executar</button>
+
+
 
 <div class="btn-group btn-roxo">
-  <button class="btn-outline">💾 Salvar</button>
+  <button class="btn-outline salvamento" >Salvar</button>
   <button class="dropdown-arrow" >▾</button>
 </div>
 

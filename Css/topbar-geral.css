@@ -2,11 +2,19 @@
 
 * {
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
 }
+
 .app {
   display: flex;
   height: 100%;
 }
+
 html, body {
   font-family: 'Inter', system-ui, sans-serif;
   height: 100%;
@@ -21,10 +29,10 @@ html, body {
   flex-direction: column;
 }
 
+
 .topbar {
-  border: 1px solid grey;
   width: 100%;
-  height: 50px;
+  height: 70px;
   color: white;
   background-color: #111219;
 }
@@ -43,12 +51,17 @@ html, body {
   border: none;
   padding: 0;
   cursor: pointer;
-  background: none;
+  background: #111219;
+  transition: background-color 0.3s ease;
+  border-radius: 30%;
+}
+.lapis:hover {
+  background: #222831;
 }
 
 .lapis img {
-  width: 24px;
-  height: 24px;
+  width: 34px;
+  height: 34px;
 }
 
 .setas {
@@ -58,9 +71,11 @@ html, body {
   background: none;
   color: white;
   font-size: 30px;
-  
 }
 
+.setas:active{
+  transform: scale(1.2);
+}
 .topbar {
   display: flex;
   align-items: center;
@@ -74,6 +89,7 @@ html, body {
   display: flex;
   align-items: center;
   gap: 10px;
+  background: #111219;
 }
 
 .btn-group {
@@ -105,24 +121,42 @@ html, body {
   border-left: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-
 .btn-outline {
-  border: 1px solid rgba(255, 255, 255, 0.2);
   cursor: pointer;
   color: white;
-  background-color: black
+  background-color: #111219;
 }  
 
-
-
-
-
-main {
-  background-color: test;
+.executar {
+  font-weight: 600;
+  font-size: 15px;
+  height: 30px;
+  color: white;
+  background: #2ecc71; /* um dos verdes mais fodas que tem é esse aquikkkk*/
+  cursor: pointer;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 6px;
 }
 
 
 
+.executar:active {
+  transform: scale(0.97);
+  background: #2CC46E;
+}
+
+
+.salvamento:active {
+  background: #6556D9;
+}
+
+.inverter {
+  background: #2c3e9b;
+  font-weight: 600;
+  font-size: 15px;
+  height: 30px;
+}
 .io-panel {
   min-height: 150px;
   background-color: #111219;
