@@ -53,9 +53,7 @@
   
 <div class="sidebar-blocos">
 
-  
-
-
+  <!-- Criptografia (Azul) -->
   <div class="categoria">
     <input type="checkbox" id="cat-criptografia" class="categoria-toggle" checked>
     <label for="cat-criptografia" class="categoria-header">
@@ -65,17 +63,17 @@
     </label>
     <div class="categoria-blocos">
 
-      <button class="bloco bloco-azul">
+      <button class="bloco bloco-azul" data-type="aes">
         <img src="Assets/Icons/Icon8.png" alt="AES" class="bloco-icon">
         AES
       </button>
 
-      <button class="bloco bloco-azul">
+      <button class="bloco bloco-azul" data-type="rsa">
         <img src="Assets/Icons/Icon9.png" alt="RSA" class="bloco-icon">
         RSA
       </button>
 
-      <button class="bloco bloco-azul">
+      <button class="bloco bloco-azul" data-type="chacha20">
         <img src="Assets/Icons/Icon10.png" alt="ChaCha20" class="bloco-icon">
         ChaCha20
       </button>
@@ -83,7 +81,7 @@
     </div>
   </div>
 
-
+  <!-- Hash (Vermelho) -->
   <div class="categoria">
     <input type="checkbox" id="cat-hash" class="categoria-toggle" checked>
     <label for="cat-hash" class="categoria-header">
@@ -93,17 +91,17 @@
     </label>
     <div class="categoria-blocos">
 
-      <button class="bloco bloco-vermelho">
+      <button class="bloco bloco-vermelho" data-type="sha256">
         <img src="Assets/Icons/Icon11.png" alt="SHA-256" class="bloco-icon">
         SHA-256
       </button>
 
-      <button class="bloco bloco-vermelho">
+      <button class="bloco bloco-vermelho" data-type="sha512">
         <img src="Assets/Icons/Icon12.png" alt="SHA-512" class="bloco-icon">
         SHA-512
       </button>
 
-      <button class="bloco bloco-vermelho">
+      <button class="bloco bloco-vermelho" data-type="md5">
         <img src="Assets/Icons/Icon13.png" alt="MD5" class="bloco-icon">
         MD5
       </button>
@@ -111,7 +109,7 @@
     </div>
   </div>
 
-  
+  <!-- Codificação (Verde) -->
   <div class="categoria">
     <input type="checkbox" id="cat-codificacao" class="categoria-toggle" checked>
     <label for="cat-codificacao" class="categoria-header">
@@ -121,43 +119,45 @@
     </label>
     <div class="categoria-blocos">
 
-      <button class="bloco bloco-verde">
+      <button class="bloco bloco-verde" data-type="base64">
         <img src="Assets/Icons/Icon1.png" alt="Base64" class="bloco-icon">
         Base64
       </button>
 
-      <button class="bloco bloco-verde">
+      <button class="bloco bloco-verde" data-type="hex">
         <img src="Assets/Icons/Icon2.png" alt="Hex" class="bloco-icon">
         Hex
       </button>
 
-      <button class="bloco bloco-verde">
+      <button class="bloco bloco-verde" data-type="binario">
         <img src="Assets/Icons/Icon3.png" alt="Binário" class="bloco-icon">
         Binário
       </button>
 
-      <button class="bloco bloco-verde">
+      <button class="bloco bloco-verde" data-type="morse">
         <img src="Assets/Icons/Icon4.png" alt="Morse" class="bloco-icon">
         Morse
       </button>
 
-      <button class="bloco bloco-verde">
+      <button class="bloco bloco-verde" data-type="ascii">
         <img src="Assets/Icons/Icon5.png" alt="ASCII" class="bloco-icon">
         ASCII
       </button>
 
-      <button class="bloco bloco-verde">
+      <button class="bloco bloco-verde" data-type="urlencode">
         <img src="Assets/Icons/Icon6.png" alt="URL Encode" class="bloco-icon">
         URL Encode
       </button>
 
-      <button class="bloco bloco-verde">
+      <button class="bloco bloco-verde" data-type="unicode">
         <img src="Assets/Icons/Icon7.png" alt="Unicode" class="bloco-icon">
         Unicode
       </button>
 
     </div>
   </div>
+
+  <!-- Clássicas (Amarelo) -->
   <div class="categoria">
     <input type="checkbox" id="cat-classicas" class="categoria-toggle" checked>
     <label for="cat-classicas" class="categoria-header">
@@ -166,22 +166,23 @@
       <span class="categoria-arrow">▾</span>
     </label>
     <div class="categoria-blocos">
-      <button class="bloco bloco-amarelo">
+
+      <button class="bloco bloco-amarelo" data-type="rot13">
         <img src="Assets/Icons/Icon14.png" alt="ROT13" class="bloco-icon">
         ROT13
       </button>
 
-      <button class="bloco bloco-amarelo">
+      <button class="bloco bloco-amarelo" data-type="cesar">
         <img src="Assets/Icons/Icon15.png" alt="César" class="bloco-icon">
         César
       </button>
 
-      <button class="bloco bloco-amarelo">
+      <button class="bloco bloco-amarelo" data-type="vigenere">
         <img src="Assets/Icons/Icon16.png" alt="Vigenère" class="bloco-icon">
         Vigenère
       </button>
 
-      <button class="bloco bloco-amarelo">
+      <button class="bloco bloco-amarelo" data-type="atbash">
         <img src="Assets/Icons/Icon17.png" alt="Atbash" class="bloco-icon">
         Atbash
       </button>
@@ -232,9 +233,17 @@
 
 
 
+    
     <main class="canvas">
-      
-    </main>
+  <div id="fluxo-container" class="fluxo-container"></div>
+    
+</main>
+
+
+
+
+
+
 
 <footer class="painel">
 
@@ -259,7 +268,7 @@
         <img src="Assets/Icons/Copy.png" alt="Copiar">
       </button>
     </div>
-    <textarea class="painel-texto" readonly>JTI1M0EwMTAwMDAxMDAwMTAwMTAwMTAwMTAwMTAwMTAwMTAw</textarea>
+    <textarea class="painel-texto" id='saída' readonly>JTI1M0EwMTAwMDAxMDAwMTAwMTAwMTAwMTAwMTAwMTAwMTAw</textarea>
     <div class="painel-bottom">
       <span>Tamanho: </span>
       <span>Tempo: </span>
@@ -272,5 +281,6 @@
   </div>
 
 </div>
+<script src='Js/js2.js'></script>
 </body>
 </html>

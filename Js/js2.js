@@ -1,0 +1,257 @@
+document.addEventListener("DOMContentLoaded", () => {
+  let pipeline = [];
+  let idCounter = 0;
+  let blocoArrastado = null;
+
+  const canvasContainer = document.getElementById("fluxo-container");
+  const svgNS = "http://www.w3.org/2000/svg";
+  const svgLinhas = document.createElementNS(svgNS, "svg");
+  svgLinhas.id = "linhas-svg";
+  svgLinhas.setAttribute("aria-hidden", "true");
+
+  document.querySelectorAll(".sidebar-blocos .bloco").forEach(botao => {
+    botao.addEventListener("click", () => adicionarBloco(botao));
+  });
+
+  function adicionarBloco(botaoOrigem) {
+    const tipo = botaoOrigem.dataset.type;
+    const label = botaoOrigem.textContent.trim();
+    const cor = [...botaoOrigem.classList].find(c => c.startsWith("bloco-")) || "bloco-verde";
+
+    pipeline.push({ id: idCounter++, tipo, label, cor });
+    renderizarCanvas();
+  }
+
+  function removerBloco(id) {
+    pipeline = pipeline.filter(b => b.id !== id);
+    renderizarCanvas();
+  }
+
+  function reordenar(idOrigem, idDestino) {
+    if (idOrigem === idDestino) return;
+    
+    const indexOrigem = pipeline.findIndex(b => b.id === idOrigem);
+    let indexDestino = pipeline.findIndex(b => b.id === idDestino);
+    if (indexOrigem === -1 || indexDestino === -1) return;
+    
+    const [blocoMovido] = pipeline.splice(indexOrigem, 1);
+    if (indexOrigem < indexDestino) indexDestino--;
+    pipeline.splice(indexDestino, 0, blocoMovido);
+
+    renderizarCanvas();
+  }
+
+    function renderizarCanvas() {
+    canvasContainer.innerHTML = "";
+    canvasContainer.appendChild(svgLinhas);
+    canvasContainer.appendChild(criarNoFixo("Entrada"));
+    pipeline.forEach(bloco => {
+      canvasContainer.appendChild(criarNoBloco(bloco));
+    });
+
+    if (pipeline.length > 0) {
+      canvasContainer.appendChild(criarNoFixo2("Saída"));
+    }
+    canvasContainer.querySelectorAll(".flow-block").forEach(el => el.style.marginLeft = "");
+    const blocos = [...canvasContainer.querySelectorAll(".flow-block")];
+    
+    if (blocos.length >= 2) {
+      const topPrimeiraLinha = blocos[0].offsetTop;
+      const alvoX = blocos[1].offsetLeft; 
+      const containerPadding = parseInt(window.getComputedStyle(canvasContainer).paddingLeft) || 0;
+      const recuoNecessario = alvoX - containerPadding;
+
+      if (recuoNecessario > 0) {
+        let ultimaLinhaProcessada = topPrimeiraLinha;
+
+        for (let i = 1; i < blocos.length; i++) {
+          if (blocos[i].offsetTop > ultimaLinhaProcessada + 8) {
+            blocos[i].style.marginLeft = `${recuoNecessario}px`;
+            ultimaLinhaProcessada = blocos[i].offsetTop;
+          }
+        }
+      }
+      const ultimoBloco = blocos[blocos.length - 1];
+      if (ultimoBloco && ultimoBloco.classList.contains("flow-saida") && blocos.length > 1) {
+        const blocoAnterior = blocos[blocos.length - 2];
+        
+        if (ultimoBloco.offsetTop > blocoAnterior.offsetTop + 8) {
+          ultimoBloco.style.marginLeft = "auto";
+        }
+      }
+    }
+    requestAnimationFrame(desenharLinhas);
+  }
+
+
+  function criarNoFixo(texto) {
+    const div = document.createElement("div");
+    div.className = "flow-block flow-fixo";
+    div.textContent = texto;
+    return div;
+  }
+
+  function criarNoFixo2(texto) {
+    const div = document.createElement("div");
+    div.className = "flow-block flow-saida";
+    div.textContent = texto;
+    return div;
+  }
+  
+  function criarNoBloco(bloco) {
+  const div = document.createElement("div");
+  div.className = `flow-block ${bloco.cor}`;
+  div.dataset.id = bloco.id;
+  div.innerHTML = `
+    <span>${bloco.label}</span>
+    <button class="flow-remove" title="Remover">×</button>
+  `;
+
+  
+  div.querySelector(".flow-remove").addEventListener("click", (e) => {
+    e.stopPropagation();
+    removerBloco(bloco.id);
+  });
+  div.addEventListener("dblclick", () => {
+    removerBloco(bloco.id);
+  });
+
+  let timerX;
+
+  div.addEventListener("click", (e) => {
+    if (e.target.closest(".flow-remove")) return;
+
+    document.querySelectorAll(".flow-block.active")
+      .forEach(el => {
+        if (el !== div) el.classList.remove("active");
+      });
+
+    div.classList.add("active");
+
+    clearTimeout(timerX);
+    timerX = setTimeout(() => {
+      div.classList.remove("active");
+    }, 3000);
+  });
+
+
+  habilitarArraste(div, bloco);
+  return div;
+}
+
+  function desenharLinhas() {
+    /* SIM, USEI IA NESSA FUNÇÃO. FIQUEI 6 HORAS E NAO CONSEGUI(DESCULPEM, NAO FUI CAPAZ DE FAZER NA MAO)*/
+    svgLinhas.innerHTML = "";
+
+    const containerRect = canvasContainer.getBoundingClientRect();
+    const blocos = [...canvasContainer.querySelectorAll(".flow-block")];
+
+    if (blocos.length < 2) return;
+
+    const largura = Math.max(canvasContainer.scrollWidth, canvasContainer.clientWidth);
+  const altura = Math.max(canvasContainer.scrollHeight, canvasContainer.clientHeight);
+
+  svgLinhas.setAttribute("viewBox", `0 0 ${largura} ${altura}`);
+  svgLinhas.setAttribute("width", largura);
+  svgLinhas.setAttribute("height", altura);
+    const defs = document.createElementNS(svgNS, "defs");
+    const marker = document.createElementNS(svgNS, "marker");
+    marker.setAttribute("id", "arrowhead");
+    marker.setAttribute("markerWidth", "7.3");
+    marker.setAttribute("markerHeight", "7.3");
+    marker.setAttribute("refX", "5");
+    marker.setAttribute("refY", "2.95");
+    marker.setAttribute("orient", "auto");
+    marker.setAttribute("markerUnits", "strokeWidth");
+    const arrowPath = document.createElementNS(svgNS, "path");
+    arrowPath.setAttribute("d", "M-1.35,0 L-1.35,6 L6.65,3 z");
+    arrowPath.setAttribute("fill", "#5b326f");
+    marker.appendChild(arrowPath);
+    defs.appendChild(marker);
+    svgLinhas.appendChild(defs);
+
+    for (let i = 0; i < blocos.length - 1; i++) {
+      const a = blocos[i];
+      const b = blocos[i + 1];
+      const r1 = a.getBoundingClientRect();
+      const r2 = b.getBoundingClientRect();
+      const x1 = r1.right - containerRect.left;
+      const y1 = r1.top + r1.height / 2 - containerRect.top;
+      const x2 = r2.left - containerRect.left;
+      const y2 = r2.top + r2.height / 2 - containerRect.top;
+      const mesmaLinha = Math.abs(y1 - y2) < 8;
+
+      let d = "";
+
+      if (mesmaLinha) {
+        d = `M ${x1} ${y1} L ${x2 - 4} ${y2}`;
+      } 
+      else {
+    const stub = 24;
+    const bottomA = r1.bottom - containerRect.top;
+    const topB = r2.top - containerRect.top;
+    const yGap = (bottomA + topB) / 2;
+    d = `M ${x1} ${y1} L ${x1 + stub} ${y1} L ${x1 + stub} ${yGap} L ${x2 - stub} ${yGap} L ${x2 - stub} ${y2} L ${x2} ${y2}`;
+      }
+      
+
+      const path = document.createElementNS(svgNS, "path");
+      path.setAttribute("d", d);
+      path.setAttribute("stroke", "#656E7B");
+      path.setAttribute("stroke-width", "2.7");
+      path.setAttribute("fill", "none");
+      path.setAttribute("stroke-linecap", "round");
+      path.setAttribute("stroke-linejoin", "round");
+      path.setAttribute("marker-end", "url(#arrowhead)");
+      svgLinhas.appendChild(path);
+    }
+  }
+
+  function habilitarArraste(elemento, bloco) {
+    elemento.addEventListener("pointerdown", (e) => {
+      if (e.target.closest(".flow-remove")) return;
+      blocoArrastado = bloco;
+      elemento.classList.add("arrastando");
+      elemento.setPointerCapture(e.pointerId);
+    });
+
+    elemento.addEventListener("pointermove", (e) => {
+      if (!blocoArrastado) return;
+
+      document.querySelectorAll(".flow-block.drag-over")
+        .forEach(el => el.classList.remove("drag-over"));
+
+      const alvo = document.elementFromPoint(e.clientX, e.clientY);
+      const blocoAlvo = alvo?.closest(".flow-block");
+
+      if (
+        blocoAlvo &&
+        !blocoAlvo.classList.contains("flow-fixo") &&
+        !blocoAlvo.classList.contains("flow-saida") &&
+        Number(blocoAlvo.dataset.id) !== blocoArrastado.id
+      ) {
+        blocoAlvo.classList.add("drag-over");
+      }
+    });
+
+    elemento.addEventListener("pointerup", (e) => {
+      if (!blocoArrastado) return;
+
+      const alvo = document.elementFromPoint(e.clientX, e.clientY);
+      const blocoAlvo = alvo?.closest(".flow-block");
+
+      document.querySelectorAll(".flow-block")
+        .forEach(el => el.classList.remove("drag-over", "arrastando"));
+
+      if (
+        blocoAlvo &&
+        blocoAlvo.dataset.id &&
+        Number(blocoAlvo.dataset.id) !== blocoArrastado.id
+      ) {
+        reordenar(blocoArrastado.id, Number(blocoAlvo.dataset.id));
+      }
+      blocoArrastado = null;
+    });
+  }
+  renderizarCanvas();
+});
