@@ -10,14 +10,10 @@
   -webkit-appearance: none;
   appearance: none;
 }
-.leader-line {
-  z-index: 10;
-}
 .app {
   display: flex;
   height: 100%;
 }
-
 html, body {
   font-family: 'Inter', system-ui, sans-serif;
   height: 100%;
@@ -31,7 +27,6 @@ html, body {
   display: flex;
   flex-direction: column;
 }
-
 
 .topbar {
   width: 100%;

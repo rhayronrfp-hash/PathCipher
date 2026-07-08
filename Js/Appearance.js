@@ -64,6 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (recuoNecessario > 0) {
         let ultimaLinhaProcessada = topPrimeiraLinha;
 
+/*67 67 67 SIX SEVENNNNNN */
         for (let i = 1; i < blocos.length; i++) {
           if (blocos[i].offsetTop > ultimaLinhaProcessada + 8) {
             blocos[i].style.marginLeft = `${recuoNecessario}px`;
