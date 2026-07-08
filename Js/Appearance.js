@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   
-  pipeline = [];
-  idCounter = 0;
-  blocoArrastado = null;
+  let pipeline = [];
+  let idCounter = 0;
+  let blocoArrastado = null;
 
   const canvasContainer = document.getElementById("fluxo-container");
   const svgNS = "http://www.w3.org/2000/svg";
