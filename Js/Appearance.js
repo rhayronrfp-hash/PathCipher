@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  
   let pipeline = [];
   let idCounter = 0;
   let blocoArrastado = null;
