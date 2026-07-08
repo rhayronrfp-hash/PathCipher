@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   
-  let pipeline = [];
-  let idCounter = 0;
-  let blocoArrastado = null;
+  pipeline = [];
+  idCounter = 0;
+  blocoArrastado = null;
 
   const canvasContainer = document.getElementById("fluxo-container");
   const svgNS = "http://www.w3.org/2000/svg";
@@ -32,15 +32,16 @@ document.addEventListener("DOMContentLoaded", () => {
     if (idOrigem === idDestino) return;
     
     const indexOrigem = pipeline.findIndex(b => b.id === idOrigem);
-    let indexDestino = pipeline.findIndex(b => b.id === idDestino);
+    const indexDestino = pipeline.findIndex(b => b.id === idDestino);
     if (indexOrigem === -1 || indexDestino === -1) return;
     
-    const [blocoMovido] = pipeline.splice(indexOrigem, 1);
-    if (indexOrigem < indexDestino) indexDestino--;
-    pipeline.splice(indexDestino, 0, blocoMovido);
+    const temporario = pipeline[indexOrigem];
+    pipeline[indexOrigem] = pipeline[indexDestino];
+    pipeline[indexDestino] = temporario;
 
     renderizarCanvas();
   }
+
 
     function renderizarCanvas() {
     canvasContainer.innerHTML = "";
