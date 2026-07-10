@@ -40,11 +40,34 @@ html, body {
   align-items: center;
 }
 
-.project-label {
+#edita-name {
+  font-weight: 400;
   font-size: 20px;
 }
 
-.lapis{
+#project-name {
+  background: transparent;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  color: white;
+  font-size: 15px;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  width: 100px;
+  margin: 0;
+  caret-color: white;
+}
+
+#project-name:read-only {
+  cursor: default;
+}
+
+#project-name:not(:read-only) {
+  cursor: text;
+}
+
+.lapis {
   border: none;
   padding: 0;
   cursor: pointer;
@@ -52,27 +75,40 @@ html, body {
   transition: background-color 0.3s ease;
   border-radius: 30%;
 }
+
 .lapis:hover {
   background: #222831;
 }
 
 .lapis img {
-  width: 34px;
-  height: 34px;
+  width: 40px;
+  height: 40px;
 }
+
+
+
 
 .setas {
   border: none;
-  padding: 0;
   cursor: pointer;
   background: none;
-  color: white;
-  font-size: 30px;
 }
 
 .setas:active{
   transform: scale(1.2);
 }
+
+.setas img {
+  /*vou deixar essa largura e altura guardada pra eu usar na interfce do cll*/
+  /*width: 20px;*/
+  /*height: 20px;*/
+  width: 28px;
+  height: 28px;
+  column-gap: 3px;
+}
+  /*vou deixar essa largura e altura guardada pra eu usar na interfce do cll*/
+
+
 .topbar {
   display: flex;
   align-items: center;
@@ -125,10 +161,11 @@ html, body {
 }  
 
 .salvamento:active {
-  background: #6959E0;
+  background: #6959e0ac;
 }
 
 .executar {
+  opacity: 100%;
   font-weight: 600;
   font-size: 15px;
   height: 30px;
@@ -155,9 +192,15 @@ html, body {
   font-weight: 600;
   font-size: 15px;
   height: 30px;
+  text-align: right;
 }
 
 .inverter:active {
   transform: scale(0.97);
   background: #2c3e9bd3;
+}
+#fundo {
+  background-color: #2c3e9b;
+  align-content: center;
+  min-width: 128px;
 }

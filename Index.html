@@ -10,6 +10,7 @@
   <link rel='stylesheet' href=Css/sidebar.css>
   <link rel='stylesheet' href=Css/mobile.css>
   <link rel='stylesheet' href='Css/bottombar.css'>
+  <link rel='stylesheet' href='Css/Aviso.css'>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -199,23 +200,35 @@
 
   <div class="right-side">
     <header class="topbar">
-
+      
+      
   <div class="topbar-project">
-    <span class="project-label">Projeto:</span>
-    <span class="project-name">Novo Pipeline</span>
-    <button class="lapis">
-      <img src="Assets/Icons/lapis.png" alt="Editar">
-    </button>
-  </div>
+    
+    
+  <label for="project-name" id="edita-name">Projeto:</label>
+  <input id="project-name" type="text" maxlength="50" value="pipeline" readonly>
+  
+  <button class="lapis" type="button">
+    <img src="Assets/Icons/lapis.png" alt="Editar">
+  </button>
+  
+  
+</div>
 
   <div class="topbar-actions">
+
+    <button class="setas" title="Desfazer">
+      <img src='Assets/Icons/seta.png'>
+    </button>
     
-    <button class="setas" title="Desfazer">↺</button>
-    <button class="setas" title="Refazer">↻</button>
+    <button class="setas" title="Refazer">
+      <img src='Assets/Icons/seta2.png'>
+    </button>
     
     
 
-<button class="btn-outline btn-group inverter" >Inverter</button>
+<button class="btn-outline btn-group inverter" >Descriptografia</button>
+  
   <button class="executar">Executar</button>
 
 
@@ -236,7 +249,7 @@
     
     <main class="canvas">
   <div id="fluxo-container" class="fluxo-container"></div>
-    
+    <button id="limpar-pipeline"><img src='Assets/Icons/reset.png'></button>
 </main>
 
 
@@ -249,31 +262,23 @@
 
   <div class="cartao-painel">
     <div class="top-painel">
-      <span>Entrada</span>
+      <span>Criptografar</span>
       <button class="painel-copy gambiarra">
         <img src="Assets/Icons/gambiarra.png" alt="Copiar">
       </button>
     </div>
-    <textarea class="painel-texto" placeholder="WARNING!!! DO NOT USE UPPERCASE"></textarea>
-    <div class="painel-bottom">
-      <span>Tamanho: </span>
-    </div>
+    <textarea class="painel-texto" placeholder="digite aqui"></textarea>
   </div>
 
 
   <div class="cartao-painel">
     <div class="top-painel">
-      <span>Resultado</span>
+      <span>Criptografia</span>
       <button class="painel-copy">
         <img src="Assets/Icons/Copy.png" alt="Copiar">
       </button>
     </div>
-    <textarea class="painel-texto" id='saída' readonly>67 six seven</textarea>
-    <div class="painel-bottom">
-      <span>Tamanho: </span>
-      <span>Tempo: </span>
-      <span>Etapas: </span>
-    </div>
+    <textarea class="painel-texto" id='saída' readonly placeholder="veja o resultado aqui"></textarea>
   </div>
 
 </footer>
@@ -282,6 +287,10 @@
 
 </div>
 <script src='Js/Appearance.js'></script>
-<script src='Js/logic.js'></script>
+<script src='Js/config.js'></script>
+<script src='Js/crypto.js'></script>
+<script src='Js/Logic.js'></script>
+<script src='Js/warn.js'></script>
+<script src='Js/storage.js'></script>
 </body>
 </html>
