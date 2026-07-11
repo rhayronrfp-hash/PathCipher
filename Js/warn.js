@@ -15,7 +15,7 @@ window.addEventListener("load", () => {
   
   const caixaAviso = document.createElement("div");
   Object.assign(caixaAviso.style, {
-    backgroundColor: "#006EDB",
+    backgroundColor: "black",
     padding: "24px",
     borderRadius: "12px",
     maxWidth: "600px",

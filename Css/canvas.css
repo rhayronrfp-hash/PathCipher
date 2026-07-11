@@ -1,6 +1,5 @@
 main {
   flex: 1;
-  background-color: #ffffff85;
 }
 .canvas {
   flex: 1;
@@ -10,6 +9,7 @@ main {
   position: relative;
 }
 .fluxo-container {
+  background-color: grey;
   display: flex;
   flex-wrap: wrap;
   align-items: center;

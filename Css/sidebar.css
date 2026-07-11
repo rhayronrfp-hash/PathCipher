@@ -16,7 +16,6 @@
 .sidebar {
   width: 250px;
   height: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0px 0px 8px 0px rgba(128, 128, 128, 0.5);
   color: white;
   background-color: #111219;
@@ -28,7 +27,6 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  border: 1px solid rgba(255,255,255,0.1);
 }
 .side-baixo {
   display: flex;
@@ -41,7 +39,7 @@
   display: flex;
   gap: 10px;
   padding: 16px 0;
-  border-right: 1px solid rgba(255, 255, 255, 0.3);
+  border-right: 1px solid rgba(229, 231, 235, 0.4);
   flex-direction: column;
   align-items: center;
 }
@@ -57,9 +55,14 @@
   height: 30px;
 }
 
+
 .side-icon:hover {
   background: #006EDB;
 }
+.side-icon.ativo {
+  background: #006EDB;
+}
+
 .sidebar-blocos {
   flex: 1;
   overflow-y: auto;
@@ -67,7 +70,9 @@
   min-height: 0px;
 }
 
-
+.gambiarra-do-icone {
+  transform: translateY(4px);
+}
 .dot {
   width: 8px;
   height: 8px;

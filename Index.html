@@ -11,6 +11,7 @@
   <link rel='stylesheet' href=Css/mobile.css>
   <link rel='stylesheet' href='Css/bottombar.css'>
   <link rel='stylesheet' href='Css/Aviso.css'>
+  <link rel='stylesheet' href='Css/config.css'>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -32,7 +33,7 @@
         </button>
       
         <button class="side-icon" title="Pastas">
-          <img src="Assets/Icons/Project.png" alt="Pastas">
+          <img class='gambiarra-do-icone' src="Assets/Icons/Project.png" alt="Pastas">
         </button>
       
         <button class="side-icon" title="Salvar">
@@ -47,8 +48,8 @@
           <img src="Assets/Icons/plugin.png" alt="Plugins">
         </button>
       
-        <button class="side-icon" title="Configurações">
-          <img src="Assets/Icons/config.png" alt="Configurações">
+        <button class="side-icon" data-page="Config">
+          <img class='icone-config' src="Assets/Icons/config.png" alt="Configurações">
         </button>
     </div>
   
@@ -65,17 +66,17 @@
     <div class="categoria-blocos">
 
       <button class="bloco bloco-azul" data-type="aes">
-        <img src="Assets/Icons/Icon8.png" alt="AES" class="bloco-icon">
+        <img src="Assets/Icons/Icon8(1).png" alt="AES" class="bloco-icon">
         AES
       </button>
 
       <button class="bloco bloco-azul" data-type="rsa">
-        <img src="Assets/Icons/Icon9.png" alt="RSA" class="bloco-icon">
+        <img src="Assets/Icons/Icon9(1).png" alt="RSA" class="bloco-icon">
         RSA
       </button>
 
       <button class="bloco bloco-azul" data-type="chacha20">
-        <img src="Assets/Icons/Icon10.png" alt="ChaCha20" class="bloco-icon">
+        <img src="Assets/Icons/Icon10(1).png" alt="ChaCha20" class="bloco-icon">
         ChaCha20
       </button>
 
@@ -93,17 +94,17 @@
     <div class="categoria-blocos">
 
       <button class="bloco bloco-vermelho" data-type="sha256">
-        <img src="Assets/Icons/Icon11.png" alt="SHA-256" class="bloco-icon">
+        <img src="Assets/Icons/Icon11(1).png" alt="SHA-256" class="bloco-icon">
         SHA-256
       </button>
 
       <button class="bloco bloco-vermelho" data-type="sha512">
-        <img src="Assets/Icons/Icon12.png" alt="SHA-512" class="bloco-icon">
+        <img src="Assets/Icons/Icon12(1).png" alt="SHA-512" class="bloco-icon">
         SHA-512
       </button>
 
       <button class="bloco bloco-vermelho" data-type="md5">
-        <img src="Assets/Icons/Icon13.png" alt="MD5" class="bloco-icon">
+        <img src="Assets/Icons/Icon13(1).png" alt="MD5" class="bloco-icon">
         MD5
       </button>
 
@@ -121,37 +122,37 @@
     <div class="categoria-blocos">
 
       <button class="bloco bloco-verde" data-type="base64">
-        <img src="Assets/Icons/Icon1.png" alt="Base64" class="bloco-icon">
+        <img src="Assets/Icons/Icon1(1).png" alt="Base64" class="bloco-icon">
         Base64
       </button>
 
       <button class="bloco bloco-verde" data-type="hex">
-        <img src="Assets/Icons/Icon2.png" alt="Hex" class="bloco-icon">
+        <img src="Assets/Icons/Icon2(1).png" alt="Hex" class="bloco-icon">
         Hex
       </button>
 
       <button class="bloco bloco-verde" data-type="binario">
-        <img src="Assets/Icons/Icon3.png" alt="Binário" class="bloco-icon">
+        <img src="Assets/Icons/Icon3(1).png" alt="Binário" class="bloco-icon">
         Binário
       </button>
 
       <button class="bloco bloco-verde" data-type="morse">
-        <img src="Assets/Icons/Icon4.png" alt="Morse" class="bloco-icon">
+        <img src="Assets/Icons/Icon4(1).png" alt="Morse" class="bloco-icon">
         Morse
       </button>
 
       <button class="bloco bloco-verde" data-type="ascii">
-        <img src="Assets/Icons/Icon5.png" alt="ASCII" class="bloco-icon">
+        <img src="Assets/Icons/Icon5(1).png" alt="ASCII" class="bloco-icon">
         ASCII
       </button>
 
       <button class="bloco bloco-verde" data-type="urlencode">
-        <img src="Assets/Icons/Icon6.png" alt="URL Encode" class="bloco-icon">
+        <img src="Assets/Icons/Icon6(1).png" alt="URL Encode" class="bloco-icon">
         URL Encode
       </button>
 
       <button class="bloco bloco-verde" data-type="unicode">
-        <img src="Assets/Icons/Icon7.png" alt="Unicode" class="bloco-icon">
+        <img src="Assets/Icons/Icon7(1).png" alt="Unicode" class="bloco-icon">
         Unicode
       </button>
 
@@ -169,22 +170,22 @@
     <div class="categoria-blocos">
 
       <button class="bloco bloco-amarelo" data-type="rot13">
-        <img src="Assets/Icons/Icon14.png" alt="ROT13" class="bloco-icon">
+        <img src="Assets/Icons/Icon14(1).png" alt="ROT13" class="bloco-icon">
         ROT13
       </button>
 
       <button class="bloco bloco-amarelo" data-type="cesar">
-        <img src="Assets/Icons/Icon15.png" alt="César" class="bloco-icon">
+        <img src="Assets/Icons/Icon15(1).png" alt="César" class="bloco-icon">
         César
       </button>
 
       <button class="bloco bloco-amarelo" data-type="vigenere">
-        <img src="Assets/Icons/Icon16.png" alt="Vigenère" class="bloco-icon">
+        <img src="Assets/Icons/Icon16(1).png" alt="Vigenère" class="bloco-icon">
         Vigenère
       </button>
 
       <button class="bloco bloco-amarelo" data-type="atbash">
-        <img src="Assets/Icons/Icon17.png" alt="Atbash" class="bloco-icon">
+        <img src="Assets/Icons/Icon17(1).png" alt="Atbash" class="bloco-icon">
         Atbash
       </button>
 
@@ -266,10 +267,172 @@
 
   </div>
 </div>
+
+<div class="config-overlay"></div>
+
+<div class="config-modal">
+
+    <div class="config-container">
+    <div class="ajustes-cabecalho">
+      <h1>Configurações</h1> <button class="fechar-ajustes" type="button">X</button>
+    </div>
+
+    <div class="ajustes-respiro"></div>
+
+    <div class="secao-ajustes">
+      <div class="secao-titulo">
+        <img src="Assets/Icons/Pintura.png" alt="">
+        <span>Aparência</span>
+      </div>
+
+      <div class="cartao-ajuste">
+
+    <div class="linha-opcao">
+
+        <div class="lado-esquerdo">
+            <img src="Assets/Icons/tema.png.png" alt="">
+            <span>Tema</span>
+        </div>
+
+        <div class="opcoes-em-linha">
+
+            <label class="opcao-bolinha">
+                <input type="radio" name="tema">
+                <span>Claro</span>
+            </label>
+
+            <label class="opcao-bolinha">
+                <input type="radio" name="tema">
+                <span>Escuro</span>
+            </label>
+
+            <label class="opcao-bolinha gambiarra4">
+                <input type="radio" name="tema">
+                <span>Sistema</span>
+            </label>
+
+        </div>
+
+    </div>
+
+</div>
+    </div>
+
+    <div class="secao-ajustes">
+      <div class="secao-titulo">
+        <img src="Assets/Icons/Configicon2.png" alt="">
+        <span>Canvas</span>
+      </div>
+
+      <div class="cartao-ajuste">
+
+    <div class="linha-opcao">
+
+        <div class="lado-esquerdo">
+            <img src="Assets/Icons/Config1.png" alt="">
+            <span>Tamanho dos blocos</span>
+        </div>
+
+        <div class="opcoes-em-linha">
+
+            <label class="opcao-bolinha">
+                <input type="radio" name="tema">
+                <span>pequeno</span>
+            </label>
+
+            <label class="opcao-bolinha gambiarra2">
+                <input type="radio" name="tema">
+                <span>normal</span>
+            </label>
+
+            <label class="opcao-bolinha gambiarra3">
+                <input type="radio" name="tema">
+                <span>grande</span>
+            </label>
+
+        </div>
+
+    </div>
+
+</div>
+
+      <div class="cartao-ajuste">
+        <div class="opcao-toggle">
+          <div class="lado-esquerdo gambiarra-pra-alinhar-imagem-menu">
+            <img src="Assets/Icons/Config2 (1).png" alt="">
+            <span>Mostrar linhas do fluxo</span>
+          </div>
+
+          <label class="chave-switch">
+            <input type="checkbox">
+            <span class="alavanca"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="cartao-ajuste">
+        <div class="opcao-toggle">
+          <div class="lado-esquerdo gambiarra-pra-alinhar-imagem-menu">
+            <img src="Assets/Icons/Config3.png" alt="">
+            <span>Mostrar setas nas linhas</span>
+          </div>
+
+          <label class="chave-switch">
+            <input type="checkbox">
+            <span class="alavanca"></span>
+          </label>
+        </div>
+      </div>
+
+  
+
+      <div class="cartao-ajuste">
+
+    <div class="linha-opcao">
+
+        <div class="lado-esquerdo gambiarra-pra-alinhar-imagem-menu2">
+            <img src="Assets/Icons/Config5.png" alt="">
+            <span>Distância entre blocos</span>
+        </div>
+
+        <div class="opcoes-em-linha">
+
+            <label class="opcao-bolinha">
+                <input type="radio" name="tema">
+                <span>curto</span>
+            </label>
+
+            <label class="opcao-bolinha">
+                <input type="radio" name="tema">
+                <span>normal</span>
+            </label>
+
+            <label class="opcao-bolinha">
+                <input type="radio" name="tema">
+                <span>longo</span>
+            </label>
+
+        </div>
+
+    </div>
+
+</div>
+    </div>
+
+    <div class="area-salvar">
+      <button class="botao-confirmar-ajustes" type="button">Salvar configurações</button>
+    </div>
+  </div>
+</div>
+  
+
+
+
 <script src='Js/Appearance.js'></script>
 <script src='Js/config.js'></script>
 <script src='Js/crypto.js'></script>
 <script src='Js/Logic.js'></script>
+<script src='Js/Savelogic.js'></script>
 <script src='Js/warn.js'></script>
 <script src='Js/storage.js'></script>
 </body>

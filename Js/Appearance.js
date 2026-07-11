@@ -3,11 +3,13 @@ document.addEventListener("DOMContentLoaded", () => {
   window.idCounter = 0;
   window.blocoArrastado = null;
 
+  const sideIcons = document.querySelectorAll(".side-icon");
   const canvasContainer = document.getElementById("fluxo-container");
   const svgNS = "http://www.w3.org/2000/svg";
   const svgLinhas = document.createElementNS(svgNS, "svg");
   svgLinhas.id = "linhas-svg";
   svgLinhas.setAttribute("aria-hidden", "true");
+  
   
   
   
@@ -352,6 +354,18 @@ function salvarHistorico() {
       blocoArrastado = null;
     });
   }
+  
+  sideIcons.forEach((icon) => {
+  icon.addEventListener("click", () => {
+
+    sideIcons.forEach((item) => {
+      item.classList.remove("ativo");
+    });
+
+    icon.classList.add("ativo");
+
+  });
+  });
   salvarHistorico();
   renderizarCanvas();
   

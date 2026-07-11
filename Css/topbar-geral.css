@@ -32,6 +32,8 @@ html, body {
   height: 70px;
   color: white;
   background-color: #111219;
+  border: 1px solid rgba(229, 231, 235, 0.12);
+
 }
 
 .topbar-project {
