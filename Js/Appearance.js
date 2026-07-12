@@ -15,10 +15,12 @@ document.addEventListener("DOMContentLoaded", () => {
   linhaativada.addEventListener("change", () => {
     linhas = linhaativada.checked;});
   
+    
   let Salvo = false
   const fundoConfig = document.querySelector(".config-overlay");
   const janelaConfig = document.querySelector(".config-modal");
   const botaodesalvar = document.querySelector(".botao-confirmar-ajustes")
+
 
   
   botaodesalvar.addEventListener("click", async () => {
@@ -47,8 +49,8 @@ window.indiceHistorico = -1;
   fundoConfig.classList.remove("ativo");
   janelaConfig.classList.remove("ativo");
   document.body.style.overflow = "";
-      Salvo=false
-}
+  Salvo=false
+  }
 
   function salvarHistorico() {
   window.historicoPipeline = window.historicoPipeline.slice(

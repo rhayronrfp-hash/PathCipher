@@ -64,6 +64,7 @@
 
 .fechar-ajustes {
   position: absolute;
+  display: none;
   right: 0;
   top: 0;
   width: 38px;
@@ -117,9 +118,6 @@
   flex-shrink: 0;
 }
 
-.gambiarra-pra-alinhar-imagem-menu img {
-  transform: translateY(10px);
-}
 
 .gambiarra-pra-alinhar-imagem-menu2 img {
   transform: translateY(1px);
@@ -133,10 +131,6 @@
   flex-shrink: 0;
 }
 
-.gambiarra-pra-alinhar-imagem-menu {
-  position: relative;
-  top: 2px;
-}
 
 .cartao-ajuste {
   background: #1a1f27;
