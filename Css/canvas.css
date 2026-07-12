@@ -23,6 +23,16 @@ main {
 }
   
 
+.flow-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.flow-label {
+  flex: 1;
+  text-align: left;
+}
+
 .flow-block {
   font-family: 'inter tight';
   color: white;
@@ -38,6 +48,7 @@ main {
   word-wrap: break-word;
   position: relative;
   z-index: 1;
+  gap: 3px;
 }
 
 .flow-block:active {
@@ -116,10 +127,10 @@ main {
 }
 
 
-.flow-block.bloco-verde {background: #498661;}
+.flow-block.bloco-verde {background: #53996F;}
 .flow-block.bloco-azul { background: #3A68A2; }
 .flow-block.bloco-vermelho { background: #C84744; }
-.flow-block.bloco-amarelo { background: rgb(232,203,93);}
+.flow-block.bloco-amarelo { background: #E0C741}
 
 
 #linhas-svg {

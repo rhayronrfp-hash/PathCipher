@@ -1,0 +1,82 @@
+{
+  "sidebar": {
+    "fluxo": "Flux",
+    "pastas": "Dossiers",
+    "salvar": "Enregistrer",
+    "compartilhar": "Partager",
+    "plugins": "Plugins"
+  },
+  "categoria": {
+    "criptografia": "Cryptographie",
+    "hash": "Hachage",
+    "codificacao": "Codage",
+    "classicas": "Classiques"
+  },
+  "bloco": {
+    "aes": "AES",
+    "rsa": "RSA",
+    "chacha20": "ChaCha20",
+    "sha256": "SHA-256",
+    "sha512": "SHA-512",
+    "md5": "MD5",
+    "base64": "Base64",
+    "hex": "Hex",
+    "binario": "Binaire",
+    "morse": "Morse",
+    "ascii": "ASCII",
+    "url_encode": "Encodage d’URL",
+    "unicode": "Unicode",
+    "rot13": "ROT13",
+    "cesar": "César",
+    "vigenere": "Vigenère",
+    "atbash": "Atbash"
+  },
+  "topbar": {
+    "projeto_label": "Projet :",
+    "projeto_padrao": "pipeline",
+    "editar": "Modifier",
+    "desfazer": "Annuler",
+    "refazer": "Rétablir",
+    "executar": "Exécuter",
+    "salvar": "Enregistrer"
+  },
+  "fluxo": {
+    "inicio": "Début"
+  },
+  "termo": {
+    "descriptografia": "Déchiffrement",
+    "criptografar": "Chiffrer",
+    "criptografia": "Cryptographie"
+  },
+  "acao": {
+    "copiar": "Copier"
+  },
+  "painel": {
+    "placeholder_entrada": "tapez ici",
+    "placeholder_resultado": "voir le résultat ici"
+  },
+  "config": {
+    "titulo": "Paramètres",
+    "aparencia": "Apparence",
+    "tema": "Thème",
+    "tema_claro": "Clair",
+    "tema_escuro": "Sombre",
+    "tema_sistema": "Système",
+    "remover_aviso": "Masquer l’avertissement",
+    "canvas": "Canevas",
+    "tamanho_blocos": "Taille des blocs",
+    "tamanho_pequeno": "Petit",
+    "tamanho_normal": "Normal",
+    "tamanho_grande": "Grand",
+    "mostrar_linhas": "Afficher les lignes du flux",
+    "mostrar_setas": "Afficher les flèches",
+    "distancia_blocos": "Distance entre les blocs",
+    "distancia_curto": "Courte",
+    "distancia_normal": "Normale",
+    "distancia_longo": "Longue",
+    "salvar_configuracoes": "Enregistrer les paramètres"
+  },
+  "aviso": {
+  "titulo": "Attention aux lettres !"
+}
+}

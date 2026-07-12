@@ -1,0 +1,82 @@
+{
+  "sidebar": {
+    "fluxo": "流程",
+    "pastas": "文件夹",
+    "salvar": "保存",
+    "compartilhar": "分享",
+    "plugins": "插件"
+  },
+  "categoria": {
+    "criptografia": "密码学",
+    "hash": "哈希",
+    "codificacao": "编码",
+    "classicas": "经典"
+  },
+  "bloco": {
+    "aes": "AES",
+    "rsa": "RSA",
+    "chacha20": "ChaCha20",
+    "sha256": "SHA-256",
+    "sha512": "SHA-512",
+    "md5": "MD5",
+    "base64": "Base64",
+    "hex": "Hex",
+    "binario": "二进制",
+    "morse": "摩尔斯电码",
+    "ascii": "ASCII",
+    "url_encode": "URL 编码",
+    "unicode": "Unicode",
+    "rot13": "ROT13",
+    "cesar": "凯撒",
+    "vigenere": "维吉尼亚",
+    "atbash": "Atbash"
+  },
+  "topbar": {
+    "projeto_label": "项目：",
+    "projeto_padrao": "pipeline",
+    "editar": "编辑",
+    "desfazer": "撤销",
+    "refazer": "重做",
+    "executar": "执行",
+    "salvar": "保存"
+  },
+  "fluxo": {
+    "inicio": "开始"
+  },
+  "termo": {
+    "descriptografia": "解密",
+    "criptografar": "加密",
+    "criptografia": "密码学"
+  },
+  "acao": {
+    "copiar": "复制"
+  },
+  "painel": {
+    "placeholder_entrada": "在此输入",
+    "placeholder_resultado": "在这里查看结果"
+  },
+  "config": {
+    "titulo": "设置",
+    "aparencia": "外观",
+    "tema": "主题",
+    "tema_claro": "浅色",
+    "tema_escuro": "深色",
+    "tema_sistema": "跟随系统",
+    "remover_aviso": "隐藏警告",
+    "canvas": "画布",
+    "tamanho_blocos": "方块大小",
+    "tamanho_pequeno": "小",
+    "tamanho_normal": "普通",
+    "tamanho_grande": "大",
+    "mostrar_linhas": "显示流程线",
+    "mostrar_setas": "显示箭头",
+    "distancia_blocos": "方块间距",
+    "distancia_curto": "短",
+    "distancia_normal": "中",
+    "distancia_longo": "长",
+    "salvar_configuracoes": "保存设置"
+  },
+  "aviso": {
+  "titulo": "注意字母！"
+}
+}

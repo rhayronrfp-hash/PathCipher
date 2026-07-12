@@ -64,6 +64,7 @@ function salvarHistorico() {
 
     const indexOrigem = pipeline.findIndex((b) => b.id === idOrigem);
     const indexDestino = pipeline.findIndex((b) => b.id === idDestino);
+        /* 67 67 67 SIX SEVENNNNNN */
 
     if (indexOrigem === -1 || indexDestino === -1) return;
 
@@ -86,14 +87,14 @@ function salvarHistorico() {
   function renderizarCanvas() {
     canvasContainer.innerHTML = "";
     canvasContainer.appendChild(svgLinhas);
-    canvasContainer.appendChild(criarNoFixo("início"));
+    canvasContainer.appendChild(criarNoFixo("início", "fluxo.inicio"));
 
     pipeline.forEach((bloco) => {
       canvasContainer.appendChild(criarNoBloco(bloco));
     });
 
     if (pipeline.length > 0) {
-      canvasContainer.appendChild(criarNoFixo2("Final"));
+      canvasContainer.appendChild(criarNoFixo2("Final", "fluxo.final"));
     }
 
     canvasContainer
@@ -112,7 +113,6 @@ function salvarHistorico() {
       if (recuoNecessario > 0) {
         let ultimaLinhaProcessada = topPrimeiraLinha;
 
-        /* 67 67 67 SIX SEVENNNNNN */
         for (let i = 1; i < blocos.length; i++) {
           if (blocos[i].offsetTop > ultimaLinhaProcessada + 8) {
             blocos[i].style.marginLeft = `${recuoNecessario}px`;
@@ -141,58 +141,65 @@ function salvarHistorico() {
 
   window.renderizarCanvas = renderizarCanvas;
 
-  function criarNoFixo(texto) {
+  function criarNoFixo(texto, chaveI18n) {
     const div = document.createElement("div");
     div.className = "flow-block flow-fixo";
     div.textContent = texto;
+    if (chaveI18n) div.setAttribute("data-i18n", chaveI18n);
     return div;
   }
 
-  function criarNoFixo2(texto) {
+  function criarNoFixo2(texto, chaveI18n) {
     const div = document.createElement("div");
     div.className = "flow-block flow-saida";
     div.textContent = texto;
+    if (chaveI18n) div.setAttribute("data-i18n", chaveI18n);
     return div;
   }
 
   function criarNoBloco(bloco) {
-    const div = document.createElement("div");
-    div.className = `flow-block ${bloco.cor}`;
-    div.dataset.id = bloco.id;
-    div.innerHTML = `
-      <span>${bloco.label}</span>
-      <button class="flow-remove" title="Remover">×</button>
-    `;
+  const div = document.createElement("div");
+  div.className = `flow-block ${bloco.cor}`;
+  div.dataset.id = bloco.id;
+  const botaoOrigem = document.querySelector(
+    `.sidebar-blocos .bloco[data-type="${bloco.tipo}"]`
+  );
+  const srcIconeOriginal = botaoOrigem?.querySelector("img")?.getAttribute("src") || "";
+  const srcIcone = srcIconeOriginal.replace("(1)", ""); // tira o (1)
 
-    div.querySelector(".flow-remove").addEventListener("click", (e) => {
-      e.stopPropagation();
-      removerBloco(bloco.id);
+  div.innerHTML = `
+    <img class="flow-icon" src="${srcIcone}" alt="${bloco.label}">
+    <span class="flow-label">${bloco.label}</span>
+    <button class="flow-remove" title="Remover" data-i18n-title="acao.remover">×</button>
+  `;
+
+  div.querySelector(".flow-remove").addEventListener("click", (e) => {
+    e.stopPropagation();
+    removerBloco(bloco.id);
+  });
+  div.addEventListener("dblclick", () => {
+    removerBloco(bloco.id);
+  });
+
+  let timerX;
+
+  div.addEventListener("click", (e) => {
+    if (e.target.closest(".flow-remove")) return;
+    
+    document.querySelectorAll(".flow-block.active").forEach((el) => {
+      if (el !== div) el.classList.remove("active");
     });
 
-    div.addEventListener("dblclick", () => {
-      removerBloco(bloco.id);
-    });
+    div.classList.add("active");
+    clearTimeout(timerX);
+    timerX = setTimeout(() => {
+      div.classList.remove("active");
+    }, 3000);
+  });
 
-    let timerX;
-
-    div.addEventListener("click", (e) => {
-      if (e.target.closest(".flow-remove")) return;
-
-      document.querySelectorAll(".flow-block.active").forEach((el) => {
-        if (el !== div) el.classList.remove("active");
-      });
-
-      div.classList.add("active");
-
-      clearTimeout(timerX);
-      timerX = setTimeout(() => {
-        div.classList.remove("active");
-      }, 3000);
-    });
-
-    habilitarArraste(div, bloco);
-    return div;
-  }
+  habilitarArraste(div, bloco);
+  return div;
+}
 
   function adicionarBloco(botaoOrigem) {
     const tipo = botaoOrigem.dataset.type;
@@ -335,10 +342,8 @@ function salvarHistorico() {
 
     elemento.addEventListener("pointerup", (e) => {
       if (!blocoArrastado) return;
-
       const alvo = document.elementFromPoint(e.clientX, e.clientY);
       const blocoAlvo = alvo?.closest(".flow-block");
-
       document.querySelectorAll(".flow-block").forEach((el) => {
         el.classList.remove("drag-over", "arrastando");
       });

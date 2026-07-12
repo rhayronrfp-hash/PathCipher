@@ -1,0 +1,82 @@
+{
+  "sidebar": {
+    "fluxo": "Fluxo",
+    "pastas": "Pastas",
+    "salvar": "Salvar",
+    "compartilhar": "Compartilhar",
+    "plugins": "Plugins"
+  },
+  "categoria": {
+    "criptografia": "Criptografia",
+    "hash": "Hash",
+    "codificacao": "Codificação",
+    "classicas": "Clássicas"
+  },
+  "bloco": {
+    "aes": "AES",
+    "rsa": "RSA",
+    "chacha20": "ChaCha20",
+    "sha256": "SHA-256",
+    "sha512": "SHA-512",
+    "md5": "MD5",
+    "base64": "Base64",
+    "hex": "Hex",
+    "binario": "Binário",
+    "morse": "Morse",
+    "ascii": "ASCII",
+    "url_encode": "URL Encode",
+    "unicode": "Unicode",
+    "rot13": "ROT13",
+    "cesar": "César",
+    "vigenere": "Vigenère",
+    "atbash": "Atbash"
+  },
+  "topbar": {
+    "projeto_label": "Projeto:",
+    "projeto_padrao": "pipeline",
+    "editar": "Editar",
+    "desfazer": "Desfazer",
+    "refazer": "Refazer",
+    "executar": "Executar",
+    "salvar": "Salvar"
+  },
+  "termo": {
+    "descriptografia": "Descriptografia",
+    "criptografia": "Criptografia",
+    "criptografar": "Criptografia"
+  },
+  "acao": {
+    "copiar": "Copiar"
+  },
+  "painel": {
+    "placeholder_entrada": "digite aqui",
+    "placeholder_resultado": "veja o resultado aqui"
+  },
+  "config": {
+    "titulo": "Configurações",
+    "aparencia": "Aparência",
+    "tema": "Tema",
+    "tema_claro": "Claro",
+    "tema_escuro": "Escuro",
+    "tema_sistema": "Sistema",
+    "remover_aviso": "Remover aviso",
+    "canvas": "Canvas",
+    "tamanho_blocos": "Tamanho dos blocos",
+    "tamanho_pequeno": "Pequeno",
+    "tamanho_normal": "Normal",
+    "tamanho_grande": "Grande",
+    "mostrar_linhas": "Mostrar linhas do fluxo",
+    "mostrar_setas": "Mostrar setas",
+    "distancia_blocos": "Distância entre blocos",
+    "distancia_curto": "Curta",
+    "distancia_normal": "Normal",
+    "distancia_longo": "Longa",
+    "salvar_configuracoes": "Salvar configurações"
+  },
+  "fluxo": {
+  "inicio": "Início"
+},
+"aviso": {
+  "titulo": "Atenção com as letras!"
+}
+}

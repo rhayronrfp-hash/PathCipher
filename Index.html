@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,34 +22,34 @@
   <aside class="sidebar">
   
   <div class="sidebar-topo">
-    <img src="Assets/Logo/Logo.png" alt='logo PathCipher' class='logo'>
+    <img src="Assets/Logo/Logo.png" alt="PathCipher logo" class="logo" data-i18n-alt="app.logo">
     <span class='nome-app'>PathCipher</span>
   </div>
   <div class='side-baixo'>    
     <div class="side">
 
-        <button class="side-icon" title="Fluxo">
-          <img src="Assets/Icons/Main.png" alt="Fluxo">
+        <button class="side-icon" title="Fluxo" data-i18n-title="sidebar.fluxo">
+          <img src="Assets/Icons/Main.png" alt="Fluxo" data-i18n-alt="sidebar.fluxo">
         </button>
       
-        <button class="side-icon" title="Pastas">
-          <img class='gambiarra-do-icone' src="Assets/Icons/Project.png" alt="Pastas">
+        <button class="side-icon" title="Pastas" data-i18n-title="sidebar.pastas">
+          <img class='gambiarra-do-icone' src="Assets/Icons/Project.png" alt="Pastas" data-i18n-alt="sidebar.pastas">
         </button>
       
-        <button class="side-icon" title="Salvar">
-          <img src="Assets/Icons/Books.png" alt="Salvar">
+        <button class="side-icon" title="Salvar" data-i18n-title="sidebar.salvar">
+          <img src="Assets/Icons/Books.png" alt="Salvar" data-i18n-alt="sidebar.salvar">
         </button>
       
-        <button class="side-icon" title="Compartilhar">
-          <img src="Assets/Icons/Share.png" alt="Compartilhar">
+        <button class="side-icon" title="Compartilhar" data-i18n-title="sidebar.compartilhar">
+          <img src="Assets/Icons/Share.png" alt="Compartilhar" data-i18n-alt="sidebar.compartilhar">
         </button>
       
-        <button class="side-icon" title="Plugins">
-          <img src="Assets/Icons/plugin.png" alt="Plugins">
+        <button class="side-icon" title="Plugins" data-i18n-title="sidebar.plugins">
+          <img src="Assets/Icons/plugin.png" alt="Plugins" data-i18n-alt="sidebar.plugins">
         </button>
       
         <button class="side-icon" data-page="Config">
-          <img class='icone-config' src="Assets/Icons/config.png" alt="Configurações">
+          <img class='icone-config' src="Assets/Icons/config.png" alt="Configurações" data-i18n-alt="config.titulo">
         </button>
     </div>
   
@@ -60,24 +60,24 @@
     <input type="checkbox" id="cat-criptografia" class="categoria-toggle" checked>
     <label for="cat-criptografia" class="categoria-header">
       <span class="dot dot-azul"></span>
-      <span>Criptografia</span>
+      <span data-i18n="categoria.criptografia">Cryptography</span>
       <span class="categoria-arrow">▾</span>
     </label>
     <div class="categoria-blocos">
 
       <button class="bloco bloco-azul" data-type="aes">
-        <img src="Assets/Icons/Icon8(1).png" alt="AES" class="bloco-icon">
-        AES
+        <img src="Assets/Icons/Icon8(1).png" alt="AES" class="bloco-icon" data-i18n-alt="bloco.aes">
+        <span data-i18n="bloco.aes">AES</span>
       </button>
 
       <button class="bloco bloco-azul" data-type="rsa">
-        <img src="Assets/Icons/Icon9(1).png" alt="RSA" class="bloco-icon">
-        RSA
+        <img src="Assets/Icons/Icon9(1).png" alt="RSA" class="bloco-icon" data-i18n-alt="bloco.rsa">
+        <span data-i18n="bloco.rsa">RSA</span>
       </button>
 
       <button class="bloco bloco-azul" data-type="chacha20">
-        <img src="Assets/Icons/Icon10(1).png" alt="ChaCha20" class="bloco-icon">
-        ChaCha20
+        <img src="Assets/Icons/Icon10(1).png" alt="ChaCha20" class="bloco-icon" data-i18n-alt="bloco.chacha20">
+        <span data-i18n="bloco.chacha20">ChaCha20</span>
       </button>
 
     </div>
@@ -88,24 +88,24 @@
     <input type="checkbox" id="cat-hash" class="categoria-toggle" checked>
     <label for="cat-hash" class="categoria-header">
       <span class="dot dot-vermelho"></span>
-      <span>Hash</span>
+      <span data-i18n='categoria.hash'>Hash</span>
       <span class="categoria-arrow">▾</span>
     </label>
     <div class="categoria-blocos">
 
       <button class="bloco bloco-vermelho" data-type="sha256">
-        <img src="Assets/Icons/Icon11(1).png" alt="SHA-256" class="bloco-icon">
-        SHA-256
+        <img src="Assets/Icons/Icon11(1).png" alt="SHA-256" class="bloco-icon" data-i18n-alt="bloco.sha256">
+        <span data-i18n="bloco.sha256">SHA-256</span>
       </button>
 
       <button class="bloco bloco-vermelho" data-type="sha512">
-        <img src="Assets/Icons/Icon12(1).png" alt="SHA-512" class="bloco-icon">
-        SHA-512
+        <img src="Assets/Icons/Icon12(1).png" alt="SHA-512" class="bloco-icon" data-i18n-alt="bloco.sha512">
+        <span data-i18n="bloco.sha512">SHA-512</span>
       </button>
 
       <button class="bloco bloco-vermelho" data-type="md5">
-        <img src="Assets/Icons/Icon13(1).png" alt="MD5" class="bloco-icon">
-        MD5
+        <img src="Assets/Icons/Icon13(1).png" alt="MD5" class="bloco-icon" data-i18n-alt="bloco.md5">
+        <span data-i18n="bloco.md5">MD5</span>
       </button>
 
     </div>
@@ -116,44 +116,44 @@
     <input type="checkbox" id="cat-codificacao" class="categoria-toggle" checked>
     <label for="cat-codificacao" class="categoria-header">
       <span class="dot dot-verde"></span>
-      <span>Codificação</span>
+      <span data-i18n="categoria.codificacao">Codification</span>
       <span class="categoria-arrow">▾</span>
     </label>
     <div class="categoria-blocos">
 
       <button class="bloco bloco-verde" data-type="base64">
-        <img src="Assets/Icons/Icon1(1).png" alt="Base64" class="bloco-icon">
-        Base64
+        <img src="Assets/Icons/Icon1(1).png" alt="Base64" class="bloco-icon" data-i18n-alt="bloco.base64">
+        <span data-i18n="bloco.base64">Base64</span>
       </button>
 
       <button class="bloco bloco-verde" data-type="hex">
-        <img src="Assets/Icons/Icon2(1).png" alt="Hex" class="bloco-icon">
-        Hex
+        <img src="Assets/Icons/Icon2(1).png" alt="Hex" class="bloco-icon" data-i18n-alt="bloco.hex">
+        <span data-i18n="bloco.hex">Hex</span>
       </button>
 
       <button class="bloco bloco-verde" data-type="binario">
-        <img src="Assets/Icons/Icon3(1).png" alt="Binário" class="bloco-icon">
-        Binário
+        <img src="Assets/Icons/Icon3(1).png" alt="Binário" class="bloco-icon" data-i18n-alt="bloco.binario">
+        <span data-i18n="bloco.binario">Binary</span>
       </button>
 
       <button class="bloco bloco-verde" data-type="morse">
-        <img src="Assets/Icons/Icon4(1).png" alt="Morse" class="bloco-icon">
-        Morse
+        <img src="Assets/Icons/Icon4(1).png" alt="Morse" class="bloco-icon" data-i18n-alt="bloco.morse">
+        <span data-i18n="bloco.morse">Morse</span>
       </button>
 
       <button class="bloco bloco-verde" data-type="ascii">
-        <img src="Assets/Icons/Icon5(1).png" alt="ASCII" class="bloco-icon">
-        ASCII
+        <img src="Assets/Icons/Icon5(1).png" alt="ASCII" class="bloco-icon" data-i18n-alt="bloco.ascii">
+        <span data-i18n="bloco.ascii">ASCII</span>
       </button>
 
       <button class="bloco bloco-verde" data-type="urlencode">
-        <img src="Assets/Icons/Icon6(1).png" alt="URL Encode" class="bloco-icon">
-        URL Encode
+        <img src="Assets/Icons/Icon6(1).png" alt="URL Encode" class="bloco-icon" data-i18n-alt="bloco.url_encode">
+        <span data-i18n="bloco.url_encode">URL Encode</span>
       </button>
 
       <button class="bloco bloco-verde" data-type="unicode">
-        <img src="Assets/Icons/Icon7(1).png" alt="Unicode" class="bloco-icon">
-        Unicode
+        <img src="Assets/Icons/Icon7(1).png" alt="Unicode" class="bloco-icon" data-i18n-alt="bloco.unicode">
+        <span data-i18n="bloco.unicode">Unicode</span>
       </button>
 
     </div>
@@ -164,29 +164,29 @@
     <input type="checkbox" id="cat-classicas" class="categoria-toggle" checked>
     <label for="cat-classicas" class="categoria-header">
       <span class="dot dot-amarelo"></span>
-      <span>Clássicas</span>
+      <span data-i18n="categoria.classicas">Classics</span>
       <span class="categoria-arrow">▾</span>
     </label>
     <div class="categoria-blocos">
 
       <button class="bloco bloco-amarelo" data-type="rot13">
-        <img src="Assets/Icons/Icon14(1).png" alt="ROT13" class="bloco-icon">
-        ROT13
+        <img src="Assets/Icons/Icon14(1).png" alt="ROT13" class="bloco-icon" data-i18n-alt="bloco.rot13">
+        <span data-i18n='bloco.rot13'>ROT13</span>
       </button>
 
       <button class="bloco bloco-amarelo" data-type="cesar">
-        <img src="Assets/Icons/Icon15(1).png" alt="César" class="bloco-icon">
-        César
+        <img src="Assets/Icons/Icon15(1).png" alt="César" class="bloco-icon" data-i18n-alt="bloco.cesar">
+        <span data-i18n="bloco.cesar">Caesar</span>
       </button>
 
       <button class="bloco bloco-amarelo" data-type="vigenere">
-        <img src="Assets/Icons/Icon16(1).png" alt="Vigenère" class="bloco-icon">
-        Vigenère
+        <img src="Assets/Icons/Icon16(1).png" alt="Vigenère" class="bloco-icon" data-i18n-alt="bloco.vigenere">
+        <span data-i18n="bloco.vigenere">Vigenère</span>
       </button>
 
       <button class="bloco bloco-amarelo" data-type="atbash">
-        <img src="Assets/Icons/Icon17(1).png" alt="Atbash" class="bloco-icon">
-        Atbash
+        <img src="Assets/Icons/Icon17(1).png" alt="Atbash" class="bloco-icon" data-i18n-alt="bloco.atbash">
+        <span data-i18n="bloco.atbash">Atbash</span>
       </button>
 
     </div>
@@ -205,11 +205,11 @@
       
   <div class="topbar-project">
     
-  <label for="project-name" id="edita-name">Projeto:</label>
-  <input id="project-name" type="text" maxlength="50" value="pipeline" readonly>
+  <label for="project-name" id="edita-name" data-i18n="topbar.projeto_label">Project:</label>
+  <input id="project-name" type="text" maxlength="50" value="pipeline" readonly data-i18n-value="topbar.projeto_padrao">
   
   <button class="lapis" type="button">
-    <img src="Assets/Icons/lapis.png" alt="Editar">
+    <img src="Assets/Icons/lapis.png" alt="Editar" data-i18n-alt="topbar.editar">
   </button>
   
   
@@ -217,20 +217,20 @@
 
   <div class="topbar-actions">
 
-    <button class="setas" title="Desfazer">
+    <button class="setas" title="Desfazer" data-i18n-title="topbar.desfazer">
       <img src='Assets/Icons/seta.png'>
     </button>
     
-    <button class="setas" title="Refazer">
+    <button class="setas" title="Refazer" data-i18n-title="topbar.refazer">
       <img src='Assets/Icons/seta2.png'>
     </button>
     
-<button class="btn-outline btn-group inverter">Descriptografia</button>
+<button class="btn-outline btn-group inverter"><span data-i18n="termo.descriptografia">Decryption</span></button>
   
-  <button class="executar">Executar</button>
+  <button class="executar"><span data-i18n="topbar.executar">Execute</span></button>
 
 <div class="btn-group btn-roxo">
-  <button class="btn-outline salvamento" >Salvar</button>
+  <button class="btn-outline salvamento" ><span data-i18n="topbar.salvar">Save</span></button>
   <button class="dropdown-arrow" >▾</button>
 </div>
   </div>
@@ -246,22 +246,22 @@
 
   <div class="cartao-painel">
     <div class="top-painel">
-      <span>Criptografar</span>
+      <span data-i18n="termo.criptografar">Encrypt</span>
       <button class="painel-copy gambiarra">
-        <img src="Assets/Icons/gambiarra.png" alt="Copiar">
+        <img src="Assets/Icons/gambiarra.png" alt="Copiar" data-i18n-alt="acao.copiar">
       </button>
     </div>
-    <textarea class="painel-texto" placeholder="digite aqui"></textarea>
+    <textarea class="painel-texto" placeholder="type here" data-i18n-placeholder="painel.placeholder_entrada"></textarea>
   </div>
 
   <div class="cartao-painel">
     <div class="top-painel">
-      <span>Criptografia</span>
+      <span data-i18n="termo.criptografia">Cryptography</span>
       <button class="painel-copy">
-        <img src="Assets/Icons/Copy.png" alt="Copiar">
+        <img src="Assets/Icons/Copy.png" alt="Copiar" data-i18n-alt="acao.copiar">
       </button>
     </div>
-    <textarea class="painel-texto" id='saída' readonly placeholder="veja o resultado aqui"></textarea>
+    <textarea class="painel-texto" id='saída' readonly placeholder="veja o resultado aqui" data-i18n-placeholder="painel.placeholder_resultado"></textarea>
   </div>
 </footer>
 
@@ -274,7 +274,7 @@
 
     <div class="config-container">
     <div class="ajustes-cabecalho">
-      <h1>Configurações</h1> <button class="fechar-ajustes" type="button">X</button>
+      <h1 data-i18n="config.titulo">Configuration</h1> <button class="fechar-ajustes" type="button">X</button>
     </div>
 
     <div class="ajustes-respiro"></div>
@@ -282,46 +282,56 @@
     <div class="secao-ajustes">
       <div class="secao-titulo">
         <img src="Assets/Icons/Pintura.png" alt="">
-        <span>Aparência</span>
+        <span data-i18n="config.aparencia">Aparency</span>
       </div>
 
       <div class="cartao-ajuste">
 
     <div class="linha-opcao">
-
+<!-- nao sei se vou aficionar isso, provalvemente vou remover -->
         <div class="lado-esquerdo">
             <img src="Assets/Icons/tema.png.png" alt="">
-            <span>Tema</span>
+            <span data-i18n="config.tema">Theme</span>
         </div>
 
         <div class="opcoes-em-linha">
 
             <label class="opcao-bolinha">
                 <input type="radio" name="tema">
-                <span>Claro</span>
+                <span data-i18n="config.tema_claro">Lighter</span>
             </label>
 
             <label class="opcao-bolinha">
                 <input type="radio" name="tema">
-                <span>Escuro</span>
+                <span data-i18n="config.tema_escuro">Dark</span>
             </label>
 
             <label class="opcao-bolinha gambiarra4">
                 <input type="radio" name="tema">
-                <span>Sistema</span>
+                <span data-i18n="config.tema_sistema">System</span>
             </label>
-
-        </div>
-
     </div>
-
+        </div>
+    </div>
+      </div>
+<!-- nao sei se vou adicionar isso, provalvemente vou remover -->
+      <div class='cartao-ajuste'>
+        <div class="opcao-toggle">
+    <div class="lado-esquerdo">
+        <span data-i18n="config.remover_aviso">Warn remove</span>
+    </div>
+    <label class="chave-switch">
+      <input type="checkbox" id="toggle-remover-aviso">
+      <span class="alavanca"></span>
+    </label>
 </div>
     </div>
+
 
     <div class="secao-ajustes">
       <div class="secao-titulo">
         <img src="Assets/Icons/Configicon2.png" alt="">
-        <span>Canvas</span>
+        <span data-i18n="config.canvas">Canvas</span>
       </div>
 
       <div class="cartao-ajuste">
@@ -330,24 +340,24 @@
 
         <div class="lado-esquerdo">
             <img src="Assets/Icons/Config1.png" alt="">
-            <span>Tamanho dos blocos</span>
+            <span data-i18n="config.tamanho_blocos">Size of blocks</span>
         </div>
 
         <div class="opcoes-em-linha">
 
             <label class="opcao-bolinha">
-                <input type="radio" name="tema">
-                <span>pequeno</span>
+                <input type="radio" name="tamaho">
+                <span data-i18n="config.tamanho_pequeno">Small</span>
             </label>
 
             <label class="opcao-bolinha gambiarra2">
-                <input type="radio" name="tema">
-                <span>normal</span>
+                <input type="radio" name="tamanho">
+                <span data-i18n="config.tamanho_normal">Normal</span>
             </label>
 
             <label class="opcao-bolinha gambiarra3">
-                <input type="radio" name="tema">
-                <span>grande</span>
+                <input type="radio" name="tamanho">
+                <span data-i18n="config.tamanho_grande">Big</span>
             </label>
 
         </div>
@@ -360,7 +370,7 @@
         <div class="opcao-toggle">
           <div class="lado-esquerdo gambiarra-pra-alinhar-imagem-menu">
             <img src="Assets/Icons/Config2 (1).png" alt="">
-            <span>Mostrar linhas do fluxo</span>
+            <span data-i18n="config.mostrar_linhas">Show lines of flow</span>
           </div>
 
           <label class="chave-switch">
@@ -374,7 +384,7 @@
         <div class="opcao-toggle">
           <div class="lado-esquerdo gambiarra-pra-alinhar-imagem-menu">
             <img src="Assets/Icons/Config3.png" alt="">
-            <span>Mostrar setas nas linhas</span>
+            <span data-i18n="config.mostrar_setas">Show arrows</span>
           </div>
 
           <label class="chave-switch">
@@ -392,24 +402,24 @@
 
         <div class="lado-esquerdo gambiarra-pra-alinhar-imagem-menu2">
             <img src="Assets/Icons/Config5.png" alt="">
-            <span>Distância entre blocos</span>
+            <span data-i18n="config.distancia_blocos">Distancy between blocks</span>
         </div>
 
         <div class="opcoes-em-linha">
 
             <label class="opcao-bolinha">
-                <input type="radio" name="tema">
-                <span>curto</span>
+                <input type="radio" name="distância">
+                <span data-i18n="config.distancia_curto">Short</span>
             </label>
 
             <label class="opcao-bolinha">
-                <input type="radio" name="tema">
-                <span>normal</span>
+                <input type="radio" name="distância">
+                <span data-i18n="config.distancia_normal">Normal</span>
             </label>
 
             <label class="opcao-bolinha">
-                <input type="radio" name="tema">
-                <span>longo</span>
+                <input type="radio" name="distância">
+                <span data-i18n="config.distancia_longo">Long</span>
             </label>
 
         </div>
@@ -420,7 +430,7 @@
     </div>
 
     <div class="area-salvar">
-      <button class="botao-confirmar-ajustes" type="button">Salvar configurações</button>
+      <button class="botao-confirmar-ajustes" type="button"><span data-i18n="config.salvar_configuracoes">Salvar configurações</span></button>
     </div>
   </div>
 </div>
@@ -429,11 +439,14 @@
 
 
 <script src='Js/Appearance.js'></script>
-<script src='Js/config.js'></script>
 <script src='Js/crypto.js'></script>
 <script src='Js/Logic.js'></script>
 <script src='Js/Savelogic.js'></script>
 <script src='Js/warn.js'></script>
 <script src='Js/storage.js'></script>
+<script src="https://unpkg.com/i18next@latest/i18next.min.js"></script>
+<script src="https://unpkg.com/i18next-http-backend@latest/i18nextHttpBackend.min.js"></script>
+<script src="https://unpkg.com/i18next-browser-languagedetector@latest/i18nextBrowserLanguageDetector.min.js"></script>
+<script src='Js/config.js'></script>
 </body>
 </html>

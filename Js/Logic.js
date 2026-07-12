@@ -47,6 +47,35 @@ function textoDoBotaoInverter() {
   return btnInverter ? btnInverter.querySelector("span") : null;
 }
 
+const TEXTOS_MODO = {
+  normal: {
+    entrada: { chave: "termo.criptografar", texto: "Criptografar" },
+    resultado: { chave: "termo.criptografia", texto: "Criptografia" },
+    botao: { chave: "termo.descriptografia", texto: "Descriptografia" },
+  },
+  reverso: {
+    entrada: { chave: "termo.descriptografar", texto: "Descriptografar" },
+    resultado: { chave: "termo.descriptografia", texto: "Descriptografia" },
+    botao: { chave: "termo.criptografar", texto: "Criptografar" },
+  },
+};
+
+function aplicarTextoI18n(elemento, definicao) {
+  if (!elemento || !definicao) return;
+  elemento.textContent = definicao.texto;
+  elemento.setAttribute("data-i18n", definicao.chave);
+}
+
+function aplicarTextosModo(reverse) {
+  const modo = reverse ? TEXTOS_MODO.reverso : TEXTOS_MODO.normal;
+
+  aplicarTextoI18n(tituloEntrada, modo.entrada);
+  aplicarTextoI18n(tituloResultado, modo.resultado);
+
+  const textoBotao = textoDoBotaoInverter();
+  aplicarTextoI18n(textoBotao || btnInverter, modo.botao);
+}
+
 function copiarPipeline() {
   return JSON.parse(JSON.stringify(window.pipeline || []));
 }
@@ -79,15 +108,7 @@ function aplicarEstado(estado) {
   if (txtEntrada) txtEntrada.value = estado.entrada ?? "";
   if (txtSaida) txtSaida.value = estado.saida ?? "";
 
-  if (tituloEntrada) tituloEntrada.textContent = estado.tituloEntrada || "";
-  if (tituloResultado) tituloResultado.textContent = estado.tituloResultado || "";
-
-  const textoBotao = textoDoBotaoInverter();
-  if (textoBotao) {
-    textoBotao.textContent = estado.botaoInverter || "";
-  } else if (btnInverter) {
-    btnInverter.textContent = estado.botaoInverter || "";
-  }
+  aplicarTextosModo(window.ModoReverseActive);
 
   if (typeof window.renderizarCanvas === "function") {
     window.renderizarCanvas();
@@ -141,9 +162,7 @@ if (btnExecutar && txtEntrada && txtSaida) {
           correspondencias++;
         } else {
           break;
-        }
-      }
-
+        }}
       if (correspondencias > 0) {
         indexInicio = correspondencias;
         textoProcessado = historicoResultadosParciais[correspondencias - 1];
@@ -183,28 +202,9 @@ if (btnExecutar && txtEntrada && txtSaida) {
 
 if (btnInverter) {
   btnInverter.addEventListener("click", () => {
-    const textoBotao = textoDoBotaoInverter();
-    const botaoOriginal = textoBotao ? textoBotao.textContent : "";
-
     window.ModoReverseActive = !window.ModoReverseActive;
 
-    if (window.ModoReverseActive) {
-      if (tituloEntrada) tituloEntrada.textContent = "Descriptografar";
-      if (tituloResultado) tituloResultado.textContent = "Descriptografia";
-      if (textoBotao) {
-        textoBotao.textContent = "Criptografar";
-      } else {
-        btnInverter.textContent = "Criptografar";
-      }
-    } else {
-      if (tituloEntrada) tituloEntrada.textContent = "Criptografar";
-      if (tituloResultado) tituloResultado.textContent = "Criptografia";
-      if (textoBotao) {
-        textoBotao.textContent = botaoOriginal || "Descriptografia";
-      } else {
-        btnInverter.textContent = botaoOriginal || "Descriptografia";
-      }
-    }
+    aplicarTextosModo(window.ModoReverseActive);
 
     if (window.pipeline && window.pipeline.length > 0) {
       window.pipeline.reverse();

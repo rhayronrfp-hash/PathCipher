@@ -1,0 +1,84 @@
+{
+  "sidebar": {
+    "fluxo": "Flow",
+    "pastas": "Folders",
+    "salvar": "Save",
+    "compartilhar": "Share",
+    "plugins": "Plugins"
+  },
+  "categoria": {
+    "criptografia": "Cryptography",
+    "hash": "Hash",
+    "codificacao": "Encoding",
+    "classicas": "Classics"
+  },
+  "bloco": {
+    "aes": "AES",
+    "rsa": "RSA",
+    "chacha20": "ChaCha20",
+    "sha256": "SHA-256",
+    "sha512": "SHA-512",
+    "md5": "MD5",
+    "base64": "Base64",
+    "hex": "Hex",
+    "binario": "Binary",
+    "morse": "Morse",
+    "ascii": "ASCII",
+    "url_encode": "URL Encode",
+    "unicode": "Unicode",
+    "rot13": "ROT13",
+    "cesar": "Caesar",
+    "vigenere": "Vigenère",
+    "atbash": "Atbash"
+  },
+  "topbar": {
+    "projeto_label": "Project:",
+    "projeto_padrao": "pipeline",
+    "editar": "Edit",
+    "desfazer": "Undo",
+    "refazer": "Redo",
+    "executar": "Execute",
+    "salvar": "Save"
+  },
+  "termo": {
+    "descriptografia": "Decryption",
+    "criptografia": "Cryptography",
+    "criptografar": "Encrypt"
+  },
+  "acao": {
+    "copiar": "Copy"
+  },
+  "painel": {
+    "placeholder_entrada": "type here",
+    "placeholder_resultado": "see the result here"
+  },
+  "config": {
+    "titulo": "Settings",
+    "aparencia": "Appearance",
+    "tema": "Theme",
+    "tema_claro": "Light",
+    "tema_escuro": "Dark",
+    "tema_sistema": "System",
+    "remover_aviso": "Remove warning",
+    "canvas": "Canvas",
+    "tamanho_blocos": "Block size",
+    "tamanho_pequeno": "Small",
+    "tamanho_normal": "Normal",
+    "tamanho_grande": "Large",
+    "mostrar_linhas": "Show flow lines",
+    "mostrar_setas": "Show arrows",
+    "distancia_blocos": "Distance between blocks",
+    "distancia_curto": "Short",
+    "distancia_normal": "Normal",
+    "distancia_longo": "Long",
+    "salvar_configuracoes": "Save settings"
+  },
+  "fluxo": {
+    "inicio": "Start"
+  },
+  "aviso": {
+  "titulo": "Attention with the letters!"
+}
+}
+
+

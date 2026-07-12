@@ -1,0 +1,83 @@
+{
+  "sidebar": {
+    "fluxo": "Flujo",
+    "pastas": "Carpetas",
+    "salvar": "Guardar",
+    "compartilhar": "Compartir",
+    "plugins": "Plugins"
+  },
+  "categoria": {
+    "criptografia": "Criptografía",
+    "hash": "Hash",
+    "codificacao": "Codificación",
+    "classicas": "Clásicas"
+  },
+  "bloco": {
+    "aes": "AES",
+    "rsa": "RSA",
+    "chacha20": "ChaCha20",
+    "sha256": "SHA-256",
+    "sha512": "SHA-512",
+    "md5": "MD5",
+    "base64": "Base64",
+    "hex": "Hex",
+    "binario": "Binario",
+    "morse": "Morse",
+    "ascii": "ASCII",
+    "url_encode": "Codificación de URL",
+    "unicode": "Unicode",
+    "rot13": "ROT13",
+    "cesar": "César",
+    "vigenere": "Vigenère",
+    "atbash": "Atbash"
+  },
+  "topbar": {
+    "projeto_label": "Proyecto:",
+    "projeto_padrao": "pipeline",
+    "editar": "Editar",
+    "desfazer": "Deshacer",
+    "refazer": "Rehacer",
+    "executar": "Ejecutar",
+    "salvar": "Guardar"
+  },
+  "fluxo": {
+    "inicio": "Inicio"
+  },
+  "termo": {
+    "descriptografia": "Descifrado",
+    "criptografar": "Cifrar",
+    "criptografia": "Criptografía"
+  },
+  
+  "acao": {
+    "copiar": "Copiar"
+  },
+  "painel": {
+    "placeholder_entrada": "escribe aquí",
+    "placeholder_resultado": "ve el resultado aquí"
+  },
+  "config": {
+    "titulo": "Configuración",
+    "aparencia": "Apariencia",
+    "tema": "Tema",
+    "tema_claro": "Claro",
+    "tema_escuro": "Oscuro",
+    "tema_sistema": "Sistema",
+    "remover_aviso": "Ocultar aviso",
+    "canvas": "Lienzo",
+    "tamanho_blocos": "Tamaño de los bloques",
+    "tamanho_pequeno": "Pequeño",
+    "tamanho_normal": "Normal",
+    "tamanho_grande": "Grande",
+    "mostrar_linhas": "Mostrar líneas del flujo",
+    "mostrar_setas": "Mostrar flechas",
+    "distancia_blocos": "Distancia entre bloques",
+    "distancia_curto": "Corta",
+    "distancia_normal": "Normal",
+    "distancia_longo": "Larga",
+    "salvar_configuracoes": "Guardar configuración"
+  },
+  "aviso": {
+  "titulo": "¡Atención con las letras!"
+}
+}

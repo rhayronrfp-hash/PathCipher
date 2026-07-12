@@ -25,3 +25,32 @@ alvo.addEventListener("keydown", (e) => {
 alvo.addEventListener("blur", () => {
   alvo.readOnly = true;
 });
+
+const CHAVE_REMOVER_AVISO = "pathcipher_remover_aviso";
+
+function salvarPreferenciaRemoverAviso(ativo) {
+  try {
+    localStorage.setItem(CHAVE_REMOVER_AVISO, ativo ? "1" : "0");
+  } catch (erro) {
+    console.error("Não foi possível salvar a preferência do aviso:", erro);
+  }
+}
+
+function avisoFoiRemovidoPeloUsuario() {
+  try {
+    return localStorage.getItem(CHAVE_REMOVER_AVISO) === "1";
+  } catch (erro) {
+    return false;
+  }
+}
+
+window.salvarPreferenciaRemoverAviso = salvarPreferenciaRemoverAviso;
+window.avisoFoiRemovidoPeloUsuario = avisoFoiRemovidoPeloUsuario;
+const toggleRemoverAviso = document.querySelector("#toggle-remover-aviso");
+
+if (toggleRemoverAviso) {
+  toggleRemoverAviso.checked = avisoFoiRemovidoPeloUsuario();
+  toggleRemoverAviso.addEventListener("change", () => {
+    salvarPreferenciaRemoverAviso(toggleRemoverAviso.checked);
+  });
+}

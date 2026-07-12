@@ -1,0 +1,84 @@
+{
+  "sidebar": {
+    "fluxo": "Ablauf",
+    "pastas": "Ordner",
+    "salvar": "Speichern",
+    "compartilhar": "Teilen",
+    "plugins": "Plugins"
+  },
+  "categoria": {
+    "criptografia": "Kryptographie",
+    "hash": "Hash",
+    "codificacao": "Kodierung",
+    "classicas": "Klassiker"
+  },
+  "bloco": {
+    "aes": "AES",
+    "rsa": "RSA",
+    "chacha20": "ChaCha20",
+    "sha256": "SHA-256",
+    "sha512": "SHA-512",
+    "md5": "MD5",
+    "base64": "Base64",
+    "hex": "Hex",
+    "binario": "Binär",
+    "morse": "Morse",
+    "ascii": "ASCII",
+    "url_encode": "URL-Kodierung",
+    "unicode": "Unicode",
+    "rot13": "ROT13",
+    "cesar": "Cäsar",
+    "vigenere": "Vigenère",
+    "atbash": "Atbash"
+  },
+  "topbar": {
+    "projeto_label": "Projekt:",
+    "projeto_padrao": "pipeline",
+    "editar": "Bearbeiten",
+    "desfazer": "Rückgängig",
+    "refazer": "Wiederholen",
+    "executar": "Ausführen",
+    "salvar": "Speichern"
+  },
+  "termo": {
+    "descriptografia": "Entschlüsselung",
+    "criptografia": "Kryptographie",
+    "criptografar": "Verschlüsseln"
+},
+      
+  "fluxo": {
+    "inicio": "Start"
+  },
+  
+  "acao": {
+    "copiar": "Kopieren"
+  },
+  "painel": {
+    "placeholder_entrada": "hier eingeben",
+    "placeholder_resultado": "hier das Ergebnis ansehen"
+  },
+  "config": {
+    "titulo": "Einstellungen",
+    "aparencia": "Erscheinungsbild",
+    "tema": "Design",
+    "tema_claro": "Hell",
+    "tema_escuro": "Dunkel",
+    "tema_sistema": "System",
+    "remover_aviso": "Warnung ausblenden",
+    "canvas": "Arbeitsfläche",
+    "tamanho_blocos": "Blockgröße",
+    "tamanho_pequeno": "Klein",
+    "tamanho_normal": "Normal",
+    "tamanho_grande": "Groß",
+    "mostrar_linhas": "Flusslinien anzeigen",
+    "mostrar_setas": "Pfeile anzeigen",
+    "distancia_blocos": "Abstand zwischen Blöcken",
+    "distancia_curto": "Kurz",
+    "distancia_normal": "Normal",
+    "distancia_longo": "Lang",
+    "salvar_configuracoes": "Einstellungen speichern"
+  },
+  "aviso": {
+  "titulo": "Achtung auf die Buchstaben!"
+}
+}
