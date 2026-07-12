@@ -9,21 +9,38 @@ document.addEventListener("DOMContentLoaded", () => {
   const svgLinhas = document.createElementNS(svgNS, "svg");
   svgLinhas.id = "linhas-svg";
   svgLinhas.setAttribute("aria-hidden", "true");
+  
+  
   let linhas = true
   const linhaativada = document.querySelector('.mostrar-linha')
   linhaativada.addEventListener("change", () => {
-  linhas = linhaativada.checked;
-  if (!linhas) {
-    svgLinhas.innerHTML = "";}
-  renderizarCanvas();});
+    linhas = linhaativada.checked;});
   
+  let Salvo = false
+  const fundoConfig = document.querySelector(".config-overlay");
+  const janelaConfig = document.querySelector(".config-modal");
+  const botaodesalvar = document.querySelector(".botao-confirmar-ajustes")
+  botaodesalvar.addEventListener("click", () => {
+    Salvo = true
+    if (!linhas) {
+      svgLinhas.innerHTML = "";}
+      
+      renderizarCanvas();
+      esconderConfiguracoes();
+    });
   
   
   window.historicoPipeline = [];
 window.indiceHistorico = -1;
 
+  function esconderConfiguracoes() {
+  fundoConfig.classList.remove("ativo");
+  janelaConfig.classList.remove("ativo");
+  document.body.style.overflow = "";
+  Salvo=false
+}
 
-function salvarHistorico() {
+  function salvarHistorico() {
   window.historicoPipeline = window.historicoPipeline.slice(
     0,
     window.indiceHistorico + 1
@@ -36,8 +53,6 @@ function salvarHistorico() {
   window.indiceHistorico = window.historicoPipeline.length - 1;
 }  
   
-
-
 
   function atualizarResultado() {
     const btnExecutar = document.querySelector(".executar");
