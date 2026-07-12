@@ -64,6 +64,7 @@
     "tema_escuro": "Oscuro",
     "tema_sistema": "Sistema",
     "remover_aviso": "Ocultar aviso",
+    "titulo_linguagem": "Lenguajes",
     "canvas": "Lienzo",
     "tamanho_blocos": "Tamaño de los bloques",
     "tamanho_pequeno": "Pequeño",
@@ -75,9 +76,24 @@
     "distancia_curto": "Corta",
     "distancia_normal": "Normal",
     "distancia_longo": "Larga",
-    "salvar_configuracoes": "Guardar configuración"
+    "salvar_configuracoes": "Guardar configuración",
+    "ingles": "English",
+    "ingles_traducao": "(Inglés)",
+    "alemao": "Deutsch",
+    "alemao_traducao": "(Alemán)",
+    "espanhol": "Español",
+    "espanhol_traducao": "(Español)",
+    "frances": "Français",
+    "frances_traducao": "(Francés)",
+    "portugues": "Português",
+    "portugues_traducao": "(Portugués)",
+    "hindi": "Hindi",
+    "hindi_traducao": "(Hindi)",
+    "chines": "中文简体",
+    "chines_traducao": "(Chino simplificado)"
   },
   "aviso": {
-  "titulo": "¡Atención con las letras!"
+  "titulo": "¡Atención con las letras!",
+  "botao": "Comprendido"
 }
 }

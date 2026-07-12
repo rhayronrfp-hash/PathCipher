@@ -63,6 +63,7 @@
     "tema_escuro": "Sombre",
     "tema_sistema": "Système",
     "remover_aviso": "Masquer l’avertissement",
+    "titulo_linguagem": "Langues",
     "canvas": "Canevas",
     "tamanho_blocos": "Taille des blocs",
     "tamanho_pequeno": "Petit",
@@ -74,9 +75,24 @@
     "distancia_curto": "Courte",
     "distancia_normal": "Normale",
     "distancia_longo": "Longue",
-    "salvar_configuracoes": "Enregistrer les paramètres"
-  },
+    "salvar_configuracoes": "Enregistrer les paramètres",
+    "ingles": "English",
+    "ingles_traducao": "(Anglais)",
+    "alemao": "Deutsch",
+    "alemao_traducao": "(Allemand)",
+    "espanhol": "Español",
+    "espanhol_traducao": "(Espagnol)",
+    "frances": "Français",
+    "frances_traducao": "(Français)",
+    "portugues": "Português",
+    "portugues_traducao": "(Portugais)",
+    "hindi": "Hindi",
+    "hindi_traducao": "(Hindi)",
+    "chines": "中文简体",
+    "chines_traducao": "(Chinois simplifié)"
+      },
   "aviso": {
-  "titulo": "Attention aux lettres !"
+  "titulo": "Attention aux lettres !",
+  "botao": "Compris"
 }
 }

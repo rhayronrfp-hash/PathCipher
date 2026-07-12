@@ -63,6 +63,7 @@
     "tema_escuro": "深色",
     "tema_sistema": "跟随系统",
     "remover_aviso": "隐藏警告",
+    "titulo_linguagem": "语言",
     "canvas": "画布",
     "tamanho_blocos": "方块大小",
     "tamanho_pequeno": "小",
@@ -74,9 +75,24 @@
     "distancia_curto": "短",
     "distancia_normal": "中",
     "distancia_longo": "长",
-    "salvar_configuracoes": "保存设置"
-  },
+    "salvar_configuracoes": "保存设置",
+    "ingles": "English",
+    "ingles_traducao": "（英语）",
+    "alemao": "Deutsch",
+    "alemao_traducao": "（德语）",
+    "espanhol": "Español",
+    "espanhol_traducao": "（西班牙语）",
+    "frances": "Français",
+    "frances_traducao": "（法语）",
+    "portugues": "Português",
+    "portugues_traducao": "（葡萄牙语）",
+    "hindi": "印地语",
+    "hindi_traducao": "(印地语)",
+    "chines": "中文简体",
+    "chines_traducao": "（简体中文）"
+      },
   "aviso": {
-  "titulo": "注意字母！"
+  "titulo": "注意字母！",
+  "botao": "明白了。"
 }
 }

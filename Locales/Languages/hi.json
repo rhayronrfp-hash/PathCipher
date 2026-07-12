@@ -1,0 +1,98 @@
+{
+  "sidebar": {
+    "fluxo": "फ़्लो",
+    "pastas": "फ़ोल्डर",
+    "salvar": "सहेजें",
+    "compartilhar": "साझा करें",
+    "plugins": "प्लगइन"
+  },
+  "categoria": {
+    "criptografia": "एन्क्रिप्शन",
+    "hash": "हैश",
+    "codificacao": "एन्कोडिंग",
+    "classicas": "क्लासिक"
+  },
+  "bloco": {
+    "aes": "AES",
+    "rsa": "RSA",
+    "chacha20": "ChaCha20",
+    "sha256": "SHA-256",
+    "sha512": "SHA-512",
+    "md5": "MD5",
+    "base64": "Base64",
+    "hex": "Hex",
+    "binario": "बाइनरी",
+    "morse": "मोर्स",
+    "ascii": "ASCII",
+    "url_encode": "URL Encode",
+    "unicode": "Unicode",
+    "rot13": "ROT13",
+    "cesar": "सीज़र",
+    "vigenere": "Vigenère",
+    "atbash": "Atbash"
+  },
+  "topbar": {
+    "projeto_label": "प्रोजेक्ट:",
+    "projeto_padrao": "pipeline",
+    "editar": "संपादित करें",
+    "desfazer": "पूर्ववत करें",
+    "refazer": "फिर से करें",
+    "executar": "चलाएँ",
+    "salvar": "सहेजें"
+  },
+  "termo": {
+    "descriptografia": "डिक्रिप्शन",
+    "criptografia": "एन्क्रिप्शन",
+    "criptografar": "एन्क्रिप्शन"
+  },
+  "acao": {
+    "copiar": "कॉपी करें"
+  },
+  "painel": {
+    "placeholder_entrada": "यहाँ लिखें",
+    "placeholder_resultado": "परिणाम यहाँ देखें"
+  },
+  "config": {
+    "titulo": "सेटिंग्स",
+    "aparencia": "दिखावट",
+    "tema": "थीम",
+    "tema_claro": "हल्का",
+    "tema_escuro": "गहरा",
+    "tema_sistema": "सिस्टम",
+    "remover_aviso": "चेतावनी हटाएँ",
+    "titulo_linguagem": "भाषाएँ",
+    "canvas": "कैनवास",
+    "tamanho_blocos": "ब्लॉकों का आकार",
+    "tamanho_pequeno": "छोटा",
+    "tamanho_normal": "सामान्य",
+    "tamanho_grande": "बड़ा",
+    "mostrar_linhas": "फ़्लो लाइनें दिखाएँ",
+    "mostrar_setas": "तीर दिखाएँ",
+    "distancia_blocos": "ब्लॉकों के बीच दूरी",
+    "distancia_curto": "कम",
+    "distancia_normal": "सामान्य",
+    "distancia_longo": "अधिक",
+    "salvar_configuracoes": "सेटिंग्स सहेजें",
+    "ingles": "English",
+    "ingles_traducao": "(अंग्रेज़ी)",
+    "alemao": "Deutsch",
+    "alemao_traducao": "(जर्मन)",
+    "espanhol": "Español",
+    "espanhol_traducao": "(स्पेनिश)",
+    "frances": "Français",
+    "frances_traducao": "(फ़्रेंच)",
+    "portugues": "Português",
+    "portugues_traducao": "(पुर्तगाली)",
+    "hindi": "हिन्दी",
+    "hindi_traducao": "(हिन्दी)",
+    "chines": "中文简体",
+    "chines_traducao": "(सरलीकृत चीनी)"
+  },
+  "fluxo": {
+    "inicio": "प्रारंभ"
+  },
+  "aviso": {
+    "titulo": "बड़े अक्षरों से सावधान रहें!",  
+    "botao": "समझा"
+  }
+}

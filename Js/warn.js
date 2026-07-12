@@ -19,14 +19,14 @@ const aviso = document.createElement("div");
   
   const caixaAviso = document.createElement("div");
   Object.assign(caixaAviso.style, {
-    backgroundColor: "black",
+    backgroundColor: "#636B2F",
     padding: "24px",
     borderRadius: "12px",
     maxWidth: "600px",
     width: "90%",
     textAlign: "center",
     border: "1px solid #3d3d5c",
-    boxShadow: "0 10px 25px rgba(0,0,0,0.5)" });
+    boxShadow: "0 10px 25px rgba(0,0,0,0.15)" });
 
   caixaAviso.innerHTML = `
     <h1 data-i18n="aviso.titulo" style="color: white; margin-top: 0; font-family: 'Inter', sans-serif; font-size: 20px;">Atenção com as Letras!</h1>

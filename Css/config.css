@@ -46,7 +46,7 @@
 }
 
 .ajustes-cabecalho {
-  position: relative;
+  background: rgba(18, 22, 30, 0.96);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -98,7 +98,7 @@
 .secao-titulo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   margin-bottom: 12px;
   color: white;
   font-size: 18px;
@@ -124,6 +124,15 @@
 .gambiarra-pra-alinhar-imagem-menu2 img {
   transform: translateY(1px);
 }
+
+.gambiarra-pra-alinhar-imagem-menu3 {
+  transform: translateY(-2px);
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
 .gambiarra-pra-alinhar-imagem-menu {
   position: relative;
   top: 2px;
@@ -156,6 +165,7 @@
   cursor: pointer;
   user-select: none;
 }
+
 
 .opcao-bolinha input[type="radio"] {
   appearance: none;
@@ -193,12 +203,72 @@
   gap: 16px;
 }
 
+
+.cabeca-idioma {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    column-gap: 16px;
+    margin-bottom: 12px;
+    margin-left: 5.3px; 
+    font-family: "Inter";
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.linguagem-ima {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.opcoes-em-coluna {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding-left: 2px;
+}
+
+
 .lado-esquerdo {
+  display: flex;
+  column-gap: 9.2px;
   color: white;
   font-size: 16px;
   font-weight: 600;
+  align-items: center;
 }
 
+.opcao-bolinha.coluna {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.opcao-bolinha.coluna input {
+  flex-shrink: 0;
+}
+
+.opcao-bolinha.coluna span:not(.idioma-traducao) {
+  min-width: 80px;
+}
+
+idiomas {
+  height: 100px;
+  margin-bottom: 10px;
+  gap: 2px;
+}
+
+.idioma-traducao {
+    margin-left: 20px;
+    color: #9ca3af;
+    font-size: 13px;
+}
 .linha-opcao {
     display: flex;
     align-items: center;
@@ -219,7 +289,6 @@
     gap: 20px;
     flex-wrap: wrap;
 }
-
 .gambiarra2 {
   margin-left: -12px;
 }

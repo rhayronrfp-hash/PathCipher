@@ -60,6 +60,7 @@
     "tema_escuro": "Dark",
     "tema_sistema": "System",
     "remover_aviso": "Remove warning",
+    "titulo_linguagem": "Languages",
     "canvas": "Canvas",
     "tamanho_blocos": "Block size",
     "tamanho_pequeno": "Small",
@@ -71,14 +72,29 @@
     "distancia_curto": "Short",
     "distancia_normal": "Normal",
     "distancia_longo": "Long",
-    "salvar_configuracoes": "Save settings"
+    "salvar_configuracoes": "Save settings",
+    "ingles": "English",
+    "ingles_traducao": "(English)",
+    "alemao": "Deutsch",
+    "alemao_traducao": "(German)",
+    "espanhol": "Español",
+    "espanhol_traducao": "(Spanish)",
+    "frances": "Français",
+    "frances_traducao": "(French)",
+    "portugues": "Português",
+    "portugues_traducao": "(Portuguese)",
+    "hindi": "हिन्दी",
+    "hindi_traducao": "(Hindi)",
+    "chines": "中文简体",
+    "chines_traducao": "(Simplified Chinese)"
   },
   "fluxo": {
     "inicio": "Start"
   },
   "aviso": {
-  "titulo": "Attention with the letters!"
-}
+  "titulo": "Attention with the letters!",
+  "botao": "Understood"
+  }
 }
 
 

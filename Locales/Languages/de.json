@@ -65,6 +65,7 @@
     "tema_escuro": "Dunkel",
     "tema_sistema": "System",
     "remover_aviso": "Warnung ausblenden",
+    "titulo_linguagem": "Sprachen",
     "canvas": "Arbeitsfläche",
     "tamanho_blocos": "Blockgröße",
     "tamanho_pequeno": "Klein",
@@ -76,9 +77,24 @@
     "distancia_curto": "Kurz",
     "distancia_normal": "Normal",
     "distancia_longo": "Lang",
-    "salvar_configuracoes": "Einstellungen speichern"
+    "salvar_configuracoes": "Einstellungen speichern",
+    "ingles": "English",
+    "ingles_traducao": "(Englisch)",
+    "alemao": "Deutsch",
+    "alemao_traducao": "(Deutsch)",
+    "espanhol": "Español",
+    "espanhol_traducao": "(Spanisch)",
+    "frances": "Français",
+    "frances_traducao": "(Französisch)",
+    "portugues": "Português",
+    "portugues_traducao": "(Portugiesisch)",
+    "hindi": "हिन्दी",
+    "hindi_traducao": "(Hindi)",
+    "chines": "中文简体",
+    "chines_traducao": "(Vereinfachtes Chinesisch)"
   },
   "aviso": {
+    "botao": "Verstanden",
   "titulo": "Achtung auf die Buchstaben!"
 }
 }
