@@ -47,10 +47,7 @@ function avisoFoiRemovidoPeloUsuario() {
 window.salvarPreferenciaRemoverAviso = salvarPreferenciaRemoverAviso;
 window.avisoFoiRemovidoPeloUsuario = avisoFoiRemovidoPeloUsuario;
 const toggleRemoverAviso = document.querySelector("#toggle-remover-aviso");
+window.toggleRemoverAviso = toggleRemoverAviso;
 
 if (toggleRemoverAviso) {
-  toggleRemoverAviso.checked = avisoFoiRemovidoPeloUsuario();
-  toggleRemoverAviso.addEventListener("change", () => {
-    salvarPreferenciaRemoverAviso(toggleRemoverAviso.checked);
-  });
-}
+  toggleRemoverAviso.checked = avisoFoiRemovidoPeloUsuario();}
