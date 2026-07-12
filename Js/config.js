@@ -40,21 +40,35 @@ botaodesalvar.addEventListener('click', () => {
   esconderConfiguracoes();
 });
 
+const CHAVE_IDIOMA = "pathcipher_idioma";
+const radiosIdioma = document.querySelectorAll('input[name="idioma"]');
+let idiomaSelecionado = localStorage.getItem(CHAVE_IDIOMA) || "pt";
+function marcarIdiomaSelecionado(codigo) {
+  radiosIdioma.forEach((radio) => {
+    radio.checked = radio.value === codigo;
+  });}
 
+radiosIdioma.forEach((radio) => {
+  radio.addEventListener("change", () => {
+    if (radio.checked) {
+      idiomaSelecionado = radio.value;}});});
+  
 function iniciarIdioma() {
-    i18next
-        .use(i18nextHttpBackend)
-        .use(i18nextBrowserLanguageDetector)
-        .init({
-            fallbackLng: "pt",
-            backend: {
-                loadPath: 'Locales/languages/{{lng}}.json'
-            }
-        })
-        .then(() => {
-            atualizarIdioma();
-        });
-}
+  i18next
+    .use(i18nextHttpBackend)
+    .use(i18nextBrowserLanguageDetector)
+    .init({
+    lng: localStorage.getItem(CHAVE_IDIOMA) || undefined,
+    fallbackLng: "pt",
+    backend: {
+      loadPath: "Locales/languages/{{lng}}.json",
+    },})
+    .then(() => {
+      atualizarIdioma();
+      const idiomaInicial = localStorage.getItem(CHAVE_IDIOMA) || i18next.language || "pt";
+      idiomaSelecionado = idiomaInicial;
+      marcarIdiomaSelecionado(idiomaInicial);
+    });}
 
 function atualizarIdioma() {
     document.documentElement.lang = i18next.language;
@@ -92,5 +106,5 @@ function atualizarIdioma() {
                 i18next.t(el.dataset.i18nValue);});}
                 
 document.addEventListener("DOMContentLoaded", () => {
-    iniciarIdioma();
-});
+  iniciarIdioma();});
+

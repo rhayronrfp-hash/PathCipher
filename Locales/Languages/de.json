@@ -33,7 +33,7 @@
   },
   "topbar": {
     "projeto_label": "Projekt:",
-    "projeto_padrao": "pipeline",
+    "projeto_padrao": "PathCipher.txt",
     "editar": "Bearbeiten",
     "desfazer": "Rückgängig",
     "refazer": "Wiederholen",

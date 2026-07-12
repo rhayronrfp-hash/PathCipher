@@ -12,6 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
   
   let linhas = true
   const linhaativada = document.querySelector('.mostrar-linha')
+  linhaativada.addEventListener("change", () => {
+    linhas = linhaativada.checked;});
   
   let Salvo = false
   const fundoConfig = document.querySelector(".config-overlay");
@@ -19,15 +21,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const botaodesalvar = document.querySelector(".botao-confirmar-ajustes")
 
   
-  linhaativada.addEventListener("change", () => {
-    linhas = linhaativada.checked;});
-  
-  botaodesalvar.addEventListener("click", () => {
+  botaodesalvar.addEventListener("click", async () => {
     Salvo = true;
     if (window.toggleRemoverAviso && window.salvarPreferenciaRemoverAviso) {
-    window.salvarPreferenciaRemoverAviso(window.toggleRemoverAviso.checked);
-  }
-  
+    window.salvarPreferenciaRemoverAviso(window.toggleRemoverAviso.checked);}
+    
+    if (idiomaSelecionado && idiomaSelecionado !== i18next.language) {
+    await i18next.changeLanguage(idiomaSelecionado);
+    localStorage.setItem(CHAVE_IDIOMA, idiomaSelecionado);
+    atualizarIdioma();
+    marcarIdiomaSelecionado(idiomaSelecionado);}
+    
     if (!linhas) {
       svgLinhas.innerHTML = "";}
       

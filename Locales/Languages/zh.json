@@ -33,7 +33,7 @@
   },
   "topbar": {
     "projeto_label": "项目：",
-    "projeto_padrao": "pipeline",
+    "projeto_padrao": "PathCipher.txt",
     "editar": "编辑",
     "desfazer": "撤销",
     "refazer": "重做",
