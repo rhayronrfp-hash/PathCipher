@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.idCounter = 0;
   window.blocoArrastado = null;
 
+  const mainsideicon = document.querySelector(".principal")
   const sideIcons = document.querySelectorAll(".side-icon");
   const canvasContainer = document.getElementById("fluxo-container");
   const svgNS = "http://www.w3.org/2000/svg";
@@ -10,10 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
   svgLinhas.id = "linhas-svg";
   svgLinhas.setAttribute("aria-hidden", "true");
   
-  let linhas = true
   const linhaativada = document.querySelector('.mostrar-linha')
-  linhaativada.addEventListener("change", () => {
-    linhas = linhaativada.checked;});
+  let linhas = linhaativada ? linhaativada.checked : true;
   
     
   let Salvo = false
@@ -24,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   
   botaodesalvar.addEventListener("click", async () => {
+    mainsideicon.classList.add("ativo");
     Salvo = true;
     if (window.toggleRemoverAviso && window.salvarPreferenciaRemoverAviso) {
     window.salvarPreferenciaRemoverAviso(window.toggleRemoverAviso.checked);}
@@ -33,6 +33,31 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem(CHAVE_IDIOMA, idiomaSelecionado);
     atualizarIdioma();
     marcarIdiomaSelecionado(idiomaSelecionado);}
+
+    if (linhaativada) {
+      linhas = linhaativada.checked;
+      if (window.salvarPreferenciaMostrarLinhas) {
+        window.salvarPreferenciaMostrarLinhas(linhas);
+      }
+    }
+
+    const radioTemaSelecionado = document.querySelector('input[name="tema"]:checked');
+    if (radioTemaSelecionado && window.salvarPreferenciaTema) {
+      window.salvarPreferenciaTema(radioTemaSelecionado.value);
+      window.aplicarTema(radioTemaSelecionado.value);
+    }
+
+    const radioTamanhoSelecionado = document.querySelector('input[name="tamanho"]:checked');
+    if (radioTamanhoSelecionado && window.salvarPreferenciaTamanhoBlocos) {
+      window.salvarPreferenciaTamanhoBlocos(radioTamanhoSelecionado.value);
+      window.aplicarTamanhoBlocos(radioTamanhoSelecionado.value);
+    }
+    
+    const radioDistanciaSelecionado = document.querySelector('input[name="distância"]:checked');
+    if (radioDistanciaSelecionado && window.salvarPreferenciaDistanciaBlocos) {
+      window.salvarPreferenciaDistanciaBlocos(radioDistanciaSelecionado.value);
+      window.aplicarDistanciaBlocos(radioDistanciaSelecionado.value);
+    }
     
     if (!linhas) {
       svgLinhas.innerHTML = "";}
@@ -82,6 +107,10 @@ window.indiceHistorico = -1;
 
     if (window.limparCacheOtimizacao) {
       window.limparCacheOtimizacao();
+    }
+
+    if (window.atualizarPreviewDescriptografia) {
+      window.atualizarPreviewDescriptografia();
     }
 
     renderizarCanvas();
@@ -197,7 +226,7 @@ window.indiceHistorico = -1;
     `.sidebar-blocos .bloco[data-type="${bloco.tipo}"]`
   );
   const srcIconeOriginal = botaoOrigem?.querySelector("img")?.getAttribute("src") || "";
-  const srcIcone = srcIconeOriginal.replace("(1)", ""); // tira o (1)
+  const srcIcone = srcIconeOriginal.replace("(1)", ""); 
 
   div.innerHTML = `
     <img class="flow-icon" src="${srcIcone}" alt="${bloco.label}">
@@ -244,22 +273,16 @@ window.indiceHistorico = -1;
 
     if (window.ModoReverseActive) {
       pipeline.unshift(novoBloco);
-
-      const txtEntradaEl = document.querySelector(".cartao-painel .painel-texto");
-      if (
-        txtEntradaEl &&
-        txtEntradaEl.value.trim() !== "" &&
-        window.transformacoes &&
-        window.transformacoes[tipo]
-      ) {
-        txtEntradaEl.value = window.transformacoes[tipo](txtEntradaEl.value);
-      }
     } else {
       pipeline.push(novoBloco);
     }
 
     if (window.limparCacheOtimizacao) {
       window.limparCacheOtimizacao();
+    }
+
+    if (window.atualizarPreviewDescriptografia) {
+      window.atualizarPreviewDescriptografia();
     }
     
     salvarHistorico();
@@ -396,16 +419,17 @@ window.indiceHistorico = -1;
       blocoArrastado = null;
     });
   }
-  
+  window.addEventListener("load", () => {
+    mainsideicon.classList.add("ativo");
+    });
+    
   sideIcons.forEach((icon) => {
   icon.addEventListener("click", () => {
 
     sideIcons.forEach((item) => {
       item.classList.remove("ativo");
     });
-
     icon.classList.add("ativo");
-
   });
   });
   salvarHistorico();

@@ -109,6 +109,15 @@
   width: 50px;
   height: 50px;
 }
+.titulo2 {
+  gap: 0px;
+  margin-left: -3px;
+}
+.titulo2 img {
+  height: 60px;
+  width: 60px;
+  transform: translateX(-4px);
+}
 
 .cartao-titulo img,
 .lado-esquerdo img {

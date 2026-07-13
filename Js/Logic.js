@@ -13,6 +13,7 @@ window.limparCacheOtimizacao = () => {
   historicoResultadosParciais = [];
 };
 window.ModoReverseActive = false;
+window.ancoraDescriptografia = "";
 
 const botaoCopiar = document.querySelector(".cartao-painel:nth-child(2) .painel-copy");
 const btnExecutar = document.querySelector(".executar");
@@ -30,6 +31,41 @@ const tituloEntrada = document.querySelector(
 const tituloResultado = document.querySelector(
   ".cartao-painel:nth-child(2) .top-painel span"
 );
+
+function aplicarTransformacaoUnica(tipo, texto) {
+  const operacaoInversa = `${tipo}_inverso`;
+
+  if (transformacoes[operacaoInversa]) {
+    return transformacoes[operacaoInversa](texto);
+  } else if (transformacoes[tipo]) {
+    return transformacoes[tipo](texto);
+  }
+
+  return `[${tipo.toUpperCase()}] ${texto}`;
+}
+
+function atualizarPreviewDescriptografia() {
+  if (!window.ModoReverseActive || !txtEntrada) return;
+
+  const pipelineAtual = window.pipeline || [];
+
+  if (pipelineAtual.length === 0) {
+    txtEntrada.value = window.ancoraDescriptografia || "";
+    return;
+  }
+
+  const tipoMaisRecente = pipelineAtual[0].tipo;
+  txtEntrada.value = aplicarTransformacaoUnica(tipoMaisRecente, window.ancoraDescriptografia || "");
+}
+window.atualizarPreviewDescriptografia = atualizarPreviewDescriptografia;
+
+if (txtEntrada) {
+  txtEntrada.addEventListener("input", () => {
+    if (window.ModoReverseActive) {
+      window.ancoraDescriptografia = txtEntrada.value;
+    }
+  });
+}
 
 if (botaoCopiar) {
   botaoCopiar.addEventListener("click", () => {
@@ -90,6 +126,7 @@ function salvarEstado() {
     entrada: txtEntrada.value,
     saida: txtSaida.value,
     reverse: window.ModoReverseActive,
+    ancora: window.ancoraDescriptografia,
     tituloEntrada: tituloEntrada ? tituloEntrada.textContent : "",
     tituloResultado: tituloResultado ? tituloResultado.textContent : "",
     botaoInverter: textoBotao ? textoBotao.textContent : (btnInverter ? btnInverter.textContent : "")};
@@ -104,6 +141,7 @@ function aplicarEstado(estado) {
 
   window.pipeline = JSON.parse(JSON.stringify(estado.pipeline || []));
   window.ModoReverseActive = !!estado.reverse;
+  window.ancoraDescriptografia = estado.ancora ?? "";
 
   if (txtEntrada) txtEntrada.value = estado.entrada ?? "";
   if (txtSaida) txtSaida.value = estado.saida ?? "";
@@ -137,7 +175,10 @@ if (btnAvancar) {
 
 if (btnExecutar && txtEntrada && txtSaida) {
   btnExecutar.addEventListener("click", () => {
-    const textoOriginal = txtEntrada.value;
+    const textoOriginal =
+      window.ModoReverseActive && typeof window.ancoraDescriptografia === "string"
+        ? window.ancoraDescriptografia
+        : txtEntrada.value;
     const pipelineAtual = window.pipeline || [];
     const caminhoAtualTipos = pipelineAtual.map((bloco) => bloco.tipo);
 
@@ -204,6 +245,15 @@ if (btnInverter) {
   btnInverter.addEventListener("click", () => {
     window.ModoReverseActive = !window.ModoReverseActive;
 
+    if (txtEntrada && txtSaida) {
+      const novoTextoEntrada = txtSaida.value;
+      txtEntrada.value = novoTextoEntrada;
+
+      if (window.ModoReverseActive) {
+        window.ancoraDescriptografia = novoTextoEntrada;
+      }
+    }
+
     aplicarTextosModo(window.ModoReverseActive);
 
     if (window.pipeline && window.pipeline.length > 0) {
@@ -216,13 +266,6 @@ if (btnInverter) {
 
     if (window.limparCacheOtimizacao) {
       window.limparCacheOtimizacao();
-    }
-
-    if (txtEntrada && txtSaida) {
-      const textoResultado = txtSaida.value;
-      if (textoResultado.trim() !== "") {
-        txtEntrada.value = textoResultado;
-      }
     }
 
     if (btnExecutar) {
@@ -249,6 +292,7 @@ if (botaoLimpar) {
     }
     if (txtEntrada) {
       txtEntrada.value = "";}
+    window.ancoraDescriptografia = "";
 
     if (txtSaida) {
       txtSaida.value = ""; }
