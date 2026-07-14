@@ -92,9 +92,13 @@
     "inicio": "Start"
   },
   "aviso": {
-  "titulo": "Attention with the letters!",
-  "botao": "Understood"
-  }
+  "titulo": "Attention to Letters!",
+  "botao": "Understood",
+  "texto": "Avoid using capital letters and accents in the input box when using Morse. This can affect encryption results, as some algorithms do not differentiate case or alter default behavior."
+}
+
+
+
 }
 
 

@@ -94,6 +94,9 @@
   },
   "aviso": {
   "titulo": "¡Atención con las letras!",
-  "botao": "Comprendido"
+  "botao": "Entendido",
+  "texto": "Evita usar letras mayúsculas y acentos en la caja de entrada al utilizar morse. Esto puede afectar los resultados del cifrado, ya que algunos algoritmos no diferencian entre mayúsculas y minúsculas o alteran el comportamiento predeterminado."
 }
+
+
 }

@@ -17,33 +17,55 @@ const rot13Transform = (texto) => {
 const dicionarioMorse = {
   A: ".-", B: "-...", C: "-.-.", D: "-..", E: ".", F: "..-.", G: "--.", H: "....", I: "..",
   J: ".---", K: "-.-", L: ".-..", M: "--", N: "-.", O: "---", P: ".--.", Q: "--.-", R: ".-.", S: "...", T: "-", U: "..-", V: "...-", W: ".--", X: "-..-", Y: "-.--", Z: "--..",
+
+  Á: ".--.-", Ä: ".-.-", Å: ".--.-", É: "..-..", Ñ: "--.--", Ö: "---.", Ü: "..--", Ç: "-.-..",
+
   0: "-----", 1: ".----", 2: "..---", 3: "...--", 4: "....-", 5: ".....", 6: "-....", 7: "--...", 8: "---..", 9: "----.",
-  ".": ".-.-.-", ",": "--..--", "?": "..--..", "'": ".----.", "!": "-.-.--", "/": "-..-.", "(": "-.--.", ")": "-.--.-", "&": ".-...",
-  ":": "---...", ";": "-.-.-.", "=": "-...-", "+": ".-.-.", "-": "-....-", "_": "..--.-", '"': ".-..-.", "$": "...-..-", "@": ".--.-."
+
+  ".": ".-.-.-", ",": "--..--", "?": "..--..", "'": ".----.", "!": "-.-.--", "/": "-..-.",
+  "(": "-.--.", ")": "-.--.-", "&": ".-...", ":": "---...", ";": "-.-.-.",
+  "=": "-...-", "+": ".-.-.", "-": "-....-", "_": "..--.-", '"': ".-..-.",
+  "$": "...-..-", "@": ".--.-."
 };
 
 const dicionarioMorseInverso = {
-  ".-": "A", "-...": "B", "-.-.": "C", "-..": "D", ".": "E", "..-.": "F", "--.": "G", "....": "H", "..": "I", ".---": "J", "-.-": "K", ".-..": "L", "--": "M", "-.": "N", "---": "O", ".--.": "P", "--.-": "Q", ".-.": "R", "...": "S", "-": "T", "..-": "U",
-  "...-": "V", ".--": "W", "-..-": "X", "-.--": "Y", "--..": "Z", "-----": "0", ".----": "1", "..---": "2", "...--": "3", "....-": "4", ".....": "5", "-....": "6", "--...": "7", "---..": "8", "----.": "9",
-  ".-.-.-": ".", "--..--": ",", "..--..": "?", ".----.": "'", "-.-.--": "!", "-..-.": "/", "-.--.": "(", "-.--.-": ")", ".-...": "&", "---...": ":",
-  "-.-.-.": ";", "-...-": "=", ".-.-.": "+", "-....-": "-", "..--.-": "_", ".-..-.": '"', "...-..-": "$", ".--.-.": "@",
+  ".-": "A", "-...": "B", "-.-.": "C", "-..": "D", ".": "E", "..-.": "F",
+  "--.": "G", "....": "H", "..": "I", ".---": "J", "-.-": "K",
+  ".-..": "L", "--": "M", "-.": "N", "---": "O", ".--.": "P",
+  "--.-": "Q", ".-.": "R", "...": "S", "-": "T", "..-": "U",
+  "...-": "V", ".--": "W", "-..-": "X", "-.--": "Y", "--..": "Z",
+  ".--.-": "Á", ".-.-": "Ä", "..-..": "É", "--.--": "Ñ", "---.": "Ö",
+  "..--": "Ü", "-.-..": "Ç",
+
+  "-----": "0", ".----": "1", "..---": "2", "...--": "3", "....-": "4",
+  ".....": "5", "-....": "6", "--...": "7", "---..": "8", "----.": "9",
+
+  ".-.-.-": ".", "--..--": ",", "..--..": "?", ".----.": "'",
+  "-.-.--": "!", "-..-.": "/", "-.--.": "(", "-.--.-": ")",
+  ".-...": "&", "---...": ":", "-.-.-.": ";", "-...-": "=",
+  ".-.-.": "+", "-....-": "-", "..--.-": "_", ".-..-.": '"',
+  "...-..-": "$", ".--.-.": "@",
+
   "/": " "
 };
 
 const transformacoesCrypto = {
   binario: (texto) => {
-    return texto
-      .split("")
-      .map((char) => char.charCodeAt(0).toString(2).padStart(8, "0"))
+    return Array.from(new TextEncoder().encode(texto))
+      .map((byte) => byte.toString(2).padStart(8, "0"))
       .join(" ");
   },
 
   binario_inverso: (texto) => {
     if (!texto.trim()) return "";
-    return texto
-      .split(" ")
-      .map((bin) => String.fromCharCode(parseInt(bin, 2)))
-      .join("");
+
+    return new TextDecoder().decode(
+      new Uint8Array(
+        texto
+          .split(" ")
+          .map((bin) => parseInt(bin, 2))
+      )
+    );
   },
 
   base64: (texto) => {
@@ -93,18 +115,21 @@ const transformacoesCrypto = {
   },
 
   hex: (texto) => {
-    return texto
-      .split("")
-      .map((c) => c.charCodeAt(0).toString(16))
+    return Array.from(new TextEncoder().encode(texto))
+      .map((byte) => byte.toString(16).padStart(2, "0"))
       .join(" ");
   },
 
   hex_inverso: (texto) => {
     if (!texto.trim()) return "";
-    return texto
-      .split(" ")
-      .map((h) => String.fromCharCode(parseInt(h, 16)))
-      .join("");
+
+    return new TextDecoder().decode(
+      new Uint8Array(
+        texto
+          .split(" ")
+          .map((h) => parseInt(h, 16))
+      )
+    );
   },
 
   aes: (texto) => `[AES] ${texto}`,
@@ -135,34 +160,36 @@ const transformacoesCrypto = {
   atbash_inverso: (texto) => texto.replace("[Atbash] ", ""),
 
   ascii: (texto) => {
-    return texto
-      .split("")
-      .map((c) => c.charCodeAt(0))
+    return Array.from(new TextEncoder().encode(texto))
       .join(" ");
   },
 
   ascii_inverso: (texto) => {
     if (!texto.trim()) return "";
-    return texto
-      .split(" ")
-      .map((c) => String.fromCharCode(parseInt(c, 10)))
-      .join("");
+
+    return new TextDecoder().decode(
+      new Uint8Array(
+        texto
+          .split(" ")
+          .map((c) => parseInt(c, 10))
+      )
+    );
   },
 
   urlencode: (texto) => encodeURIComponent(texto),
   urlencode_inverso: (texto) => decodeURIComponent(texto),
 
   unicode: (texto) => {
-    return texto
-      .split("")
-      .map((c) => "\\u" + c.charCodeAt(0).toString(16).padStart(4, "0"))
+    return Array.from(texto)
+      .map((c) => "\\u{" + c.codePointAt(0).toString(16) + "}")
       .join("");
   },
 
   unicode_inverso: (texto) => {
-    return texto.replace(/\\u([\d\w]{4})/gi, (match, grp) =>
-      String.fromCharCode(parseInt(grp, 16))
+    return texto.replace(/\\u\{([0-9a-f]+)\}/gi, (match, grp) =>
+      String.fromCodePoint(parseInt(grp, 16))
     );
   }
 };
+
 window.transformacoes = transformacoesCrypto;

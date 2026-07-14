@@ -19,7 +19,7 @@ const aviso = document.createElement("div");
   
   const caixaAviso = document.createElement("div");
   Object.assign(caixaAviso.style, {
-    backgroundColor: "#636B2F",
+    backgroundColor: "#111219",
     padding: "24px",
     borderRadius: "12px",
     maxWidth: "600px",
@@ -30,9 +30,9 @@ const aviso = document.createElement("div");
 
   caixaAviso.innerHTML = `
     <h1 data-i18n="aviso.titulo" style="color: white; margin-top: 0; font-family: 'Inter', sans-serif; font-size: 20px;">Atenção com as Letras!</h1>
-    <p data-i18n-html="aviso.texto" style="color: white; font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.6; margin: 16px 0 24px 0;">Evite usar <strong>letras maiúsculas</strong> na caixa de entrada. Isso pode afetar os resultados da criptografia, pois alguns algoritmos não diferenciam maiúsculas de minúsculas ou alteram o comportamento padrão.</p>
-    <button id="fechar-aviso" data-i18n="aviso.botao" style="background-color: #2ecc71; color: white; border: none; padding: 10px 24px; border-radius: 6px; font-family: 'Inter', sans-serif; font-weight: 600; cursor: pointer; transition: background 0.2s;">Entendido</button>
-  `;
+    <p data-i18n="aviso.texto" style="color: white; font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.6; margin: 16px 0 24px 0;">
+      Evite usar letras maiúsculas e acentos na caixa de entrada ao utilizar morse. Isso pode afetar os resultados da criptografia, pois alguns algoritmos não diferenciam maiúsculas de minúsculas ou alteram o comportamento padrão.</p>
+    <button id="fechar-aviso" data-i18n="aviso.botao" style="background-color: #2ecc71; color: white; border: none; padding: 10px 24px; border-radius: 6px; font-family: 'Inter', sans-serif; font-weight: 600; cursor: pointer; transition: background 0.2s;">Entendido</button>`;
 
   aviso.appendChild(caixaAviso);
   document.body.appendChild(aviso);

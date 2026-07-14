@@ -94,7 +94,11 @@
     "chines_traducao": "(Vereinfachtes Chinesisch)"
   },
   "aviso": {
-    "botao": "Verstanden",
-  "titulo": "Achtung auf die Buchstaben!"
+  "titulo": "Achtung bei den Buchstaben!",
+  "botao": "Verstanden",
+  "texto": "Vermeiden Sie die Verwendung von Großbuchstaben und Akzenten im Eingabefeld, wenn Sie Morsezeichen verwenden. Dies kann die Verschlüsselungsergebnisse beeinträchtigen, da einige Algorithmen nicht zwischen Groß- und Kleinschreibung unterscheiden oder das Standardverhalten ändern."
 }
+
+
+
 }

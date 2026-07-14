@@ -90,9 +90,11 @@
   },
   "fluxo": {
   "inicio": "Início"
-},
-"aviso": {
-  "titulo": "Atenção com as letras!",
-  "botao": "Entendido"
+}, "aviso": {
+  "titulo": "Atenção com as Letras!",
+  "botao": "Entendido",
+  "texto": "Evite usar letras maiúsculas e acentos na caixa de entrada ao utilizar morse. Isso pode afetar os resultados da criptografia, pois alguns algoritmos não diferenciam maiúsculas de minúsculas ou alteram o comportamento padrão."
 }
+
+
 }
