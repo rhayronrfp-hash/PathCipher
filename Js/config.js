@@ -104,7 +104,7 @@ function atualizarIdioma() {
 
             el.value =
                 i18next.t(el.dataset.i18nValue);});}
-                
+  
 document.addEventListener("DOMContentLoaded", () => {
   iniciarIdioma();});
 

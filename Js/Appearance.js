@@ -79,7 +79,12 @@ function fecharCreditos() {
       esconderConfiguracoes();
     });
   
-  
+const VERSAO = " 1.0";
+function atualizarVersao() {
+    const elemento = document.querySelector(".creditos-versao-badge");
+    elemento.textContent += VERSAO;
+}
+
   window.historicoPipeline = [];
 window.indiceHistorico = -1;
 
@@ -491,6 +496,7 @@ window.indiceHistorico = -1;
   });
   
   creditIcon.addEventListener("click", () => {
+    atualizarVersao();
     fundoCredit.classList.add("ativo");
     janelaCredit.classList.add("ativo");
   });
@@ -895,11 +901,10 @@ window.indiceHistorico = -1;
         slot.style.height = "10px";
         slot.style.backgroundImage = `url("Assets/Icons/Chave-azul.png")`;
         slot.style.backgroundSize = "contain";
-        slot.style.backgroundRepeat = "no-repeat";
-      }
-      if (barras) barras.style.display = "none";
-    }
+        slot.style.backgroundRepeat = "no-repeat";}
+      
+      if (barras) barras.style.display = "none";}
     if (window.limparCacheOtimizacao) window.limparCacheOtimizacao();
     fecharModalRSA();
-  });
-});
+  });});
+  
