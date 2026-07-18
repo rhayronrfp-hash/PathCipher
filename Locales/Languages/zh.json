@@ -49,7 +49,12 @@
     "criptografia": "密码学"
   },
   "acao": {
-    "copiar": "复制"
+    "copiar": "复制",
+    "fechar": "关闭",
+      "cancelar": "取消",
+      "confirmar": "确认",
+      "configurar_chave": "配置密钥",
+      "remover": "移除"
   },
   "painel": {
     "placeholder_entrada": "在此输入",
@@ -89,14 +94,79 @@
     "hindi": "印地语",
     "hindi_traducao": "(印地语)",
     "chines": "中文简体",
-    "chines_traducao": "（简体中文）"
+    "chines_traducao": "（简体中文）",
+    "japones": "日本語",
+"japones_traducao": "（日语）",
+  "creditos_titulo": "项目鸣谢",
+  "creditos_subtitulo": "致谢和项目信息。",
+  "creditos_github_titulo": "项目托管在 GitHub 上",
+  "creditos_github_desc": "查看仓库，提交问题或为项目做贡献。",
+  "creditos_github_botao": "在 GitHub 上查看",
+  "creditos_pessoas_titulo": "鸣谢",
+  "creditos_funcao": "开发者 • 项目创建者",
+  "creditos_agradecimento": "本项目的构思者和开发者。感谢您的使用和支持！",
+  "creditos_dedicacao": "致力于使密码学变得简单而强大。",
+  "creditos_sobre_titulo": "关于项目",
+  "creditos_sobre_desc": "多步骤密码学和编码工具，具有现代界面，针对性能和生产力进行了优化。",
+  "creditos_versao": "版本 1.0.0"
+
+
       },
       "aviso": {
   "titulo": "注意字母大小写！",
   "botao": "知道了",
   "texto": "在使用摩尔斯电码时，避免在输入框中使用大写字母和重音符号。这可能会影响加密结果，因为某些算法不区分大小写或会改变默认行为。"
+},
+  "chave": {
+      "rotulo": "密钥",
+      "dica": "密钥可以是密码或任何文本。",
+      "aplicar_para": "将密钥应用于：",
+      "apenas_bloco": "仅此块",
+      "apenas_bloco_desc": "密钥将仅用于此块。",
+      "todos_tipo_desc": "密钥将应用于同类型的所有块。",
+      "todos_com_chave": "所有带有密钥的块",
+      "todos_com_chave_desc": "密钥将应用于所有需要密钥的块。",
+      "cancelar": "取消",
+      "salvar": "保存",
+      "todos_tipo_titulo": "所有{{tipo}}"
+    },
+    "rsa": {
+      "icone_alt": "密钥图标",
+      "titulo": "RSA 密钥管理器",
+      "tipo_chave": "RSA-OAEP (2048 位)",
+      "gerar_par": "生成密钥对",
+      "chave_publica": "公钥 (加密)",
+      "placeholder_vazio": "未生成密钥...",
+      "chave_privada": "私钥 (解密)",
+      "importar_externa": "导入外部密钥",
+      "salvar_chaves": "保存密钥",
+      "importar_titulo": "导入私钥",
+      "cole_chave": "粘贴私钥 (PEM 或 Base64 PKCS#8)",
+      "msg_copiado_pub": "公钥已复制！",
+      "msg_copiado_priv": "私钥已复制！",
+      "erro_gerar": "生成 RSA 密钥失败。"
+    },
+    "erro": {
+  "rsa_publica_invalida": "[RSA 错误] 公钥无效或不存在。",
+  "rsa_falha_criptografia": "[RSA 错误] 加密失败，请检查公钥。",
+  "rsa_privada_nao_encontrada": "[RSA 错误] 未找到该模块的私钥。",
+  "rsa_privada_nao_configurada": "[RSA 错误] 未配置私钥。",
+  "rsa_falha_descriptografia": "[RSA 错误] 解密失败。密钥错误或数据已损坏。",
+  "rsa_importar_vazio": "请先粘贴私钥再确认。",
+  "rsa_importar_interpretar": "无法解析提供的密钥。",
+  "rsa_importar_base64": "Base64 密钥无效，请确认已复制完整内容。",
+  "rsa_importar_formato": "格式无效或 RSA 密钥不兼容（需要 PKCS#8）。",
+  "rsa_importar_derivar": "无法从私钥派生公钥。",
+  "aes_invalido": "[AES] 密钥错误或密文无效。",
+  "chacha20_invalido": "[ChaCha20] 密钥错误或密文无效。",
+  "chave_obrigatoria": "[错误] 此模块需要密钥。",
+  "base64_invalido": "[Base64] 文本无效。",
+  "hex_invalido": "[Hex] 文本无效。",
+  "binario_invalido": "[二进制] 文本无效。",
+  "ascii_invalido": "[ASCII] 文本无效。",
+  "url_invalido": "[URL] 文本无效。",
+  "unicode_invalido": "[Unicode] 文本无效。"
 }
-
 
 
 }

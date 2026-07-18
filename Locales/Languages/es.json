@@ -50,7 +50,12 @@
   },
   
   "acao": {
-    "copiar": "Copiar"
+    "copiar": "Copiar",
+    "fechar": "Cerrar",
+      "cancelar": "Cancelar",
+      "confirmar": "Confirmar",
+      "configurar_chave": "Configurar clave",
+      "remover": "Eliminar"
   },
   "painel": {
     "placeholder_entrada": "escribe aquí",
@@ -72,6 +77,18 @@
     "tamanho_grande": "Grande",
     "mostrar_linhas": "Mostrar líneas del flujo",
     "mostrar_setas": "Mostrar flechas",
+  "creditos_titulo": "Créditos del Proyecto",
+  "creditos_subtitulo": "Agradecimientos e información sobre el proyecto.",
+  "creditos_github_titulo": "Proyecto alojado en GitHub",
+  "creditos_github_desc": "Consulta el repositorio, abre issues o contribuye con el proyecto.",
+  "creditos_github_botao": "Ver en GitHub",
+  "creditos_pessoas_titulo": "Créditos",
+  "creditos_funcao": "Desarrollador • Creador del proyecto",
+  "creditos_agradecimento": "Creador y desarrollador de este proyecto. ¡Gracias por usar y apoyar!",
+  "creditos_dedicacao": "Hecho con dedicación para hacer la criptografía simple y poderosa.",
+  "creditos_sobre_titulo": "Sobre el proyecto",
+  "creditos_sobre_desc": "Herramienta de criptografía y codificación en múltiples etapas, con una interfaz moderna, optimizada para rendimiento y productividad.",
+  "creditos_versao": "Versión 1.0.0",
     "distancia_blocos": "Distancia entre bloques",
     "distancia_curto": "Corta",
     "distancia_normal": "Normal",
@@ -90,12 +107,64 @@
     "hindi": "Hindi",
     "hindi_traducao": "(Hindi)",
     "chines": "中文简体",
-    "chines_traducao": "(Chino simplificado)"
+    "chines_traducao": "(Chino simplificado)",
+    "japones": "日本語",
+"japones_traducao": "(Japonés)"
   },
   "aviso": {
   "titulo": "¡Atención con las letras!",
   "botao": "Entendido",
   "texto": "Evita usar letras mayúsculas y acentos en la caja de entrada al utilizar morse. Esto puede afectar los resultados del cifrado, ya que algunos algoritmos no diferencian entre mayúsculas y minúsculas o alteran el comportamiento predeterminado."
+},
+  "chave": {
+      "rotulo": "Clave",
+      "dica": "La clave puede ser una contraseña o cualquier texto.",
+      "aplicar_para": "Aplicar clave a:",
+      "apenas_bloco": "Solo este bloque",
+      "apenas_bloco_desc": "La clave se utilizará solo en este bloque.",
+      "todos_tipo_desc": "La clave se aplicará a todos los bloques del mismo tipo.",
+      "todos_com_chave": "Todos los bloques con clave",
+      "todos_com_chave_desc": "La clave se aplicará a todos los bloques que requieran una clave.",
+      "cancelar": "Cancelar",
+      "salvar": "Guardar",
+      "todos_tipo_titulo": "Todos los {{tipo}}"
+    },
+    "rsa": {
+      "icone_alt": "Icono de clave",
+      "titulo": "Gestor de claves RSA",
+      "tipo_chave": "RSA-OAEP (2048 bits)",
+      "gerar_par": "Generar par de claves",
+      "chave_publica": "Clave Pública (Cifrar)",
+      "placeholder_vazio": "Ninguna clave generada...",
+      "chave_privada": "Clave Privada (Descifrar)",
+      "importar_externa": "Importar clave externa",
+      "salvar_chaves": "Guardar claves",
+      "importar_titulo": "Importar Clave Privada",
+      "cole_chave": "Pega la clave privada (PEM o Base64 PKCS#8)",
+      "msg_copiado_pub": "¡Clave pública copiada!",
+      "msg_copiado_priv": "¡Clave privada copiada!",
+      "erro_gerar": "Error al generar claves RSA."
+    },
+    "erro": {
+  "rsa_publica_invalida": "[Error RSA] Clave pública inválida o ausente.",
+  "rsa_falha_criptografia": "[Error RSA] Error al cifrar. Verifique la clave pública.",
+  "rsa_privada_nao_encontrada": "[Error RSA] Clave privada no encontrada en este bloque.",
+  "rsa_privada_nao_configurada": "[Error RSA] No hay una clave privada configurada.",
+  "rsa_falha_descriptografia": "[Error RSA] Error al descifrar. Clave incorrecta o datos dañados.",
+  "rsa_importar_vazio": "Pegue una clave privada antes de confirmar.",
+  "rsa_importar_interpretar": "No se pudo interpretar la clave proporcionada.",
+  "rsa_importar_base64": "Clave Base64 inválida. Asegúrese de haber copiado todo el contenido.",
+  "rsa_importar_formato": "Formato inválido o clave RSA incompatible (se esperaba PKCS#8).",
+  "rsa_importar_derivar": "No fue posible derivar la clave pública a partir de la clave privada.",
+  "aes_invalido": "[AES] Clave incorrecta o texto cifrado inválido.",
+  "chacha20_invalido": "[ChaCha20] Clave incorrecta o texto cifrado inválido.",
+  "chave_obrigatoria": "[Error] Este bloque requiere una clave para continuar.",
+  "base64_invalido": "[Base64] Texto inválido.",
+  "hex_invalido": "[Hex] Texto inválido.",
+  "binario_invalido": "[Binario] Texto inválido.",
+  "ascii_invalido": "[ASCII] Texto inválido.",
+  "url_invalido": "[URL] Texto inválido.",
+  "unicode_invalido": "[Unicode] Texto inválido."
 }
 
 

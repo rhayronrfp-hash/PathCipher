@@ -45,14 +45,15 @@
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
 }
 
+
 .ajustes-cabecalho {
-  background: rgba(18, 22, 30, 0.96);
+  position: relative;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   padding: 8px 0 18px;
   margin-bottom: 18px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255,255,255,.08);
 }
 
 .ajustes-cabecalho h1 {
@@ -64,9 +65,10 @@
 
 .fechar-ajustes {
   position: absolute;
-  display: none;
-  right: 0;
-  top: 0;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-70%);
+  display: block;
   width: 38px;
   height: 38px;
   border: none;
@@ -75,16 +77,9 @@
   color: white;
   font-size: 18px;
   cursor: pointer;
-  transition: transform 0.15s ease, background 0.15s ease;
 }
-
 .fechar-ajustes:hover {
-  background: none;
-  transform: scale(1.04);
-}
-
-.fechar-ajustes:active {
-  transform: scale(0.98);
+  background: #2f3644;
 }
 
 .config-respiro {
@@ -401,3 +396,6 @@ idiomas {
 img .cartao-ajuste {
   width: 20px;
 }
+
+
+

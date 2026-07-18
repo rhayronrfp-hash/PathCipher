@@ -46,7 +46,12 @@
     "criptografar": "एन्क्रिप्शन"
   },
   "acao": {
-    "copiar": "कॉपी करें"
+    "copiar": "कॉपी करें",
+    "fechar": "बंद करें",
+      "cancelar": "रद्द करें",
+      "confirmar": "पुष्टि करें",
+      "configurar_chave": "कुंजी कॉन्फ़िगर करें",
+      "remover": "हटाएं"
   },
   "painel": {
     "placeholder_entrada": "यहाँ लिखें",
@@ -86,7 +91,23 @@
     "hindi": "हिन्दी",
     "hindi_traducao": "(हिन्दी)",
     "chines": "中文简体",
-    "chines_traducao": "(सरलीकृत चीनी)"
+    "chines_traducao": "(सरलीकृत चीनी)",
+    "japones": "日本語",
+"japones_traducao": "(जापानी)",
+  "creditos_titulo": "प्रोजेक्ट क्रेडिट",
+  "creditos_subtitulo": "आभार और प्रोजेक्ट जानकारी।",
+  "creditos_github_titulo": "गिटहब पर होस्ट किया गया प्रोजेक्ट",
+  "creditos_github_desc": "रिपॉजिटरी देखें, इश्यू खोलें या प्रोजेक्ट में योगदान दें।",
+  "creditos_github_botao": "गिटहब पर देखें",
+  "creditos_pessoas_titulo": "क्रेडिट",
+  "creditos_funcao": "डेवलपर • प्रोजेक्ट निर्माता",
+  "creditos_agradecimento": "इस प्रोजेक्ट के निर्माता और डेवलपर। उपयोग करने और समर्थन करने के लिए धन्यवाद!",
+  "creditos_dedicacao": "क्रिप्टोग्राफी को सरल और शक्तिशाली बनाने के समर्पण के साथ बनाया गया।",
+  "creditos_sobre_titulo": "प्रोजेक्ट के बारे में",
+  "creditos_sobre_desc": "आधुनिक इंटरफ़ेस के साथ बहु-चरणीय क्रिप्टोग्राफी और एन्कोडिंग उपकरण, जिसे प्रदर्शन और उत्पादकता के लिए अनुकूलित किया गया है।",
+  "creditos_versao": "संस्करण 1.0.0"
+
+
   },
   "fluxo": {
     "inicio": "प्रारंभ"
@@ -95,6 +116,56 @@
   "titulo": "अक्षरों का ध्यान रखें!",
   "botao": "समझ गया",
   "texto": "मोर्स का उपयोग करते समय इनपुट बॉक्स में बड़े अक्षरों (capital letters) और विशेष चिह्नों (accents) का उपयोग करने से बचें। यह एन्क्रिप्शन के परिणामों को प्रभावित कर सकता है, क्योंकि कुछ एल्गोरिदम बड़े और छोटे अक्षरों में अंतर नहीं करते या डिफ़ॉल्ट व्यवहार को बदल देते हैं।"
+},
+"chave": {
+      "rotulo": "कुंजी",
+      "dica": "कुंजी एक पासवर्ड या कोई भी पाठ हो सकती है।",
+      "aplicar_para": "कुंजी लागू करें:",
+      "apenas_bloco": "केवल यह ब्लॉक",
+      "apenas_bloco_desc": "कुंजी का उपयोग केवल इसी ब्लॉक में किया जाएगा।",
+      "todos_tipo_desc": "कुंजी समान प्रकार के सभी ब्लॉकों पर लागू होगी।",
+      "todos_com_chave": "कुंजी वाले सभी ब्लॉक",
+      "todos_com_chave_desc": "कुंजी उन सभी ब्लॉकों पर लागू होगी जिन्हें कुंजी की आवश्यकता है।",
+      "cancelar": "रद्द करें",
+      "salvar": "सहेजें",
+      "todos_tipo_titulo": "सभी {{tipo}}"
+    },
+    "rsa": {
+      "icone_alt": "कुंजी आइकन",
+      "titulo": "RSA कुंजी प्रबंधक",
+      "tipo_chave": "RSA-OAEP (2048 बिट्स)",
+      "gerar_par": "कुंजी युग्म उत्पन्न करें",
+      "chave_publica": "सार्वजनिक कुंजी (एन्क्रिप्ट)",
+      "placeholder_vazio": "कोई कुंजी उत्पन्न नहीं हुई...",
+      "chave_privada": "निजी कुंजी (डिक्रिप्ट)",
+      "importar_externa": "बाहरी कुंजी आयात करें",
+      "salvar_chaves": "कुंजियाँ सहेजें",
+      "importar_titulo": "निजी कुंजी आयात करें",
+      "cole_chave": "निजी कुंजी पेस्ट करें (PEM या Base64 PKCS#8)",
+      "msg_copiado_pub": "सार्वजनिक कुंजी कॉपी की गई!",
+      "msg_copiado_priv": "निजी कुंजी कॉपी की गई!",
+      "erro_gerar": "RSA कुंजी उत्पन्न करने में विफल।"
+    },
+    "erro": {
+  "rsa_publica_invalida": "[RSA त्रुटि] सार्वजनिक कुंजी अमान्य या अनुपस्थित है।",
+  "rsa_falha_criptografia": "[RSA त्रुटि] एन्क्रिप्शन विफल। सार्वजनिक कुंजी जाँचें।",
+  "rsa_privada_nao_encontrada": "[RSA त्रुटि] इस ब्लॉक में निजी कुंजी नहीं मिली।",
+  "rsa_privada_nao_configurada": "[RSA त्रुटि] कोई निजी कुंजी कॉन्फ़िगर नहीं है।",
+  "rsa_falha_descriptografia": "[RSA त्रुटि] डिक्रिप्शन विफल। गलत कुंजी या डेटा क्षतिग्रस्त है।",
+  "rsa_importar_vazio": "पुष्टि करने से पहले निजी कुंजी चिपकाएँ।",
+  "rsa_importar_interpretar": "प्रदान की गई कुंजी को समझा नहीं जा सका।",
+  "rsa_importar_base64": "अमान्य Base64 कुंजी। सुनिश्चित करें कि पूरा पाठ कॉपी किया गया है।",
+  "rsa_importar_formato": "अमान्य प्रारूप या असंगत RSA कुंजी (PKCS#8 अपेक्षित)।",
+  "rsa_importar_derivar": "निजी कुंजी से सार्वजनिक कुंजी प्राप्त नहीं की जा सकी।",
+  "aes_invalido": "[AES] गलत कुंजी या अमान्य एन्क्रिप्टेड पाठ।",
+  "chacha20_invalido": "[ChaCha20] गलत कुंजी या अमान्य एन्क्रिप्टेड पाठ।",
+  "chave_obrigatoria": "[त्रुटि] इस ब्लॉक के लिए एक कुंजी आवश्यक है।",
+  "base64_invalido": "[Base64] अमान्य पाठ।",
+  "hex_invalido": "[Hex] अमान्य पाठ।",
+  "binario_invalido": "[बाइनरी] अमान्य पाठ।",
+  "ascii_invalido": "[ASCII] अमान्य पाठ।",
+  "url_invalido": "[URL] अमान्य पाठ।",
+  "unicode_invalido": "[Unicode] अमान्य पाठ।"
 }
 
 

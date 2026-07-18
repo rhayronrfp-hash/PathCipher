@@ -43,10 +43,15 @@
   "termo": {
     "descriptografia": "Descriptografia",
     "criptografia": "Criptografia",
-    "criptografar": "Criptografia"
+    "criptografar": "Criptografar"
   },
   "acao": {
-    "copiar": "Copiar"
+    "copiar": "Copiar",
+    "fechar": "Fechar",
+    "cancelar": "Cancelar",
+    "confirmar": "Confirmar",
+    "configurar_chave": "Configurar chave",
+    "remover": "Remover"
   },
   "painel": {
     "placeholder_entrada": "digite aqui",
@@ -60,7 +65,7 @@
     "tema_escuro": "Escuro",
     "tema_sistema": "Sistema",
     "remover_aviso": "Remover aviso",
-    "titulo_linguagem": "Linguagens",
+    "titulo_linguagem": "Idiomas",
     "canvas": "Canvas",
     "tamanho_blocos": "Tamanho dos blocos",
     "tamanho_pequeno": "Pequeno",
@@ -86,15 +91,84 @@
     "hindi": "हिन्दी",
     "hindi_traducao": "(Hindi)",
     "chines": "中文简体",
-    "chines_traducao": "(Chinês simplificado)"
+    "chines_traducao": "(Chinês simplificado)",
+  "japones": "日本語",
+  "japones_traducao": "(Japonês)",
+  "creditos_titulo": "Créditos do Projeto",
+  "creditos_subtitulo": "Agradecimentos e informações sobre o projeto.",
+  "creditos_github_titulo": "Projeto hospedado no GitHub",
+  "creditos_github_desc": "Confira o repositório, abra issues ou contribua com o projeto.",
+  "creditos_github_botao": "Ver no GitHub",
+  "creditos_pessoas_titulo": "Créditos",
+  "creditos_funcao": "Desenvolvedor • Criador do projeto",
+  "creditos_agradecimento": "Idealizador e desenvolvedor deste projeto. Obrigado por usar e apoiar!",
+  "creditos_dedicacao": "Feito com dedicação para tornar a criptografia simples e poderosa.",
+  "creditos_sobre_titulo": "Sobre o projeto",
+  "creditos_sobre_desc": "Ferramenta de criptografia e codificação em múltiplas etapas, com interface moderna, otimizada para performance e produtividade.",
+  "creditos_versao": "Versão 1.0.0"
+
   },
   "fluxo": {
-  "inicio": "Início"
-}, "aviso": {
-  "titulo": "Atenção com as Letras!",
-  "botao": "Entendido",
-  "texto": "Evite usar letras maiúsculas e acentos na caixa de entrada ao utilizar morse. Isso pode afetar os resultados da criptografia, pois alguns algoritmos não diferenciam maiúsculas de minúsculas ou alteram o comportamento padrão."
+    "inicio": "Início"
+  },
+  "aviso": {
+    "titulo": "Atenção com as Letras!",
+    "botao": "Entendi",
+    "texto": "Evite usar letras maiúsculas e acentos no campo de entrada ao usar Morse. Isso pode afetar o resultado da criptografia, pois alguns algoritmos não diferenciam maiúsculas/minúsculas ou alteram o comportamento padrão."
+  },
+  "chave": {
+    "rotulo": "Chave",
+    "dica": "A chave pode ser uma senha ou qualquer texto.",
+    "aplicar_para": "Aplicar chave para:",
+    "apenas_bloco": "Apenas este bloco",
+    "apenas_bloco_desc": "A chave será usada somente neste bloco.",
+    "todos_tipo_titulo": "Todos os {{tipo}}",
+    "todos_tipo_desc": "A chave será aplicada em todos os blocos do mesmo tipo.",
+    "todos_com_chave": "Todos os blocos com chave",
+    "todos_com_chave_desc": "A chave será aplicada em todos os blocos que precisem de chave.",
+    "cancelar": "Cancelar",
+    "salvar": "Salvar"
+  },
+  "rsa": {
+    "icone_alt": "Ícone de chave",
+    "titulo": "Gerenciador de Chaves RSA",
+    "tipo_chave": "RSA-OAEP (2048 bits)",
+    "gerar_par": "Gerar par de chaves",
+    "gerando": "Gerando...",
+    "chave_publica": "Chave Pública (Criptografar)",
+    "placeholder_vazio": "Nenhuma chave gerada...",
+    "chave_privada": "Chave Privada (Descriptografar)",
+    "importar_externa": "Importar chave externa",
+    "salvar_chaves": "Salvar Chaves",
+    "importar_titulo": "Importar Chave Privada",
+    "cole_chave": "Cole a chave privada (PEM ou Base64 PKCS#8)",
+    "importando": "Importando...",
+    "module_unavailable": "Módulo de criptografia indisponível.",
+    "import_failed": "Falha ao importar a chave privada.",
+    "msg_copiado_pub": "Chave pública copiada!",
+    "msg_copiado_priv": "Chave privada copiada!",
+    "erro_gerar": "Falha ao gerar as chaves RSA.",
+    "importar_placeholder": "-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----"
+  },
+  "erro": {
+  "rsa_publica_invalida": "[Erro RSA] Chave pública inválida ou ausente.",
+  "rsa_falha_criptografia": "[Erro RSA] Falha na criptografia. Verifique a chave pública.",
+  "rsa_privada_nao_encontrada": "[Erro RSA] Chave privada não encontrada no bloco.",
+  "rsa_privada_nao_configurada": "[Erro RSA] Nenhuma chave privada configurada.",
+  "rsa_falha_descriptografia": "[Erro RSA] Falha na descriptografia. Chave incorreta ou dados corrompidos.",
+  "rsa_importar_vazio": "Cole uma chave privada antes de confirmar.",
+  "rsa_importar_interpretar": "Não foi possível interpretar a chave informada.",
+  "rsa_importar_base64": "Chave em Base64 inválida. Verifique se copiou o conteúdo completo.",
+  "rsa_importar_formato": "Formato inválido ou chave RSA incompatível (esperado PKCS#8).",
+  "rsa_importar_derivar": "Não foi possível derivar a chave pública a partir da chave privada.",
+  "aes_invalido": "[AES] chave incorreta ou texto inválido.",
+  "chacha20_invalido": "[ChaCha20] chave incorreta ou texto inválido.",
+  "chave_obrigatoria": "[Erro] Este bloco precisa de uma chave para continuar.",
+  "base64_invalido": "[Base64] Texto inválido.",
+  "hex_invalido": "[Hex] Texto inválido.",
+  "binario_invalido": "[Binário] Texto inválido.",
+  "ascii_invalido": "[ASCII] Texto inválido.",
+  "url_invalido": "[URL] Texto inválido.",
+  "unicode_invalido": "[Unicode] Texto inválido."
 }
-
-
 }

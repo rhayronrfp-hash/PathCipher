@@ -8,10 +8,11 @@
   <link rel='stylesheet' href=Css/topbar-geral.css>
   <link rel='stylesheet' href=Css/canvas.css>
   <link rel='stylesheet' href=Css/sidebar.css>
-  <link rel='stylesheet' href=Css/mobile.css>
   <link rel='stylesheet' href='Css/bottombar.css'>
-  <link rel='stylesheet' href='Css/Aviso.css'>
   <link rel='stylesheet' href='Css/config.css'>
+  <link rel='stylesheet' href='Css/credit.css'>
+  <link rel='stylesheet' href=Css/mobile.css>
+  <link rel='stylesheet' href='Css/Aviso.css'>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -47,6 +48,10 @@
       
         <button class="side-icon" data-page="Config">
           <img class='icone-config' src="Assets/Icons/config.png" alt="Configurações" data-i18n-alt="config.titulo">
+        </button>
+        
+        <button class="side-icon credit" data-page="Credits">
+          <img class='icone-credit' src="Assets/Icons/Credit.png" alt="Créditos" data-i18n-alt="credits.titulo">
         </button>
     </div>
   
@@ -367,7 +372,13 @@
         <span data-i18n="config.hindi"></span>
         <span class="idioma-traducao" data-i18n="config.hindi_traducao"></span>
     </label>
-
+    
+    <label class="opcao-bolinha coluna">
+      <input type="radio" name="idioma" value="ja">
+      <span data-i18n="config.japones"></span>
+      <span class="idioma-traducao" data-i18n="config.japones_traducao"></span>
+  </label>
+  
     <label class="opcao-bolinha coluna">
         <input type="radio" name="idioma" value='zh'>
         <span data-i18n="config.chines"></span>
@@ -465,19 +476,195 @@
 </div>
     </div>
 
+
     <div class="area-salvar">
       <button class="botao-confirmar-ajustes" type="button"><span data-i18n="config.salvar_configuracoes">Salvar configurações</span></button>
     </div>
+   
   </div>
 </div>
-  
+
+<div class="chave-overlay"></div>
+<div class="chave-modal">
+  <div class="chave-topo">
+    <img class="chave-icone-bloco" src="Assets/Icons/Chave-azul.png" alt="">
+    <span class="chave-titulo-bloco">AES</span>
+    <button class="chave-fechar" type="button" title="Fechar">×</button>
+  </div>
+
+  <div class="chave-corpo">
+    <label class="chave-rotulo" data-i18n="chave.rotulo">Chave</label>
+    <div class="chave-campo-wrapper">
+      <input type="password" class="chave-campo-input" autocomplete="off" spellcheck="false">
+      <button type="button" class="chave-olho" title="Mostrar/ocultar chave">
+        <img class="chave-olho-icone-slot" src="Assets/Icons/Olho2.png" alt="">
+      </button>
+    </div>
+    <p class="chave-dica" data-i18n="chave.dica">A chave pode ser uma senha ou texto qualquer.</p>
+
+
+    <p class="chave-secao-titulo" data-i18n="chave.aplicar_para">Aplicar chave para:</p>
+    <div class="chave-opcoes">
+      <label class="chave-opcao">
+        <input type="radio" name="chave-escopo" value="bloco" checked>
+        <span class="chave-opcao-corpo">
+          <span class="chave-opcao-titulo" data-i18n="chave.apenas_bloco">Apenas este bloco</span>
+          <span class="chave-opcao-desc" data-i18n="chave.apenas_bloco_desc">A chave será usada somente neste bloco.</span>
+        </span>
+      </label>
+
+      <label class="chave-opcao">
+        <input type="radio" name="chave-escopo" value="tipo">
+        <span class="chave-opcao-corpo">
+          <span class="chave-opcao-titulo chave-opcao-titulo-tipo">Todos os AES</span>
+          <span class="chave-opcao-desc chave-opcao-desc-tipo" data-i18n="chave.todos_tipo_desc">A chave será aplicada em todos os blocos do mesmo tipo.</span>
+        </span>
+      </label>
+
+      <label class="chave-opcao">
+        <input type="radio" name="chave-escopo" value="geral">
+        <span class="chave-opcao-corpo">
+          <span class="chave-opcao-titulo" data-i18n="chave.todos_com_chave">Todos os blocos com chave</span>
+          <span class="chave-opcao-desc" data-i18n="chave.todos_com_chave_desc">A chave será aplicada em todos os blocos que precisem de chave.</span>
+        </span>
+      </label>
+    </div>
+  </div>
+
+  <div class="chave-rodape">
+    <button type="button" class="chave-cancelar" data-i18n="chave.cancelar">Cancelar</button>
+    <button type="button" class="chave-salvar" data-i18n="chave.salvar">Salvar</button>
+  </div>
+
+
+
+
+</div>
+
+
+<div class="rsa-overlay"></div>
+<div class="rsa-modal">
+  <div class="chave-topo" style="--chave-cor: #256af9;">
+    <img class="chave-icone-bloco" src="Assets/Icons/Chave-azul.png" alt="Ícone de Chave" data-i18n-alt="rsa.icone_alt">
+    <span class="chave-titulo-bloco" data-i18n="rsa.titulo">Gerenciador de Chaves RSA</span>
+    <button class="rsa-fechar" type="button" title="Fechar" data-i18n-title="acao.fechar">×</button>
+  </div>
+
+  <div class="chave-corpo">
+    <div>
+      <label class="chave-rotulo" data-i18n="rsa.tipo_chave">RSA-OAEP (2048 bits)</label>
+      <button type="button" id="rsa-gerar-btn" data-i18n="rsa.gerar_par">Gerar par de chaves</button>
+    </div>
+
+    <div>
+      <label class="chave-rotulo" data-i18n="rsa.chave_publica">Chave Pública (Criptografar)</label>
+      <div>
+        <textarea id="rsa-public-key" class="chave-campo-input" readonly placeholder="Nenhuma chave gerada..." data-i18n-placeholder="rsa.placeholder_vazio"></textarea>
+        <button type="button" id="rsa-copiar-pub-btn" data-i18n="acao.copiar">Copiar</button>
+      </div>
+    </div>
+
+    <div>
+      <label class="chave-rotulo" data-i18n="rsa.chave_privada">Chave Privada (Descriptografar)</label>
+      <div>
+        <textarea id="rsa-private-key" class="chave-campo-input" readonly placeholder="Nenhuma chave gerada..." data-i18n-placeholder="rsa.placeholder_vazio"></textarea>
+        <button type="button" id="rsa-copiar-priv-btn" data-i18n="acao.copiar">Copiar</button>
+      </div>
+    </div>
+
+    <div>
+      <button type="button" id="rsa-importar-priv-btn" data-i18n="rsa.importar_externa">Importar chave externa</button>
+    </div>
+  </div>
+
+  <div class="chave-rodape">
+    <button type="button" class="rsa-cancelar" data-i18n="acao.cancelar">Cancelar</button>
+    <button type="button" class="rsa-salvar" data-i18n="rsa.salvar_chaves">Salvar Chaves</button>
+  </div>
+</div>
+
+<dialog id="rsa-import-dialog" class="rsa-modal rsa-import-modal">
+  <div class="chave-topo" style="--chave-cor: #256af9;">
+    <img class="chave-icone-bloco" src="Assets/Icons/Chave-azul.png" alt="Ícone de Chave">
+    <span class="chave-titulo-bloco" data-i18n="rsa.importar_titulo">Importar Chave Privada</span>
+    <button class="rsa-fechar" type="button" id="rsa-import-fechar" title="Fechar" data-i18n-title="acao.fechar">×</button>
+  </div>
+
+  <div class="chave-corpo">
+    <div>
+      <label class="chave-rotulo" for="rsa-import-textarea" data-i18n="rsa.cole_chave">Cole a chave privada (PEM ou Base64 PKCS#8)</label>
+      <textarea id="rsa-import-textarea" class="chave-campo-input rsa-import-textarea" placeholder="-----BEGIN PRIVATE KEY-----&#10;...&#10;-----END PRIVATE KEY-----" data-i18n-placeholder="rsa.importar_placeholder"></textarea>
+    </div>
+    <p id="rsa-import-erro" class="rsa-import-erro" hidden></p>
+  </div>
+
+  <div class="chave-rodape">
+    <button type="button" id="rsa-import-cancelar" class="rsa-cancelar" data-i18n="acao.cancelar">Cancelar</button>
+    <button type="button" id="rsa-import-confirmar" class="rsa-salvar" data-i18n="acao.confirmar">Confirmar</button>
+  </div>
+</dialog>
+
+<div class="credit-overlay"></div>
+<div class='credit-modal'>
+ <div class="secao-ajustes ajustes-credito">
+     <div class="creditos-topo">
+      <div class="titulo-creditos"><span data-i18n="config.creditos_titulo">Créditos do Projeto</span></div>
+      <button class="fechar-creditos" type="button" aria-label="Fechar créditos">×</button>
+      </div>
+      
+      <p class="creditos-subtitulo" data-i18n="config.creditos_subtitulo">Agradecimentos e informações sobre o projeto.</p>
+
+      <div class="cartao-ajuste cartao-creditos cartao-github">
+        <div class="creditos-github-icone" id="creditos-icone-github-grande"><img src='Assets/Icons/github.png'></div>
+
+        <h3 data-i18n="config.creditos_github_titulo">Projeto hospedado no GitHub</h3>
+        <p data-i18n="config.creditos_github_desc">Confira o repositório, abra issues ou contribua com o projeto.</p>
+
+        <a class="creditos-github-btn" id="creditos-link-github" href="https://github.com/rhayronrfp-hash/PathCipher" target="_blank" rel="noopener noreferrer">
+          <span data-i18n="config.creditos_github_botao">Ver no GitHub</span>
+        </a>
+      </div>
+
+      <div class="cartao-ajuste cartao-creditos">
+        <div class="creditos-pessoas-titulo">
+          <span data-i18n="config.creditos_pessoas_titulo">Créditos</span>
+        </div>
+
+        <div class="creditos-pessoa">
+          <div class="creditos-avatar">R</div>
+          <div class="creditos-pessoa-info">
+          <a  href="https://github.com/rhayronrfp-hash" target="_blank" rel="noopener noreferrer">
+            <span class="creditos-pessoa-nome">rhayron</span>
+            </a>
+            <span class="creditos-pessoa-funcao" data-i18n="config.creditos_funcao">Desenvolvedor • Criador do projeto</span>
+          </div>
+        </div>
+
+        <p data-i18n="config.creditos_agradecimento">Idealizador e desenvolvedor deste projeto. Obrigado por usar e apoiar!</p>
+
+        <div class="creditos-divisor"></div>
+
+        <div class="creditos-dedicacao">
+          <span data-i18n="config.creditos_dedicacao">Feito com dedicação para tornar a criptografia simples e poderosa.</span>
+        </div>
+      </div>
+
+      <div class="cartao-ajuste cartao-creditos">
+        <div class="creditos-sobre-titulo">
+          <span data-i18n="config.creditos_sobre_titulo">Sobre o projeto</span>
+        </div>
+        <p data-i18n="config.creditos_sobre_desc">Ferramenta de criptografia e codificação em múltiplas etapas, com interface moderna, otimizada para performance e produtividade.</p>
+        <span class="creditos-versao-badge" data-i18n="config.creditos_versao">Versão 1.0.0</span>
+      </div>
+    </div>
+</div>
 
 
 
 <script src='Js/Appearance.js'></script>
 <script src='Js/crypto.js'></script>
-<script src='Js/Logic.js'></script>
 <script src='Js/Savelogic.js'></script>
+<script src='Js/Logic.js'></script>
 <script src='Js/warn.js'></script>
 <script src='Js/storage.js'></script>
 <script src="https://unpkg.com/i18next@latest/i18next.min.js"></script>

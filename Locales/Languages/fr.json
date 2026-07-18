@@ -49,7 +49,12 @@
     "criptografia": "Cryptographie"
   },
   "acao": {
-    "copiar": "Copier"
+    "copiar": "Copier",
+    "fechar": "Fermer",
+      "cancelar": "Annuler",
+      "confirmar": "Confirmer",
+      "configurar_chave": "Configurer la clé",
+      "remover": "Supprimer"
   },
   "painel": {
     "placeholder_entrada": "tapez ici",
@@ -89,13 +94,76 @@
     "hindi": "Hindi",
     "hindi_traducao": "(Hindi)",
     "chines": "中文简体",
-    "chines_traducao": "(Chinois simplifié)"
+    "chines_traducao": "(Chinois simplifié)",
+    "japones": "日本語",
+    "japones_traducao": "(Japonais)",
+  "creditos_titulo": "Crédits du Projet",
+  "creditos_subtitulo": "Remerciements et informations sur le projet.",
+  "creditos_github_titulo": "Projet hébergé sur GitHub",
+  "creditos_github_desc": "Consultez le dépôt, ouvrez des issues ou contribuez au projet.",
+  "creditos_github_botao": "Voir sur GitHub",
+  "creditos_pessoas_titulo": "Crédits",
+  "creditos_funcao": "Développeur • Créateur du projet",
+  "creditos_agradecimento": "Créateur et développeur de ce projet. Merci d'utiliser et de soutenir !",
+  "creditos_dedicacao": "Fait avec dévouement pour rendre la cryptographie simple et puissante.",
+  "creditos_sobre_titulo": "À propos du projet",
+  "creditos_sobre_desc": "Outil de cryptographie et d'encodage en plusieurs étapes, avec une interface moderne, optimisé pour les performances et la productivité.",
+  "creditos_versao": "Version 1.0.0"
+
       },
   "aviso": {
   "titulo": "Attention aux lettres !",
   "botao": "Compris",
   "texto": "Évitez d'utiliser des lettres majuscules et des accents dans la zone de saisie lorsque vous utilisez le morse. Cela peut affecter les résultats du chiffrement, car certains algorithmes ne font pas la différence entre majuscules et minuscules ou modifient le comportement par défaut."
+},
+  "chave": {
+      "rotulo": "Clé",
+      "dica": "La clé peut être un mot de passe ou n'importe quel texte.",
+      "aplicar_para": "Appliquer la clé à :",
+      "apenas_bloco": "Ce bloc uniquement",
+      "apenas_bloco_desc": "La clé sera utilisée uniquement dans ce bloc.",
+      "todos_tipo_desc": "La clé sera appliquée à tous les blocs du même type.",
+      "todos_com_chave": "Tous les blocs avec clé",
+      "todos_com_chave_desc": "La clé sera appliquée à tous les blocs nécessitant une clé.",
+      "cancelar": "Annuler",
+      "salvar": "Enregistrer",
+      "todos_tipo_titulo": "Tous les {{tipo}}"
+    },
+    "rsa": {
+      "icone_alt": "Icône de clé",
+      "titulo": "Gestionnaire de clés RSA",
+      "tipo_chave": "RSA-OAEP (2048 bits)",
+      "gerar_par": "Générer une paire de clés",
+      "chave_publica": "Clé publique (Chiffrer)",
+      "placeholder_vazio": "Aucune clé générée...",
+      "chave_privada": "Clé privée (Déchiffrer)",
+      "importar_externa": "Importer une clé externe",
+      "salvar_chaves": "Enregistrer les clés",
+      "importar_titulo": "Importer la clé privée",
+      "cole_chave": "Collez la clé privée (PEM ou Base64 PKCS#8)",
+      "msg_copiado_pub": "Clé publique copiée !",
+      "msg_copiado_priv": "Clé privée copiée !",
+      "erro_gerar": "Échec de la génération des clés RSA."
+    },
+    "erro": {
+  "rsa_publica_invalida": "[Erreur RSA] Clé publique invalide ou absente.",
+  "rsa_falha_criptografia": "[Erreur RSA] Échec du chiffrement. Vérifiez la clé publique.",
+  "rsa_privada_nao_encontrada": "[Erreur RSA] Clé privée introuvable dans ce bloc.",
+  "rsa_privada_nao_configurada": "[Erreur RSA] Aucune clé privée configurée.",
+  "rsa_falha_descriptografia": "[Erreur RSA] Échec du déchiffrement. Clé incorrecte ou données corrompues.",
+  "rsa_importar_vazio": "Collez une clé privée avant de confirmer.",
+  "rsa_importar_interpretar": "Impossible d'interpréter la clé fournie.",
+  "rsa_importar_base64": "Clé Base64 invalide. Vérifiez que tout le contenu a été copié.",
+  "rsa_importar_formato": "Format invalide ou clé RSA incompatible (PKCS#8 attendu).",
+  "rsa_importar_derivar": "Impossible de dériver la clé publique à partir de la clé privée.",
+  "aes_invalido": "[AES] Clé incorrecte ou texte chiffré invalide.",
+  "chacha20_invalido": "[ChaCha20] Clé incorrecte ou texte chiffré invalide.",
+  "chave_obrigatoria": "[Erreur] Ce bloc nécessite une clé.",
+  "base64_invalido": "[Base64] Texte invalide.",
+  "hex_invalido": "[Hex] Texte invalide.",
+  "binario_invalido": "[Binaire] Texte invalide.",
+  "ascii_invalido": "[ASCII] Texte invalide.",
+  "url_invalido": "[URL] Texte invalide.",
+  "unicode_invalido": "[Unicode] Texte invalide."
 }
-
-
 }

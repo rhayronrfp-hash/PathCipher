@@ -46,7 +46,12 @@
     "criptografar": "Encrypt"
   },
   "acao": {
-    "copiar": "Copy"
+    "copiar": "Copy",
+    "fechar": "Close",
+    "cancelar": "Cancel",
+    "confirmar": "Confirm",
+    "configurar_chave": "Configure key",
+    "remover": "Remove"
   },
   "painel": {
     "placeholder_entrada": "type here",
@@ -86,19 +91,85 @@
     "hindi": "हिन्दी",
     "hindi_traducao": "(Hindi)",
     "chines": "中文简体",
-    "chines_traducao": "(Simplified Chinese)"
+    "chines_traducao": "(Simplified Chinese)",
+    "japones": "日本語",
+    "japones_traducao": "(Japanese)",
+  "creditos_titulo": "Project Credits",
+  "creditos_subtitulo": "Acknowledgments and project information.",
+  "creditos_github_titulo": "Project hosted on GitHub",
+  "creditos_github_desc": "Check out the repository, open issues or contribute to the project.",
+  "creditos_github_botao": "View on GitHub",
+  "creditos_pessoas_titulo": "Credits",
+  "creditos_funcao": "Developer • Project Creator",
+  "creditos_agradecimento": "Creator and developer of this project. Thank you for using and supporting!",
+  "creditos_dedicacao": "Made with dedication to make cryptography simple and powerful.",
+  "creditos_sobre_titulo": "About the project",
+  "creditos_sobre_desc": "Multi-step cryptography and encoding tool, with a modern interface, optimized for performance and productivity.",
+  "creditos_versao": "Version 1.0.0"
+
+
   },
   "fluxo": {
     "inicio": "Start"
   },
   "aviso": {
-  "titulo": "Attention to Letters!",
-  "botao": "Understood",
-  "texto": "Avoid using capital letters and accents in the input box when using Morse. This can affect encryption results, as some algorithms do not differentiate case or alter default behavior."
+    "titulo": "Attention to Letters!",
+    "botao": "Understood",
+    "texto": "Avoid using capital letters and accents in the input box when using Morse. This can affect encryption results, as some algorithms do not differentiate case or alter default behavior."
+  },
+  "chave": {
+    "rotulo": "Key",
+    "dica": "The key can be a password or any text.",
+    "aplicar_para": "Apply key to:",
+    "apenas_bloco": "Only this block",
+    "apenas_bloco_desc": "The key will be used only in this block.",
+    "todos_tipo_desc": "The key will be applied to all blocks of the same type.",
+    "todos_com_chave": "All blocks with key",
+    "todos_com_chave_desc": "The key will be applied to all blocks that require a key.",
+    "cancelar": "Cancel",
+    "salvar": "Save",
+    "todos_tipo_titulo": "All {{tipo}}"
+  },
+  "rsa": {
+    "icone_alt": "Key icon",
+    "titulo": "RSA Key Manager",
+    "tipo_chave": "RSA-OAEP (2048 bits)",
+    "gerar_par": "Generate key pair",
+    "chave_publica": "Public Key (Encrypt)",
+    "placeholder_vazio": "No key generated...",
+    "chave_privada": "Private Key (Decrypt)",
+    "importar_externa": "Import external key",
+    "salvar_chaves": "Save Keys",
+    "importar_titulo": "Import Private Key",
+    "cole_chave": "Paste the private key (PEM or Base64 PKCS#8)",
+    "msg_copiado_pub": "Public key copied!",
+    "msg_copiado_priv": "Private key copied!",
+    "erro_gerar": "Failed to generate RSA keys.",
+    "gerando": "Generating...",
+    "importando": "Importing...",
+    "module_unavailable": "Cryptography module unavailable.",
+    "import_failed": "Failed to import the private key.",
+    "importar_placeholder": "-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----"
+  },
+  "erro": {
+  "rsa_publica_invalida": "[RSA Error] Invalid or missing public key.",
+  "rsa_falha_criptografia": "[RSA Error] Encryption failed. Check the public key.",
+  "rsa_privada_nao_encontrada": "[RSA Error] Private key not found in this block.",
+  "rsa_privada_nao_configurada": "[RSA Error] No private key configured.",
+  "rsa_falha_descriptografia": "[RSA Error] Decryption failed. Incorrect key or corrupted data.",
+  "rsa_importar_vazio": "Paste a private key before confirming.",
+  "rsa_importar_interpretar": "The provided key could not be interpreted.",
+  "rsa_importar_base64": "Invalid Base64 key. Make sure you copied the entire content.",
+  "rsa_importar_formato": "Invalid format or incompatible RSA key (expected PKCS#8).",
+  "rsa_importar_derivar": "Unable to derive the public key from the private key.",
+  "aes_invalido": "[AES] Incorrect key or invalid ciphertext.",
+  "chacha20_invalido": "[ChaCha20] Incorrect key or invalid ciphertext.",
+  "chave_obrigatoria": "[Error] This block requires a key to continue.",
+  "base64_invalido": "[Base64] Invalid text.",
+  "hex_invalido": "[Hex] Invalid text.",
+  "binario_invalido": "[Binary] Invalid text.",
+  "ascii_invalido": "[ASCII] Invalid text.",
+  "url_invalido": "[URL] Invalid text.",
+  "unicode_invalido": "[Unicode] Invalid text."
 }
-
-
-
 }
-
-

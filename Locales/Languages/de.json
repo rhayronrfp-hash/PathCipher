@@ -51,7 +51,12 @@
   },
   
   "acao": {
-    "copiar": "Kopieren"
+    "copiar": "Kopieren",
+    "fechar": "Schließen",
+      "cancelar": "Abbrechen",
+      "confirmar": "Bestätigen",
+      "configurar_chave": "Schlüssel konfigurieren",
+      "remover": "Entfernen"
   },
   "painel": {
     "placeholder_entrada": "hier eingeben",
@@ -91,14 +96,56 @@
     "hindi": "हिन्दी",
     "hindi_traducao": "(Hindi)",
     "chines": "中文简体",
-    "chines_traducao": "(Vereinfachtes Chinesisch)"
+    "chines_traducao": "(Vereinfachtes Chinesisch)",
+    "japones": "日本語", 
+    "japones_traducao": "(Japanisch)",
+  "creditos_titulo": "Projekt-Credits",
+  "creditos_subtitulo": "Danksagungen und Projektinformationen.",
+  "creditos_github_titulo": "Projekt gehostet auf GitHub",
+  "creditos_github_desc": "Schauen Sie sich das Repository an, eröffnen Sie Issues oder tragen Sie zum Projekt bei.",
+  "creditos_github_botao": "Auf GitHub ansehen",
+  "creditos_pessoas_titulo": "Credits",
+  "creditos_funcao": "Entwickler • Projektentwickler",
+  "creditos_agradecimento": "Erfinder und Entwickler dieses Projekts. Danke für die Nutzung und Unterstützung!",
+  "creditos_dedicacao": "Mit Hingabe gemacht, um Kryptografie einfach und leistungsstark zu machen.",
+  "creditos_sobre_titulo": "Über das Projekt",
+  "creditos_sobre_desc": "Mehrstufiges Kryptografie- und Kodierungswerkzeug mit moderner Benutzeroberfläche, optimiert für Leistung und Produktivität.",
+  "creditos_versao": "Version 1.0.0"
+
+
   },
   "aviso": {
   "titulo": "Achtung bei den Buchstaben!",
   "botao": "Verstanden",
   "texto": "Vermeiden Sie die Verwendung von Großbuchstaben und Akzenten im Eingabefeld, wenn Sie Morsezeichen verwenden. Dies kann die Verschlüsselungsergebnisse beeinträchtigen, da einige Algorithmen nicht zwischen Groß- und Kleinschreibung unterscheiden oder das Standardverhalten ändern."
-}
-
-
-
+},
+"chave": {
+      "rotulo": "Schlüssel",
+      "dica": "Der Schlüssel kann ein Passwort oder ein beliebiger Text sein.",
+      "aplicar_para": "Schlüssel anwenden auf:",
+      "apenas_bloco": "Nur dieser Block",
+      "apenas_bloco_desc": "Der Schlüssel wird nur in diesem Block verwendet.",
+      "todos_tipo_desc": "Der Schlüssel wird auf alle Blöcke des gleichen Typs angewendet.",
+      "todos_com_chave": "Alle Blöcke mit Schlüssel",
+      "todos_com_chave_desc": "Der Schlüssel wird auf alle Blöcke angewendet, die einen Schlüssel benötigen.",
+      "cancelar": "Abbrechen",
+      "salvar": "Speichern",
+      "todos_tipo_titulo": "Alle {{tipo}}"
+    },
+    "rsa": {
+      "icone_alt": "Schlüssel-Symbol",
+      "titulo": "RSA-Schlüsselmanager",
+      "tipo_chave": "RSA-OAEP (2048 Bits)",
+      "gerar_par": "Schlüsselpaar generieren",
+      "chave_publica": "Öffentlicher Schlüssel (Verschlüsseln)",
+      "placeholder_vazio": "Kein Schlüssel generiert...",
+      "chave_privada": "Privater Schlüssel (Entschlüsseln)",
+      "importar_externa": "Externen Schlüssel importieren",
+      "salvar_chaves": "Schlüssel speichern",
+      "importar_titulo": "Privaten Schlüssel importieren",
+      "cole_chave": "Privaten Schlüssel einfügen (PEM oder Base64 PKCS#8)",
+      "msg_copiado_pub": "Öffentlicher Schlüssel kopiert!",
+      "msg_copiado_priv": "Privater Schlüssel kopiert!",
+      "erro_gerar": "Fehler beim Generieren der RSA-Schlüssel."
+    }
 }

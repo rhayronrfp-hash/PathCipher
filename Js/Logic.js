@@ -1,5 +1,19 @@
 window.transformacoes = transformacoesCrypto;
 
+window.pipelinePossuiBlocoSemChave = function pipelinePossuiBlocoSemChave() {
+  const pipelineAtual = window.pipeline || [];
+  const tiposComChave = window.tiposComChave || [];
+
+  return pipelineAtual.some((bloco) => {
+    if (!tiposComChave.includes(bloco.tipo)) return false;
+
+    const chave = window.obterChaveDoBloco
+      ? window.obterChaveDoBloco(bloco.id)
+      : bloco.chave;
+
+    return !chave || String(chave).trim() === "";
+  });
+};
 
 let ultimoTextoEntrada = "";
 let ultimoCaminhoTipos = [];
@@ -25,6 +39,14 @@ const btnVoltar = botoesSeta[0] || null;
 const btnAvancar = botoesSeta[1] || null;
 const canvas = document.getElementById("fluxo-container");
 
+
+
+
+txtEntrada.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+        e.preventDefault();
+        btnExecutar.click();}});
+        
 const tituloEntrada = document.querySelector(
   ".cartao-painel:nth-child(1) .top-painel span"
 );
@@ -32,19 +54,19 @@ const tituloResultado = document.querySelector(
   ".cartao-painel:nth-child(2) .top-painel span"
 );
 
-function aplicarTransformacaoUnica(tipo, texto) {
+async function aplicarTransformacaoUnica(tipo, texto, chave) {
   const operacaoInversa = `${tipo}_inverso`;
 
   if (transformacoes[operacaoInversa]) {
-    return transformacoes[operacaoInversa](texto);
+    return await transformacoes[operacaoInversa](texto, chave);
   } else if (transformacoes[tipo]) {
-    return transformacoes[tipo](texto);
+    return await transformacoes[tipo](texto, chave);
   }
 
   return `[${tipo.toUpperCase()}] ${texto}`;
 }
 
-function atualizarPreviewDescriptografia() {
+async function atualizarPreviewDescriptografia() {
   if (!window.ModoReverseActive || !txtEntrada) return;
 
   const pipelineAtual = window.pipeline || [];
@@ -54,8 +76,13 @@ function atualizarPreviewDescriptografia() {
     return;
   }
 
-  const tipoMaisRecente = pipelineAtual[0].tipo;
-  txtEntrada.value = aplicarTransformacaoUnica(tipoMaisRecente, window.ancoraDescriptografia || "");
+  const blocoMaisRecente = pipelineAtual[0];
+  const chaveDoBloco = window.obterChaveDoBloco ? window.obterChaveDoBloco(blocoMaisRecente.id) : "";
+  txtEntrada.value = await aplicarTransformacaoUnica(
+    blocoMaisRecente.tipo,
+    window.ancoraDescriptografia || "",
+    chaveDoBloco
+  );
 }
 window.atualizarPreviewDescriptografia = atualizarPreviewDescriptografia;
 
@@ -64,8 +91,7 @@ if (txtEntrada) {
     if (window.ModoReverseActive) {
       window.ancoraDescriptografia = txtEntrada.value;
     }
-  });
-}
+  });}
 
 if (botaoCopiar) {
   botaoCopiar.addEventListener("click", () => {
@@ -76,8 +102,7 @@ if (botaoCopiar) {
         .writeText(valor)
         .catch((err) => console.error("não deu certolol", err));
     }
-  });
-}
+  });}
 
 function textoDoBotaoInverter() {
   return btnInverter ? btnInverter.querySelector("span") : null;
@@ -103,6 +128,9 @@ function aplicarTextoI18n(elemento, definicao) {
 }
 
 function aplicarTextosModo(reverse) {
+  if (btnInverter) {
+    btnInverter.classList.toggle("inverter-ativo", !!reverse);
+  }
   const modo = reverse ? TEXTOS_MODO.reverso : TEXTOS_MODO.normal;
 
   aplicarTextoI18n(tituloEntrada, modo.entrada);
@@ -110,6 +138,7 @@ function aplicarTextosModo(reverse) {
 
   const textoBotao = textoDoBotaoInverter();
   aplicarTextoI18n(textoBotao || btnInverter, modo.botao);
+
 }
 
 function copiarPipeline() {
@@ -174,7 +203,7 @@ if (btnAvancar) {
   btnAvancar.addEventListener("click", avancarEstado);}
 
 if (btnExecutar && txtEntrada && txtSaida) {
-  btnExecutar.addEventListener("click", () => {
+  btnExecutar.addEventListener("click", async () => {
     const textoOriginal =
       window.ModoReverseActive && typeof window.ancoraDescriptografia === "string"
         ? window.ancoraDescriptografia
@@ -216,16 +245,18 @@ if (btnExecutar && txtEntrada && txtSaida) {
       historicoResultadosParciais = historicoResultadosParciais.slice(0, indexInicio);
     }
 
-    for (let i = indexInicio; i < caminhoAtualTipos.length; i++) {
-      const tipoDoBloco = caminhoAtualTipos[i];
+    for (let i = indexInicio; i < pipelineAtual.length; i++) {
+      const bloco = pipelineAtual[i];
+      const tipoDoBloco = bloco.tipo;
+      const chaveDoBloco = window.obterChaveDoBloco ? window.obterChaveDoBloco(bloco.id) : "";
       const operacao = window.ModoReverseActive
         ? `${tipoDoBloco}_inverso`
         : tipoDoBloco;
 
       if (transformacoes[operacao]) {
-        textoProcessado = transformacoes[operacao](textoProcessado);
+        textoProcessado = await transformacoes[operacao](textoProcessado, chaveDoBloco);
       } else if (transformacoes[tipoDoBloco]) {
-        textoProcessado = transformacoes[tipoDoBloco](textoProcessado);
+        textoProcessado = await transformacoes[tipoDoBloco](textoProcessado, chaveDoBloco);
       } else {
         textoProcessado = `[${tipoDoBloco.toUpperCase()}] ${textoProcessado}`;
       }
@@ -254,28 +285,39 @@ if (btnInverter) {
       }
     }
 
+    // Muda o texto e a cor do botão primeiro, para o clique responder na hora.
     aplicarTextosModo(window.ModoReverseActive);
 
-    if (window.pipeline && window.pipeline.length > 0) {
-      window.pipeline.reverse();
+    // O resto (reordenar pipeline, redesenhar canvas, rodar a criptografia)
+    // é mais pesado e roda logo depois, já com a cor atualizada na tela.
+    requestAnimationFrame(() => {
+      if (window.pipeline && window.pipeline.length > 0) {
+        window.pipeline.reverse();
 
-      if (typeof window.renderizarCanvas === "function") {
-        window.renderizarCanvas();
+        if (typeof window.renderizarCanvas === "function") {
+          window.renderizarCanvas();
+        }
       }
-    }
 
-    if (window.limparCacheOtimizacao) {
-      window.limparCacheOtimizacao();
-    }
+      if (window.limparCacheOtimizacao) {
+        window.limparCacheOtimizacao();
+      }
 
-    if (btnExecutar) {
-      btnExecutar.click();
-    }
+      if (btnExecutar && !window.pipelinePossuiBlocoSemChave()) {
+        btnExecutar.click();
+      }
 
-    salvarEstado();
+      salvarEstado();
+    });
   });
 }
 const botaoLimpar = document.getElementById("limpar-pipeline");
+
+txtEntrada.addEventListener("input", () => {
+  if (!window.pipelinePossuiBlocoSemChave()) {
+    btnExecutar.click();
+  }
+});
 
 if (botaoLimpar) {
   botaoLimpar.addEventListener("click", () => {window.pipeline = [];
@@ -307,4 +349,7 @@ if (botaoLimpar) {
   }
 
 salvarEstado();
+
+
+
 

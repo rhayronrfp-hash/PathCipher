@@ -137,10 +137,12 @@ html, body {
 
 .btn-roxo {
   display: flex;
+  font-family: "Inter";
   align-items: center;
   border-radius: 6px;
   overflow: hidden;
-  background: #6c5ce7;
+  background: #2ecc71;
+  font-weight: 600;
 }
 
 .btn-roxo .btn-outline,
@@ -163,12 +165,12 @@ html, body {
 }  
 
 .salvamento:active {
-  background: #6959e0ac;
+  background-color: #2CC46D;
 }
 
 .executar {
+  display: none;
   opacity: 100%;
-  font-weight: 600;
   font-size: 15px;
   height: 30px;
   color: white;
@@ -208,5 +210,12 @@ html, body {
 
 .inverter:active {
   transform: scale(0.97);
-  background: #2c3e9bd3;
+}
+
+.inverter.inverter-ativo {
+  background: #632C9B;
+}
+
+.inverter.inverter-ativo:active {
+  transform: scale(0.97);
 }
