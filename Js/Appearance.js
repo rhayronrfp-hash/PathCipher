@@ -116,9 +116,9 @@ window.indiceHistorico = -1;
  
   
   function atualizarResultado() {
-    if (window.pipelinePossuiBlocoSemChave && window.pipelinePossuiBlocoSemChave()) {
-      return;
-    }
+    if (!txtEntrada.value.trim()) {
+    txtSaida.value = "";
+    return;}
     const btnExecutar = document.querySelector(".executar");
     if (btnExecutar) {
       btnExecutar.click();
@@ -132,7 +132,7 @@ window.indiceHistorico = -1;
 
 
 
-  function removerBloco(id) {
+  async function removerBloco(id) {
     pipeline = pipeline.filter((b) => b.id !== id);
     salvarHistorico();
 
@@ -142,6 +142,10 @@ window.indiceHistorico = -1;
 
     if (window.limparCacheOtimizacao) {
       window.limparCacheOtimizacao();
+    }
+
+    if (window.regenerarAncoraReversa) {
+      await window.regenerarAncoraReversa();
     }
 
     if (window.atualizarPreviewDescriptografia) {
@@ -157,7 +161,7 @@ window.indiceHistorico = -1;
   }
 
 
-  function reordenar(idOrigem, idDestino) {
+  async function reordenar(idOrigem, idDestino) {
     if (idOrigem === idDestino) return;
 
     const indexOrigem = pipeline.findIndex((b) => b.id === idOrigem);
@@ -174,6 +178,10 @@ window.indiceHistorico = -1;
       window.limparCacheOtimizacao();
     }
 
+    if (window.regenerarAncoraReversa) {
+      await window.regenerarAncoraReversa();
+    }
+
     renderizarCanvas();
     atualizarResultado();
 
@@ -181,6 +189,7 @@ window.indiceHistorico = -1;
     window.salvarEstado();
     }
   }
+
 
 
   function renderizarCanvas() {
@@ -233,6 +242,7 @@ window.indiceHistorico = -1;
   }
 
   requestAnimationFrame(desenharLinhas);
+  atualizarIdioma();
 }
   window.renderizarCanvas = renderizarCanvas;
 
@@ -314,7 +324,7 @@ window.indiceHistorico = -1;
   habilitarArraste(div, bloco);
   return div;}
 
-  function adicionarBloco(botaoOrigem) {
+  async function adicionarBloco(botaoOrigem) {
     const tipo = botaoOrigem.dataset.type;
     const label = botaoOrigem.textContent.trim();
     const cor =
@@ -340,8 +350,8 @@ window.indiceHistorico = -1;
       window.limparCacheOtimizacao();
     }
 
-    if (window.atualizarPreviewDescriptografia) {
-      window.atualizarPreviewDescriptografia();
+    if (window.regenerarAncoraReversa) {
+      await window.regenerarAncoraReversa();
     }
     
     salvarHistorico();
@@ -523,7 +533,7 @@ window.indiceHistorico = -1;
 
   const NOMES_TIPO_CHAVE = {
     aes: "AES", rsa: "RSA", chacha20: "ChaCha20", cesar: "César",
-    vigenere: "Vigenère", md5: "MD5", sha256: "SHA-256", sha512: "SHA-512"
+    vigenere: "Vigenère", md5: "MD5 hmac", sha256: "SHA-256 hmac", sha512: "SHA-512 hmac"
   };
 
   const TEMAS_CHAVE = {
@@ -704,9 +714,11 @@ window.indiceHistorico = -1;
       }
 
       if (window.limparCacheOtimizacao) window.limparCacheOtimizacao();
-      if (window.atualizarPreviewDescriptografia) await window.atualizarPreviewDescriptografia();
+      if (window.regenerarAncoraReversa) {
+        await window.regenerarAncoraReversa();
+      }
 
-      atualizarResultado();
+atualizarResultado();
 
       if (window.salvarEstado) window.salvarEstado();
 

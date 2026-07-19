@@ -104,7 +104,52 @@ function atualizarIdioma() {
 
             el.value =
                 i18next.t(el.dataset.i18nValue);});}
-  
-document.addEventListener("DOMContentLoaded", () => {
-  iniciarIdioma();});
 
+
+function aplicarTamanhoBlocos(valor) {
+  const root = document.documentElement;
+
+  if (valor === "pequeno") {
+    root.style.setProperty("--bloco-size", "0.88");
+  } else if (valor === "grande") {
+    root.style.setProperty("--bloco-size", "1.12");} 
+    else {
+    root.style.setProperty("--bloco-size", "1");}}
+
+function aplicarDistanciaBlocos(valor) {
+  const root = document.documentElement;
+
+  if (valor === "curto") {
+    root.style.setProperty("--bloco-gap", "30px");
+  } else if (valor === "longo") {
+    root.style.setProperty("--bloco-gap", "90px");
+  } else {
+    root.style.setProperty("--bloco-gap", "60px");}}
+
+function salvarPreferenciaTamanhoBlocos(valor) {
+  localStorage.setItem(CHAVE_TAMANHO_BLOCOS, valor);}
+
+function salvarPreferenciaDistanciaBlocos(valor) {
+  localStorage.setItem(CHAVE_DISTANCIA_BLOCOS, valor);}
+
+function carregarPreferenciasBlocos() {
+  const tamanho = localStorage.getItem(CHAVE_TAMANHO_BLOCOS) || "normal";
+  const distancia = localStorage.getItem(CHAVE_DISTANCIA_BLOCOS) || "normal";
+  const radioTamanho = document.querySelector(`input[name="tamanho"][value="${tamanho}"]`);
+  const radioDistancia = document.querySelector(`input[name="distância"][value="${distancia}"]`);
+
+  if (radioTamanho) radioTamanho.checked = true;
+  if (radioDistancia) radioDistancia.checked = true;
+
+  aplicarTamanhoBlocos(tamanho);
+  aplicarDistanciaBlocos(distancia);}
+
+window.aplicarTamanhoBlocos = aplicarTamanhoBlocos;
+window.aplicarDistanciaBlocos = aplicarDistanciaBlocos;
+window.salvarPreferenciaTamanhoBlocos = salvarPreferenciaTamanhoBlocos;
+window.salvarPreferenciaDistanciaBlocos = salvarPreferenciaDistanciaBlocos;
+window.carregarPreferenciasBlocos = carregarPreferenciasBlocos;  
+
+document.addEventListener("DOMContentLoaded", () => {
+  iniciarIdioma();
+  carregarPreferenciasBlocos();});

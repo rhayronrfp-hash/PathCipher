@@ -41,8 +41,9 @@
     "salvar": "Enregistrer"
   },
   "fluxo": {
-    "inicio": "Début"
-  },
+  "inicio": "Début",
+  "final": "Fin"
+},
   "termo": {
     "descriptografia": "Déchiffrement",
     "criptografar": "Chiffrer",
@@ -114,7 +115,7 @@
   "aviso": {
   "titulo": "Attention aux lettres !",
   "botao": "Compris",
-  "texto": "Évitez d'utiliser des lettres majuscules et des accents dans la zone de saisie lorsque vous utilisez le morse. Cela peut affecter les résultats du chiffrement, car certains algorithmes ne font pas la différence entre majuscules et minuscules ou modifient le comportement par défaut."
+  "texto": "Certains algorithmes, comme César et Vigenère, présentent des limitations avec les caractères accentués et certains symboles spéciaux. SHA-256, SHA-512, MD5 et leurs versions HMAC sont des fonctions de hachage et ne peuvent pas être inversés ; le texte d'origine ne peut donc pas être récupéré après leur utilisation."
 },
   "chave": {
       "rotulo": "Clé",

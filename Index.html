@@ -97,19 +97,33 @@
 
       <button class="bloco bloco-vermelho" data-type="sha256">
         <img src="Assets/Icons/Icon11(1).png" alt="SHA-256" class="bloco-icon" data-i18n-alt="bloco.sha256">
-        <span data-i18n="bloco.sha256">SHA-256</span>
+        <span>SHA-256</span>
+      </button>
+      
+      <button class="bloco bloco-vermelho" data-type="sha256hmac">
+        <img src="Assets/Icons/Icon11(1).png" alt="hmac" class="bloco-icon">
+        <span>SHA-256 hmac</span>
       </button>
 
       <button class="bloco bloco-vermelho" data-type="sha512">
-        <img src="Assets/Icons/Icon12(1).png" alt="SHA-512" class="bloco-icon" data-i18n-alt="bloco.sha512">
-        <span data-i18n="bloco.sha512">SHA-512</span>
+        <img src="Assets/Icons/Icon12(1).png" alt="SHA-512" class="bloco-icon">
+        <span>SHA-512</span>
       </button>
-
+      
+      <button class="bloco bloco-vermelho" data-type="sha512hmac">
+        <img src="Assets/Icons/Icon12(1).png" alt="SHA-512-hmac" class="bloco-icon">
+        <span>SHA-512 hmac</span>
+      </button>
+      
       <button class="bloco bloco-vermelho" data-type="md5">
-        <img src="Assets/Icons/Icon13(1).png" alt="MD5" class="bloco-icon" data-i18n-alt="bloco.md5">
-        <span data-i18n="bloco.md5">MD5</span>
+        <img src="Assets/Icons/Icon13(1).png" alt="MD5" class="bloco-icon">
+        <span>MD5</span>
       </button>
 
+      <button class="bloco bloco-vermelho" data-type="md5hmac">
+        <img src="Assets/Icons/Icon13(1).png" alt="MD5hmac" class="bloco-icon">
+        <span>MD5 hmac</span>
+      </button>
     </div>
   </div>
 
@@ -415,7 +429,7 @@
 
             <label class="opcao-bolinha gambiarra2">
                 <input type="radio" name="tamanho" value="normal">
-                <span data-i18n="config.tamanho_normal">Normal</span>
+                <span data-i18n="config.tamanho_normal" checked >Normal</span>
             </label>
 
             <label class="opcao-bolinha gambiarra3">
@@ -665,8 +679,8 @@
 <script src='Js/crypto.js'></script>
 <script src='Js/Savelogic.js'></script>
 <script src='Js/Logic.js'></script>
-<script src='Js/warn.js'></script>
 <script src='Js/storage.js'></script>
+<script src='Js/warn.js'></script>
 <script src="https://unpkg.com/i18next@latest/i18next.min.js"></script>
 <script src="https://unpkg.com/i18next-http-backend@latest/i18nextHttpBackend.min.js"></script>
 <script src="https://unpkg.com/i18next-browser-languagedetector@latest/i18nextBrowserLanguageDetector.min.js"></script>

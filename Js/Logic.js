@@ -68,23 +68,43 @@ async function aplicarTransformacaoUnica(tipo, texto, chave) {
 
 async function atualizarPreviewDescriptografia() {
   if (!window.ModoReverseActive || !txtEntrada) return;
-
   const pipelineAtual = window.pipeline || [];
 
   if (pipelineAtual.length === 0) {
     txtEntrada.value = window.ancoraDescriptografia || "";
-    return;
+    return;}
+  return;}
+
+window.atualizarPreviewDescriptografia = atualizarPreviewDescriptografia;
+async function regenerarAncoraReversa() {
+  if (!window.ModoReverseActive) return;
+  if (typeof window.textoOriginalAntesReverse !== "string") return;
+
+  const pipelineEmOrdemDeCriptografia = [...(window.pipeline || [])].reverse();
+  let texto = window.textoOriginalAntesReverse;
+
+  for (const bloco of pipelineEmOrdemDeCriptografia) {
+    const chaveDoBloco = window.obterChaveDoBloco
+      ? window.obterChaveDoBloco(bloco.id)
+      : "";
+
+    const precisaDeChave =
+      window.tiposComChave && window.tiposComChave.includes(bloco.tipo);
+
+    const temChave =
+      !precisaDeChave || (chaveDoBloco && String(chaveDoBloco).trim() !== "");
+
+    if (!temChave) continue;
+
+    if (transformacoes[bloco.tipo]) {
+      texto = await transformacoes[bloco.tipo](texto, chaveDoBloco);
+    }
   }
 
-  const blocoMaisRecente = pipelineAtual[0];
-  const chaveDoBloco = window.obterChaveDoBloco ? window.obterChaveDoBloco(blocoMaisRecente.id) : "";
-  txtEntrada.value = await aplicarTransformacaoUnica(
-    blocoMaisRecente.tipo,
-    window.ancoraDescriptografia || "",
-    chaveDoBloco
-  );
+  window.ancoraDescriptografia = texto;
+  if (txtEntrada) txtEntrada.value = texto;
 }
-window.atualizarPreviewDescriptografia = atualizarPreviewDescriptografia;
+window.regenerarAncoraReversa = regenerarAncoraReversa;
 
 if (txtEntrada) {
   txtEntrada.addEventListener("input", () => {
@@ -202,14 +222,24 @@ if (btnVoltar) {
 if (btnAvancar) {
   btnAvancar.addEventListener("click", avancarEstado);}
 
+let geracaoExecucao = 0;
+
 if (btnExecutar && txtEntrada && txtSaida) {
   btnExecutar.addEventListener("click", async () => {
-    const textoOriginal =
-      window.ModoReverseActive && typeof window.ancoraDescriptografia === "string"
-        ? window.ancoraDescriptografia
-        : txtEntrada.value;
+    const minhaGeracao = ++geracaoExecucao;
+
+    const textoOriginal = window.ModoReverseActive && typeof window.ancoraDescriptografia === "string" && window.ancoraDescriptografia !== ""
+    ? window.ancoraDescriptografia
+    : txtEntrada.value;
+
     const pipelineAtual = window.pipeline || [];
-    const caminhoAtualTipos = pipelineAtual.map((bloco) => bloco.tipo);
+
+    const caminhoAtualTipos = pipelineAtual.map((bloco) => {
+      const chaveDoBlocoAtual = window.obterChaveDoBloco
+        ? window.obterChaveDoBloco(bloco.id)
+        : (bloco.chave || "");
+      return `${bloco.tipo}::${chaveDoBlocoAtual || ""}`;
+    });
 
     if (caminhoAtualTipos.length === 0) {
       txtSaida.value = textoOriginal;
@@ -231,92 +261,115 @@ if (btnExecutar && txtEntrada && txtSaida) {
         if (caminhoAtualTipos[i] === ultimoCaminhoTipos[i]) {
           correspondencias++;
         } else {
-          break;
-        }}
+          break;}}
+
       if (correspondencias > 0) {
         indexInicio = correspondencias;
-        textoProcessado = historicoResultadosParciais[correspondencias - 1];
-      }
-    }
+        textoProcessado = historicoResultadosParciais[correspondencias - 1];}}
 
     if (indexInicio === 0) {
       historicoResultadosParciais = [];
     } else {
-      historicoResultadosParciais = historicoResultadosParciais.slice(0, indexInicio);
+      historicoResultadosParciais =
+        historicoResultadosParciais.slice(0, indexInicio);
     }
 
     for (let i = indexInicio; i < pipelineAtual.length; i++) {
       const bloco = pipelineAtual[i];
       const tipoDoBloco = bloco.tipo;
-      const chaveDoBloco = window.obterChaveDoBloco ? window.obterChaveDoBloco(bloco.id) : "";
-      const operacao = window.ModoReverseActive
-        ? `${tipoDoBloco}_inverso`
-        : tipoDoBloco;
 
-      if (transformacoes[operacao]) {
-        textoProcessado = await transformacoes[operacao](textoProcessado, chaveDoBloco);
-      } else if (transformacoes[tipoDoBloco]) {
-        textoProcessado = await transformacoes[tipoDoBloco](textoProcessado, chaveDoBloco);
-      } else {
-        textoProcessado = `[${tipoDoBloco.toUpperCase()}] ${textoProcessado}`;
+      const chaveDoBloco =
+        window.obterChaveDoBloco
+          ? window.obterChaveDoBloco(bloco.id)
+          : "";
+
+      const precisaDeChave =
+        window.tiposComChave &&
+        window.tiposComChave.includes(tipoDoBloco);
+
+      const temChave =
+        !precisaDeChave ||
+        (chaveDoBloco && String(chaveDoBloco).trim() !== "");
+
+      if (temChave) {
+        const operacao = window.ModoReverseActive
+          ? `${tipoDoBloco}_inverso`
+          : tipoDoBloco;
+        if (transformacoes[operacao]) {
+          textoProcessado = await transformacoes[operacao](
+            textoProcessado,
+            chaveDoBloco
+          );
+        } else if (transformacoes[tipoDoBloco]) {
+          textoProcessado = await transformacoes[tipoDoBloco](
+            textoProcessado,
+            chaveDoBloco
+          );
+        } else {
+          textoProcessado = `[${tipoDoBloco.toUpperCase()}] ${textoProcessado}`;
+        }
+
+        if (minhaGeracao !== geracaoExecucao) return;
       }
 
-      historicoResultadosParciais.push(textoProcessado);
-    }
-
+      historicoResultadosParciais.push(textoProcessado);}
     txtSaida.value = textoProcessado;
     ultimoTextoEntrada = textoOriginal;
     ultimoCaminhoTipos = [...caminhoAtualTipos];
 
     salvarEstado();
-  });
-}
+  });}
 
 if (btnInverter) {
   btnInverter.addEventListener("click", () => {
+    const estavaNoModoReverse = window.ModoReverseActive;
+    const textoOriginalAntesDaTroca = txtEntrada ? txtEntrada.value : "";
+
     window.ModoReverseActive = !window.ModoReverseActive;
 
     if (txtEntrada && txtSaida) {
-      const novoTextoEntrada = txtSaida.value;
-      txtEntrada.value = novoTextoEntrada;
+
+      const resultadoAtual = txtSaida.value;
 
       if (window.ModoReverseActive) {
-        window.ancoraDescriptografia = novoTextoEntrada;
-      }
-    }
+        txtEntrada.value = resultadoAtual;
+        window.ancoraDescriptografia = resultadoAtual;
+        window.textoOriginalAntesReverse = textoOriginalAntesDaTroca;} 
+      else {
 
-    // Muda o texto e a cor do botão primeiro, para o clique responder na hora.
+        if (window.textoOriginalAntesReverse !== undefined) {
+          txtEntrada.value = window.textoOriginalAntesReverse;}
+        window.ancoraDescriptografia = "";
+      }}
+
+
     aplicarTextosModo(window.ModoReverseActive);
-
-    // O resto (reordenar pipeline, redesenhar canvas, rodar a criptografia)
-    // é mais pesado e roda logo depois, já com a cor atualizada na tela.
     requestAnimationFrame(() => {
+
       if (window.pipeline && window.pipeline.length > 0) {
         window.pipeline.reverse();
 
         if (typeof window.renderizarCanvas === "function") {
-          window.renderizarCanvas();
-        }
-      }
+          window.renderizarCanvas();}}
 
       if (window.limparCacheOtimizacao) {
         window.limparCacheOtimizacao();
       }
 
-      if (btnExecutar && !window.pipelinePossuiBlocoSemChave()) {
-        btnExecutar.click();
-      }
 
-      salvarEstado();
-    });
-  });
-}
+      if (btnExecutar) {
+        btnExecutar.click();}
+
+
+      if (window.salvarEstado) {
+        window.salvarEstado();}
+
+    });});}
+    
 const botaoLimpar = document.getElementById("limpar-pipeline");
 
 txtEntrada.addEventListener("input", () => {
-  if (!window.pipelinePossuiBlocoSemChave()) {
-    btnExecutar.click();
-  }
+  btnExecutar.click();
 });
 
 if (botaoLimpar) {

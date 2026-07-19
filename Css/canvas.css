@@ -48,7 +48,12 @@ main {
   position: relative;
   z-index: 1;
   gap: 3px;
+  transform: scale(var(--bloco-size, 1));
+  transform-origin: top left;
 }
+
+
+
 
 .flow-block:active {
   cursor: grabbing;
@@ -116,6 +121,15 @@ main {
   opacity: 1;
   pointer-events: auto;
   border: 1px solid white;
+}
+
+:root {
+  --bloco-gap: 60px;
+}
+
+#fluxo-container {
+  column-gap: var(--bloco-gap, 60px);
+  row-gap: 64px;
 }
 
 .flow-remove:active {

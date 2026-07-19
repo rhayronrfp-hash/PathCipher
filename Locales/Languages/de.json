@@ -47,9 +47,9 @@
 },
       
   "fluxo": {
-    "inicio": "Start"
-  },
-  
+  "inicio": "Start",
+  "final": "Ende"
+}, 
   "acao": {
     "copiar": "Kopieren",
     "fechar": "Schließen",
@@ -117,8 +117,8 @@
   "aviso": {
   "titulo": "Achtung bei den Buchstaben!",
   "botao": "Verstanden",
-  "texto": "Vermeiden Sie die Verwendung von Großbuchstaben und Akzenten im Eingabefeld, wenn Sie Morsezeichen verwenden. Dies kann die Verschlüsselungsergebnisse beeinträchtigen, da einige Algorithmen nicht zwischen Groß- und Kleinschreibung unterscheiden oder das Standardverhalten ändern."
-},
+  "texto": "Einige Algorithmen wie Cäsar und Vigenère haben Einschränkungen bei Zeichen mit Akzenten und bestimmten Sonderzeichen. SHA-256, SHA-512, MD5 und ihre HMAC-Varianten sind Hashfunktionen und können nicht umgekehrt werden, sodass der ursprüngliche Text nach ihrer Anwendung nicht wiederhergestellt werden kann."
+  },
 "chave": {
       "rotulo": "Schlüssel",
       "dica": "Der Schlüssel kann ein Passwort oder ein beliebiger Text sein.",

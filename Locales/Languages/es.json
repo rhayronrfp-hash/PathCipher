@@ -41,8 +41,9 @@
     "salvar": "Guardar"
   },
   "fluxo": {
-    "inicio": "Inicio"
-  },
+  "inicio": "Inicio",
+  "final": "Final"
+},
   "termo": {
     "descriptografia": "Descifrado",
     "criptografar": "Cifrar",
@@ -114,7 +115,7 @@
   "aviso": {
   "titulo": "¡Atención con las letras!",
   "botao": "Entendido",
-  "texto": "Evita usar letras mayúsculas y acentos en la caja de entrada al utilizar morse. Esto puede afectar los resultados del cifrado, ya que algunos algoritmos no diferencian entre mayúsculas y minúsculas o alteran el comportamiento predeterminado."
+  "texto": "Algunos algoritmos, como César y Vigenère, tienen limitaciones con caracteres acentuados y ciertos símbolos especiales. SHA-256, SHA-512, MD5 y sus versiones HMAC son funciones hash y no pueden revertirse, por lo que el texto original no puede recuperarse después de su aplicación."
 },
   "chave": {
       "rotulo": "Clave",

@@ -616,9 +616,14 @@ const transformacoesCrypto = {
   morse: (texto) => {
     if (!texto) return "";
     return texto
-      .toUpperCase()
       .split("")
-      .map((c) => (c === " " ? "/" : dicionarioMorse[c] || c))
+      .map((c) => {
+        if (c === " ") return "/";
+        const cMaiuscula = c.toUpperCase();
+        const codigo = dicionarioMorse[cMaiuscula];
+        if (!codigo) return c;
+        return c === cMaiuscula ? `${codigo}^` : `${codigo}'`;
+      })
       .join(" ");
   },
 
@@ -627,10 +632,16 @@ const transformacoesCrypto = {
     return texto
       .trim()
       .split(/\s+/)
-      .map((cod) => dicionarioMorseInverso[cod] || cod)
-      .join("")
-      .toLowerCase();
-  },
+      .map((cod) => {
+        const eraMinuscula = cod.endsWith("'");
+        const eraMaiuscula = cod.endsWith("^");
+        const codigoBase = eraMinuscula || eraMaiuscula ? cod.slice(0, -1) : cod;
+        const letra = dicionarioMorseInverso[codigoBase];
+        if (!letra) return cod;
+        if (eraMinuscula) return letra.toLowerCase();
+        return letra.toUpperCase();
+      })
+      .join("");},
 
   hex: (texto) => {
     if (!texto) return "";
@@ -664,14 +675,25 @@ const transformacoesCrypto = {
   chacha20: (texto, chave) => chacha20Encrypt(texto, chave),
   chacha20_inverso: (texto, chave) => chacha20Decrypt(texto, chave),
 
-  sha256: (texto, chave) => shaTransform("SHA-256", texto, chave),
-  sha256_inverso: (texto) => texto,
+  sha256: (texto) => shaDigestHex("SHA-256", texto),
+  
+  sha256hmac: (texto, chave) => shaHmacHex("SHA-256", chave, texto),
+  sha256hmac_inverso: (texto) => texto,
+  
+  sha512: (texto) => shaDigestHex("SHA-512", texto),
+  
+  sha512hmac: (texto, chave) => shaHmacHex("SHA-512", chave, texto),
+  sha512hmac_inverso: (texto) => texto,
 
-  sha512: (texto, chave) => shaTransform("SHA-512", texto, chave),
-  sha512_inverso: (texto) => texto,
-
-  md5: (texto, chave) => md5Transform(texto, chave),
-  md5_inverso: (texto) => texto,
+  md5: (texto) => md5Hex(texto),
+  md5hmac: (texto, chave) =>
+  hmacHexGenerico(
+    md5Bytes,
+    64,
+    Array.from(new TextEncoder().encode(chave)),
+    Array.from(new TextEncoder().encode(texto))
+  ),
+  md5hmac_inverso: (texto) => texto,
 
   cesar: (texto, chave) => cesarTransform(texto, chave, false),
   cesar_inverso: (texto, chave) => cesarTransform(texto, chave, true),
@@ -733,5 +755,5 @@ const transformacoesCrypto = {
   }
 };
 
-window.tiposComChave = ["aes", "rsa", "chacha20", "cesar", "vigenere", "md5", "sha256", "sha512"];
+window.tiposComChave = ["aes", "rsa", "chacha20", "cesar", "vigenere", "md5hmac", "sha256hmac", "sha512hmac"];
 window.transformacoes = transformacoesCrypto;
