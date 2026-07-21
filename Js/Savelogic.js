@@ -1,5 +1,4 @@
 window.chavesBlocos = window.chavesBlocos || [];
-
 window.chavesPadraoPorTipo = window.chavesPadraoPorTipo || {};
 window.chavePadraoGeral =
   typeof window.chavePadraoGeral === "string" ? window.chavePadraoGeral : "";
@@ -24,8 +23,7 @@ function salvarChaveDoBloco(id, tipo, chave) {
 }
 
 function removerChaveDoBloco(id) {
-  window.chavesBlocos = window.chavesBlocos.filter((registro) => registro.id !== id);
-}
+  window.chavesBlocos = window.chavesBlocos.filter((registro) => registro.id !== id);}
 
 function chavePadraoParaTipo(tipo) {
   if (Object.prototype.hasOwnProperty.call(window.chavesPadraoPorTipo, tipo)) {
@@ -49,8 +47,13 @@ function aplicarChaveComEscopo(idOrigem, tipoOrigem, chave, escopo) {
         salvarChaveDoBloco(bloco.id, bloco.tipo, chave);
       }
     });
-  }
-}
+  }}
+
+const criaroarquivo = document.querySelector(".salvamento")
+
+criaroarquivo.addEventListener("click", () => {
+  
+});
 
 window.obterChaveDoBloco = obterChaveDoBloco;
 window.salvarChaveDoBloco = salvarChaveDoBloco;

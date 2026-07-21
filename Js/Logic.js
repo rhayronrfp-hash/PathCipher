@@ -226,6 +226,8 @@ let geracaoExecucao = 0;
 
 if (btnExecutar && txtEntrada && txtSaida) {
   btnExecutar.addEventListener("click", async () => {
+      if (!txtEntrada.value.trim()) { txtSaida.value = ""; 
+      return;}
     const minhaGeracao = ++geracaoExecucao;
 
     const textoOriginal = window.ModoReverseActive && typeof window.ancoraDescriptografia === "string" && window.ancoraDescriptografia !== ""

@@ -727,13 +727,14 @@ main {
 }
 
 dialog.rsa-import-modal {
-  position: static;
+  position: fixed;
+  inset: 0;
+  margin: auto;
   transform: none;
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
   transition: none;
-  margin: auto;
   border: 1px solid #262c37;
 }
 

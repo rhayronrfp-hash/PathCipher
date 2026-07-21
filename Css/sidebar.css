@@ -56,11 +56,9 @@
 }
 
 
-.side-icon:hover {
-  background: #006EDB;
-}
+
 .side-icon.ativo {
-  background: #006EDB;
+  background: #256af9;
 }
 
 .sidebar-blocos {

@@ -619,29 +619,29 @@ const transformacoesCrypto = {
       .split("")
       .map((c) => {
         if (c === " ") return "/";
-        const cMaiuscula = c.toUpperCase();
-        const codigo = dicionarioMorse[cMaiuscula];
+        const codigo = dicionarioMorse[c.toUpperCase()];
         if (!codigo) return c;
-        return c === cMaiuscula ? `${codigo}^` : `${codigo}'`;
+        return codigo;
       })
-      .join(" ");
-  },
+      .join(" ");},
 
-  morse_inverso: (texto) => {
+morse_inverso: (texto) => {
     if (!texto || !texto.trim()) return "";
+
     return texto
       .trim()
       .split(/\s+/)
       .map((cod) => {
-        const eraMinuscula = cod.endsWith("'");
-        const eraMaiuscula = cod.endsWith("^");
-        const codigoBase = eraMinuscula || eraMaiuscula ? cod.slice(0, -1) : cod;
-        const letra = dicionarioMorseInverso[codigoBase];
+        if (cod === "/") return " ";
+
+        const letra = dicionarioMorseInverso[cod];
+
         if (!letra) return cod;
-        if (eraMinuscula) return letra.toLowerCase();
-        return letra.toUpperCase();
+
+        return letra.toLowerCase();
       })
-      .join("");},
+      .join("");
+},
 
   hex: (texto) => {
     if (!texto) return "";

@@ -23,20 +23,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const janelaCredit = document.querySelector(".credit-modal")
   const creditIcon = document.querySelector(".credit")
   const btnFecharCreditos = document.querySelector(".fechar-creditos");
-  const creditOverlay = document.querySelector(".credit-overlay");
-  const creditModal = document.querySelector(".credit-modal");
   const btnPrincipal = document.querySelector(".side-icon.principal");
 
 function fecharCreditos() {
-  creditOverlay.classList.remove("ativo");
-  creditModal.classList.remove("ativo");
+  fundoCredit.classList.remove("ativo");
+  janelaCredit.classList.remove("ativo");
   sideIcons.forEach((icon) => {icon.classList.remove("ativo");});
   btnPrincipal?.classList.add("ativo");}
         
   if (btnFecharCreditos) {btnFecharCreditos.addEventListener("click", fecharCreditos);}
-  if (creditOverlay) {creditOverlay.addEventListener("click", fecharCreditos);}
+  if (fundoCredit) {fundoCredit.addEventListener("click", fecharCreditos);}
   botaodesalvar.addEventListener("click", async () => {
-    mainsideicon.classList.add("ativo");
     Salvo = true;
     if (window.toggleRemoverAviso && window.salvarPreferenciaRemoverAviso) {
     window.salvarPreferenciaRemoverAviso(window.toggleRemoverAviso.checked);}
@@ -506,7 +503,6 @@ window.indiceHistorico = -1;
   });
   
   creditIcon.addEventListener("click", () => {
-    atualizarVersao();
     fundoCredit.classList.add("ativo");
     janelaCredit.classList.add("ativo");
   });

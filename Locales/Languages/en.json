@@ -116,8 +116,7 @@
   "aviso": {
     "titulo": "Attention to Letters!",
     "botao": "Understood",
-    "texto": "Some algorithms, such as Caesar and Vigenère, have limitations with accented characters and certain special symbols. SHA-256, SHA-512, MD5, and their HMAC variants are hash functions and cannot be reversed, so the original text cannot be recovered after they are applied."
-  },
+    "texto": "Some algorithms such as Caesar and Vigenère have limitations with accented characters and certain special characters. SHA-256, SHA-512, MD5, and their HMAC variants are hash functions and cannot be reversed, meaning the original text cannot be recovered after their application. Morse code does not distinguish between uppercase and lowercase letters and therefore should not be mixed with other encryption or encoding methods, as this may cause information loss or unexpected results."  },
   "chave": {
     "rotulo": "Key",
     "dica": "The key can be a password or any text.",

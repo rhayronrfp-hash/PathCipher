@@ -115,8 +115,7 @@
   "aviso": {
   "titulo": "Attention aux lettres !",
   "botao": "Compris",
-  "texto": "Certains algorithmes, comme César et Vigenère, présentent des limitations avec les caractères accentués et certains symboles spéciaux. SHA-256, SHA-512, MD5 et leurs versions HMAC sont des fonctions de hachage et ne peuvent pas être inversés ; le texte d'origine ne peut donc pas être récupéré après leur utilisation."
-},
+  "texto": "Certains algorithmes comme César et Vigenère présentent des limitations avec les caractères accentués et certains caractères spéciaux. SHA-256, SHA-512, MD5 et leurs variantes HMAC sont des fonctions de hachage et ne peuvent pas être inversées, de sorte que le texte original ne peut pas être restauré après leur application. Le code Morse ne fait pas de distinction entre les lettres majuscules et minuscules et ne doit donc pas être mélangé avec d'autres méthodes de chiffrement ou de codage, car cela peut entraîner une perte d'informations ou des résultats inattendus."},
   "chave": {
       "rotulo": "Clé",
       "dica": "La clé peut être un mot de passe ou n'importe quel texte.",

@@ -4,6 +4,7 @@ const janelaConfig = document.querySelector(".config-modal");
 const fecharConfig = document.querySelector(".fechar-ajustes");
 const botaodesalvar = document.querySelector(".botao-confirmar-ajustes")
 const sideIcons = document.querySelectorAll(".side-icon");
+const mainsideicon = document.querySelector(".principal")
 
 function mostrarConfiguracoes() {
   fundoConfig.classList.add("ativo");
@@ -22,6 +23,10 @@ abrirConfig.addEventListener("click", () => {
 });
 
 fecharConfig.addEventListener("click", ()=> {
+  sideIcons.forEach((item) => {
+      item.classList.remove("ativo");
+      mainsideicon.classList.add("ativo")
+    });
   esconderConfiguracoes();
 });
 
@@ -37,6 +42,7 @@ botaodesalvar.addEventListener('click', () => {
   sideIcons.forEach((item) => {
       item.classList.remove("ativo");
     });
+    mainsideicon.classList.add("ativo")
   esconderConfiguracoes();
 });
 
@@ -105,27 +111,65 @@ function atualizarIdioma() {
             el.value =
                 i18next.t(el.dataset.i18nValue);});}
 
+const mobile = window.innerWidth <= 768;
+const tamanho = localStorage.getItem("tamanho-blocos");
 
 function aplicarTamanhoBlocos(valor) {
   const root = document.documentElement;
 
+  if (mobile) {
+    if (valor === "pequeno") {
+      root.style.setProperty("--bloco-size", "0.75");
+    } else if (valor === "grande") {
+      root.style.setProperty("--bloco-size", "1");
+    } else {
+      root.style.setProperty("--bloco-size", "0.86");}
+    return;}
+    
   if (valor === "pequeno") {
     root.style.setProperty("--bloco-size", "0.88");
   } else if (valor === "grande") {
-    root.style.setProperty("--bloco-size", "1.12");} 
-    else {
+    root.style.setProperty("--bloco-size", "1.12");
+  } else {
     root.style.setProperty("--bloco-size", "1");}}
 
 function aplicarDistanciaBlocos(valor) {
   const root = document.documentElement;
+  const mobile = window.matchMedia("(max-width: 768px)").matches;
+  const tamanho = localStorage.getItem(CHAVE_TAMANHO_BLOCOS) || "normal";
+
+  if (mobile) {
+    if (valor === "curto") {
+      if (tamanho === "normal") {
+        root.style.setProperty("--bloco-gap", "15px");
+      }
+      else if (tamanho==="grande") { 
+        root.style.setProperty("--bloco-gap", "20px");
+      }
+      else {
+        root.style.setProperty("--bloco-gap", "10px");
+      }
+    } else if (valor === "longo") {
+      root.style.setProperty("--bloco-gap", "45px");
+    } else {
+      root.style.setProperty("--bloco-gap", "30px");}
+    return;}
 
   if (valor === "curto") {
-    root.style.setProperty("--bloco-gap", "30px");
+    if (tamanho==="grande") {
+    root.style.setProperty("--bloco-gap", "40px");
+    }
+    else {
+    root.style.setProperty("--bloco-gap", "30px");}
   } else if (valor === "longo") {
     root.style.setProperty("--bloco-gap", "90px");
   } else {
     root.style.setProperty("--bloco-gap", "60px");}}
-
+    
+    
+    
+    
+    
 function salvarPreferenciaTamanhoBlocos(valor) {
   localStorage.setItem(CHAVE_TAMANHO_BLOCOS, valor);}
 
