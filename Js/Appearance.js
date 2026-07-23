@@ -1,9 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const VERSAO = " 1.0";
+        const VERSAO = " 1.0";
   function atualizarVersao() {
     const elemento = document.querySelector(".creditos-versao-badge");
-    elemento.textContent += VERSAO;
-}
+    if (elemento && elemento.textContent !== VERSAO) {
+      elemento.textContent = VERSAO;}}
+  atualizarVersao();
+
   window.pipeline = [];
   window.idCounter = 0;
   window.blocoArrastado = null;
@@ -355,6 +357,7 @@ window.indiceHistorico = -1;
     salvarHistorico();
     renderizarCanvas();
     atualizarResultado();
+    atualizarVersao();
     
     if (window.salvarEstado) {
     window.salvarEstado();

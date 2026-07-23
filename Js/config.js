@@ -77,6 +77,7 @@ function iniciarIdioma() {
     });}
 
 function atualizarIdioma() {
+    window.atualizarVersao();
     document.documentElement.lang = i18next.language;
     document
         .querySelectorAll("[data-i18n]")
