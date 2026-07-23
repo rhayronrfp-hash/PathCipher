@@ -40,10 +40,6 @@
     "executar": "Exécuter",
     "salvar": "Enregistrer"
   },
-  "fluxo": {
-  "inicio": "Début",
-  "final": "Fin"
-},
   "termo.criptografar": "Chiffrer",
   "termo.criptografia": "Chiffrement",
   "termo.descriptografar": "Déchiffrer",
@@ -97,19 +93,18 @@
     "chines_traducao": "(Chinois simplifié)",
     "japones": "日本語",
     "japones_traducao": "(Japonais)",
-  "creditos_titulo": "Crédits du Projet",
-  "creditos_subtitulo": "Remerciements et informations sur le projet.",
-  "creditos_github_titulo": "Projet hébergé sur GitHub",
-  "creditos_github_desc": "Consultez le dépôt, ouvrez des issues ou contribuez au projet.",
-  "creditos_github_botao": "Voir sur GitHub",
-  "creditos_pessoas_titulo": "Crédits",
-  "creditos_funcao": "Développeur • Créateur du projet",
-  "creditos_agradecimento": "Créateur et développeur de ce projet. Merci d'utiliser et de soutenir !",
-  "creditos_dedicacao": "Fait avec dévouement pour rendre la cryptographie simple et puissante.",
-  "creditos_sobre_titulo": "À propos du projet",
-  "creditos_sobre_desc": "Outil de cryptographie et d'encodage en plusieurs étapes, avec une interface moderne, optimisé pour les performances et la productivité.",
-  "creditos_versao": "Version"
-
+    "creditos_titulo": "Crédits du Projet",
+    "creditos_subtitulo": "Remerciements et informations sur le projet.",
+    "creditos_github_titulo": "Projet hébergé sur GitHub",
+    "creditos_github_desc": "Consultez le dépôt, ouvrez des issues ou contribuez au projet.",
+    "creditos_github_botao": "Voir sur GitHub",
+    "creditos_pessoas_titulo": "Crédits",
+    "creditos_funcao": "Développeur • Créateur du projet",
+    "creditos_agradecimento": "Créateur et développeur de ce projet. Merci d'utiliser et de soutenir !",
+    "creditos_dedicacao": "Fait avec dévouement pour rendre la cryptographie simple et puissante.",
+    "creditos_sobre_titulo": "À propos du projet",
+    "creditos_sobre_desc": "Outil de cryptographie et d'encodage en plusieurs étapes, avec une interface moderne, optimisé pour les performances et la productivité.",
+    "creditos_versao": "Version"
       },
   "aviso": {
   "titulo": "Attention aux lettres !",

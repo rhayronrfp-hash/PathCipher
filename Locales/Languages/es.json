@@ -40,10 +40,6 @@
     "executar": "Ejecutar",
     "salvar": "Guardar"
   },
-  "fluxo": {
-  "inicio": "Inicio",
-  "final": "Final"
-},
   "termo.criptografar": "Cifrar",
   "termo.criptografia": "Cifrado",
   "termo.descriptografar": "Descifrar",
@@ -109,7 +105,7 @@
     "chines": "中文简体",
     "chines_traducao": "(Chino simplificado)",
     "japones": "日本語",
-"japones_traducao": "(Japonés)"
+    "japones_traducao": "(Japonés)"
   },
   "aviso": {
   "titulo": "¡Atención con las letras!",

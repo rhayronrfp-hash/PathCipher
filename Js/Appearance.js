@@ -191,14 +191,14 @@ window.indiceHistorico = -1;
   function renderizarCanvas() {
   canvasContainer.innerHTML = "";
   canvasContainer.appendChild(svgLinhas);
-  canvasContainer.appendChild(criarNoFixo("início", "fluxo.inicio"));
+  canvasContainer.appendChild(criarNoFixo("", "fluxo.inicio", "Assets/Icons/entrar.png"));
 
   pipeline.forEach((bloco) => {
     canvasContainer.appendChild(criarNoBloco(bloco));
   });
 
   if (pipeline.length > 0) {
-    canvasContainer.appendChild(criarNoFixo2("Final", "fluxo.final"));
+    canvasContainer.appendChild(criarNoFixo2("", "fluxo.final", "Assets/Icons/sair.png"));
   }
 
   canvasContainer
@@ -243,19 +243,21 @@ window.indiceHistorico = -1;
   window.renderizarCanvas = renderizarCanvas;
 
 
-  function criarNoFixo(texto, chaveI18n) {
+  function criarNoFixo(texto, chaveI18n, iconeSrc) {
     const div = document.createElement("div");
     div.className = "flow-block flow-fixo";
-    div.textContent = texto;
-    if (chaveI18n) div.setAttribute("data-i18n", chaveI18n);
+    div.innerHTML = `
+      ${iconeSrc ? `<img class="flow-icon" src="${iconeSrc}" alt="Ícone de início">` : ''}
+    `;
     return div;}
 
 
-  function criarNoFixo2(texto, chaveI18n) {
+  function criarNoFixo2(texto, chaveI18n, iconeSrc) {
     const div = document.createElement("div");
     div.className = "flow-block flow-saida";
-    div.textContent = texto;
-    if (chaveI18n) div.setAttribute("data-i18n", chaveI18n);
+    div.innerHTML = `
+      ${iconeSrc ? `<img class="flow-icon" src="${iconeSrc}" alt="Ícone final">` : ''}
+    `;
     return div;}
 
 
@@ -903,4 +905,3 @@ window.atualizarBotoesChave = atualizarBotoesChave;
     fecharModalRSA();
 atualizarVersao();
 });});
-  

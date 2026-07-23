@@ -105,13 +105,8 @@
   "creditos_sobre_titulo": "About the project",
   "creditos_sobre_desc": "Multi-step cryptography and encoding tool, with a modern interface, optimized for performance and productivity.",
   "creditos_versao": "Version"
-
-
   },
-  "fluxo": {
-    "inicio": "Start",
-    "final": "End"
-  },
+
   "aviso": {
     "titulo": "Attention to Letters!",
     "botao": "Understood",

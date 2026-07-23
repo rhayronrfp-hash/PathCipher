@@ -40,10 +40,6 @@
     "executar": "执行",
     "salvar": "保存"
   },
-  "fluxo": {
-  "inicio": "开始",
-  "final": "结束"
-},
   "termo.criptografar": "加密",
   "termo.criptografia": "加密",
   "termo.descriptografar": "解密",

@@ -92,25 +92,20 @@
     "chines": "中文简体",
     "chines_traducao": "（簡体字中国語）",
     "japones": "日本語",
-"japones_traducao": "（日本語）",
-  "creditos_titulo": "プロジェクトのクレジット",
-  "creditos_subtitulo": "謝辞とプロジェクト情報。",
-  "creditos_github_titulo": "GitHubでホストされているプロジェクト",
-  "creditos_github_desc": "リポジトリを確認するか、Issueを開くか、プロジェクトに貢献してください。",
-  "creditos_github_botao": "GitHubで見る",
-  "creditos_pessoas_titulo": "クレジット",
-  "creditos_funcao": "開発者 • プロジェクト作成者",
-  "creditos_agradecimento": "このプロジェクトの考案者および開発者。ご利用とご支援ありがとうございます！",
-  "creditos_dedicacao": "暗号化をシンプルかつ強力にするために専念して作成されました。",
-  "creditos_sobre_titulo": "プロジェクトについて",
-  "creditos_sobre_desc": "モダンなインターフェースを備え、パフォーマンスと生産性のために最適化された、マルチステップの暗号化およびエンコーディングツール。",
-  "creditos_versao": "バージョン"
-
-
+    "japones_traducao": "（日本語）",
+    "creditos_titulo": "プロジェクトのクレジット",
+    "creditos_subtitulo": "謝辞とプロジェクト情報。",
+    "creditos_github_titulo": "GitHubでホストされているプロジェクト",
+    "creditos_github_desc": "リポジトリを確認するか、Issueを開くか、プロジェクトに貢献してください。",
+    "creditos_github_botao": "GitHubで見る",
+    "creditos_pessoas_titulo": "クレジット",
+    "creditos_funcao": "開発者 • プロジェクト作成者",
+    "creditos_agradecimento": "このプロジェクトの考案者および開発者。ご利用とご支援ありがとうございます！",
+    "creditos_dedicacao": "暗号化をシンプルかつ強力にするために専念して作成されました。",
+    "creditos_sobre_titulo": "プロジェクトについて",
+    "creditos_sobre_desc": "モダンなインターフェースを備え、パフォーマンスと生産性のために最適化された、マルチステップの暗号化およびエンコーディングツール。",
+    "creditos_versao": "バージョン"
   },
-  "fluxo": {
-  "inicio": "開始",
-  "final": "終了"},
   "aviso": {
     "titulo": "大文字にご注意！",
     "botao": "理解しました",
