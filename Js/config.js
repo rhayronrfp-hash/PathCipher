@@ -60,24 +60,26 @@ radiosIdioma.forEach((radio) => {
       idiomaSelecionado = radio.value;}});});
   
 function iniciarIdioma() {
+  const idiomaSalvo = localStorage.getItem(CHAVE_IDIOMA);
   i18next
     .use(i18nextHttpBackend)
     .use(i18nextBrowserLanguageDetector)
     .init({
-    lng: localStorage.getItem(CHAVE_IDIOMA) || undefined,
-    fallbackLng: "pt",
-    backend: {
-      loadPath: "Locales/languages/{{lng}}.json",
-    },})
+      lng: idiomaSalvo || "en",
+      fallbackLng: "en",
+      backend: {
+        loadPath: "Locales/languages/{{lng}}.json",
+      }, 
+      
+    })
     .then(() => {
       atualizarIdioma();
-      const idiomaInicial = localStorage.getItem(CHAVE_IDIOMA) || i18next.language || "pt";
+      const idiomaInicial = idiomaSalvo || "en";
       idiomaSelecionado = idiomaInicial;
-      marcarIdiomaSelecionado(idiomaInicial);
-    });}
+
+      marcarIdiomaSelecionado(idiomaInicial);});}
 
 function atualizarIdioma() {
-    window.atualizarVersao();
     document.documentElement.lang = i18next.language;
     document
         .querySelectorAll("[data-i18n]")
