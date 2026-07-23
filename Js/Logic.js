@@ -28,6 +28,7 @@ window.limparCacheOtimizacao = () => {
 };
 window.ModoReverseActive = false;
 window.ancoraDescriptografia = "";
+window.reverseHerdouPipeline = false;
 
 const botaoCopiar = document.querySelector(".cartao-painel:nth-child(2) .painel-copy");
 const btnExecutar = document.querySelector(".executar");
@@ -68,6 +69,7 @@ async function aplicarTransformacaoUnica(tipo, texto, chave) {
 
 async function atualizarPreviewDescriptografia() {
   if (!window.ModoReverseActive || !txtEntrada) return;
+  if (!window.reverseHerdouPipeline) return;
   const pipelineAtual = window.pipeline || [];
 
   if (pipelineAtual.length === 0) {
@@ -78,6 +80,7 @@ async function atualizarPreviewDescriptografia() {
 window.atualizarPreviewDescriptografia = atualizarPreviewDescriptografia;
 async function regenerarAncoraReversa() {
   if (!window.ModoReverseActive) return;
+  if (!window.reverseHerdouPipeline) return; 
   if (typeof window.textoOriginalAntesReverse !== "string") return;
 
   const pipelineEmOrdemDeCriptografia = [...(window.pipeline || [])].reverse();
@@ -185,6 +188,7 @@ function salvarEstado() {
     entrada: txtEntrada.value,
     saida: txtSaida.value,
     reverse: window.ModoReverseActive,
+    reverseHerdouPipeline: window.reverseHerdouPipeline,
     ancora: window.ancoraDescriptografia,
     tituloEntrada: tituloEntrada ? tituloEntrada.textContent : "",
     tituloResultado: tituloResultado ? tituloResultado.textContent : "",
@@ -200,6 +204,7 @@ function aplicarEstado(estado) {
 
   window.pipeline = JSON.parse(JSON.stringify(estado.pipeline || []));
   window.ModoReverseActive = !!estado.reverse;
+  window.reverseHerdouPipeline = !!estado.reverseHerdouPipeline;
   window.ancoraDescriptografia = estado.ancora ?? "";
 
   if (txtEntrada) txtEntrada.value = estado.entrada ?? "";
@@ -346,12 +351,14 @@ if (btnInverter) {
       if (window.ModoReverseActive) {
         txtEntrada.value = resultadoAtual;
         window.ancoraDescriptografia = resultadoAtual;
-        window.textoOriginalAntesReverse = textoOriginalAntesDaTroca;} 
+        window.textoOriginalAntesReverse = textoOriginalAntesDaTroca;
+        window.reverseHerdouPipeline = (window.pipeline || []).length > 0;} 
       else {
 
         if (window.textoOriginalAntesReverse !== undefined) {
           txtEntrada.value = window.textoOriginalAntesReverse;}
         window.ancoraDescriptografia = "";
+        window.reverseHerdouPipeline = false;
       }}
 
 
@@ -414,7 +421,3 @@ if (botaoLimpar) {
   }
 
 salvarEstado();
-
-
-
-

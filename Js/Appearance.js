@@ -132,6 +132,11 @@ window.indiceHistorico = -1;
 
   async function removerBloco(id) {
     pipeline = pipeline.filter((b) => b.id !== id);
+
+    if (window.ModoReverseActive && pipeline.length === 0) {
+      window.reverseHerdouPipeline = false;
+    }
+
     salvarHistorico();
 
     if (window.removerChaveDoBloco) {
@@ -333,7 +338,7 @@ window.indiceHistorico = -1;
 
     const novoBloco = { id: idCounter++, tipo, label, cor };
 
-    if (window.ModoReverseActive) {
+    if (window.ModoReverseActive && window.reverseHerdouPipeline) {
       pipeline.unshift(novoBloco);
     } else {
       pipeline.push(novoBloco);
