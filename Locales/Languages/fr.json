@@ -44,11 +44,10 @@
   "inicio": "Début",
   "final": "Fin"
 },
-  "termo": {
-    "descriptografia": "Déchiffrement",
-    "criptografar": "Chiffrer",
-    "criptografia": "Cryptographie"
-  },
+  "termo.criptografar": "Chiffrer",
+  "termo.criptografia": "Chiffrement",
+  "termo.descriptografar": "Déchiffrer",
+  "termo.descriptografia": "Déchiffrement",
   "acao": {
     "copiar": "Copier",
     "fechar": "Fermer",
@@ -165,5 +164,39 @@
   "ascii_invalido": "[ASCII] Texte invalide.",
   "url_invalido": "[URL] Texte invalide.",
   "unicode_invalido": "[Unicode] Texte invalide."
-}
+},
+  
+  "salvar_arquivo.titulo": "Enregistrer le fichier",
+  "salvar_arquivo.fechar": "Fermer",
+  "salvar_arquivo.subtitulo": "Sélectionnez ce que vous souhaitez enregistrer :",
+  "salvar_arquivo.opcao_caminho_chave_texto_titulo": "Chemin, clé et texte",
+  "salvar_arquivo.opcao_caminho_chave_texto_desc": "Enregistre le chemin, la clé et le texte.",
+  "salvar_arquivo.opcao_caminho_chave_titulo": "Chemin et clé",
+  "salvar_arquivo.opcao_caminho_chave_desc": "Enregistre uniquement le chemin et la clé.",
+  "salvar_arquivo.opcao_caminho_texto_titulo": "Chemin et texte",
+  "salvar_arquivo.opcao_caminho_texto_desc": "Enregistre uniquement le chemin et le texte.",
+  "salvar_arquivo.opcao_chave_texto_titulo": "Clé et texte",
+  "salvar_arquivo.opcao_chave_texto_desc": "Enregistre uniquement la clé et le texte.",
+  "salvar_arquivo.opcao_caminho_titulo": "Chemin",
+  "salvar_arquivo.opcao_caminho_desc": "Enregistre uniquement le chemin.",
+  "salvar_arquivo.opcao_chave_titulo": "Clé",
+  "salvar_arquivo.opcao_chave_desc": "Enregistre uniquement la clé.",
+  "salvar_arquivo.opcao_texto_titulo": "Texte",
+  "salvar_arquivo.opcao_texto_desc": "Enregistre uniquement le texte.",
+  "salvar_arquivo.secao_nome_formato": "Nom et format",
+  "salvar_arquivo.nome_arquivo": "Nom du fichier",
+  "salvar_arquivo.formato": "Format",
+  "salvar_arquivo.sobrescrever_titulo": "Remplacer le fichier existant",
+  "salvar_arquivo.sobrescrever_desc": "Le remplace si le fichier existe déjà.",
+  "salvar_arquivo.compactar_titulo": "Compresser le fichier",
+  "salvar_arquivo.compactar_desc": "Enregistre en tant que fichier compressé.",
+  "salvar_arquivo.criptografar_titulo": "Chiffrer le fichier enregistré",
+  "salvar_arquivo.criptografar_desc": "Protège le fichier avec un mot de passe.",
+  "salvar_arquivo.destino": "Emplacement de destination",
+  "salvar_arquivo.alterar_pasta": "Changer de dossier",
+  "salvar_arquivo.sera_salvo": "Sera enregistré :",
+  "salvar_arquivo.em": "dans",
+  "salvar_arquivo.cancelar": "Annuler",
+  "salvar_arquivo.salvar": "Enregistrer"
+
 }

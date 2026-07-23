@@ -36,64 +36,25 @@ html, body {
 
 }
 
+.grupo-das-setas-nao-aguento-mais-fazer-esse-projetooo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-right: auto;
+  margin-left: 35px;
+}
+
 .topbar-project {
   display: flex;
   gap: 8px;
   align-items: center;
 }
 
-#edita-name {
-  font-weight: 400;
-  font-size: 20px;
-}
-
-#project-name {
-  background: transparent;
-  border: none;
-  outline: none;
-  box-shadow: none;
-  color: white;
-  font-size: 15px;
-  padding: 0;
-  font-family: 'Inter', sans-serif;
-  width: 100px;
-  margin: 0;
-  caret-color: white;
-}
-
-#project-name:read-only {
-  cursor: default;
-}
-
-#project-name:not(:read-only) {
-  cursor: text;
-}
-
-.lapis {
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  background: #111219;
-  transition: background-color 0.3s ease;
-  border-radius: 30%;
-}
-
-.lapis:hover {
-  background: #222831;
-}
-
-.lapis img {
-  width: 40px;
-  height: 40px;
-}
-
-
-
-
 .setas {
   border: none;
   cursor: pointer;
   background: none;
+  flex-shrink: 0;
 }
 
 .setas:active{
@@ -101,14 +62,10 @@ html, body {
 }
 
 .setas img {
-  /*vou deixar essa largura e altura guardada pra eu usar na interfce do cll*/
-  /*width: 20px;*/
-  /*height: 20px;*/
   width: 28px;
   height: 28px;
   column-gap: 3px;
 }
-  /*vou deixar essa largura e altura guardada pra eu usar na interfce do cll*/
 
 
 .topbar {
@@ -125,6 +82,7 @@ html, body {
   align-items: center;
   gap: 10px;
   background: #111219;
+  flex: 1;
 }
 
 .btn-group {
@@ -145,8 +103,7 @@ html, body {
   font-weight: 600;
 }
 
-.btn-roxo .btn-outline,
-.btn-roxo .dropdown-arrow {
+.btn-roxo .btn-outline {
   border: none;
   background: transparent;
   color: white;
@@ -154,16 +111,14 @@ html, body {
   cursor: pointer;
 }
 
-.btn-group .dropdown-arrow {
-  border-left: 1px solid rgba(255, 255, 255, 0.2);
-}
-
 .btn-outline {
   cursor: pointer;
   color: white;
   background-color: #111219;
 }  
-
+.salvamento {
+  background-color: #2ecc71;
+}
 .salvamento:active {
   background-color: #2CC46D;
 }

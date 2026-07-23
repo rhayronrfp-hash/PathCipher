@@ -40,11 +40,10 @@
     "executar": "実行",
     "salvar": "保存"
   },
-  "termo": {
-    "descriptografia": "復号化",
-    "criptografia": "暗号化",
-    "criptografar": "暗号化する"
-  },
+  "termo.criptografar": "暗号化",
+  "termo.criptografia": "暗号化",
+  "termo.descriptografar": "復号",
+  "termo.descriptografia": "復号",
   "acao": {
     "copiar": "コピー",
     "fechar": "閉じる",
@@ -171,5 +170,38 @@
   "ascii_invalido": "[ASCII] 無効なテキストです。",
   "url_invalido": "[URL] 無効なテキストです。",
   "unicode_invalido": "[Unicode] 無効なテキストです。"
-}
+},
+  "salvar_arquivo.titulo": "ファイルを保存",
+  "salvar_arquivo.fechar": "閉じる",
+  "salvar_arquivo.subtitulo": "保存する内容を選択してください：",
+  "salvar_arquivo.opcao_caminho_chave_texto_titulo": "パス、キー、テキスト",
+  "salvar_arquivo.opcao_caminho_chave_texto_desc": "パス、キー、テキストを保存します。",
+  "salvar_arquivo.opcao_caminho_chave_titulo": "パスとキー",
+  "salvar_arquivo.opcao_caminho_chave_desc": "パスとキーのみを保存します。",
+  "salvar_arquivo.opcao_caminho_texto_titulo": "パスとテキスト",
+  "salvar_arquivo.opcao_caminho_texto_desc": "パスとテキストのみを保存します。",
+  "salvar_arquivo.opcao_chave_texto_titulo": "キーとテキスト",
+  "salvar_arquivo.opcao_chave_texto_desc": "キーとテキストのみを保存します。",
+  "salvar_arquivo.opcao_caminho_titulo": "パス",
+  "salvar_arquivo.opcao_caminho_desc": "パスのみを保存します。",
+  "salvar_arquivo.opcao_chave_titulo": "キー",
+  "salvar_arquivo.opcao_chave_desc": "キーのみを保存します。",
+  "salvar_arquivo.opcao_texto_titulo": "テキスト",
+  "salvar_arquivo.opcao_texto_desc": "テキストのみを保存します。",
+  "salvar_arquivo.secao_nome_formato": "名前と形式",
+  "salvar_arquivo.nome_arquivo": "ファイル名",
+  "salvar_arquivo.formato": "形式",
+  "salvar_arquivo.sobrescrever_titulo": "既存ファイルを上書き",
+  "salvar_arquivo.sobrescrever_desc": "ファイルがすでに存在する場合は置き換えます。",
+  "salvar_arquivo.compactar_titulo": "ファイルを圧縮",
+  "salvar_arquivo.compactar_desc": "圧縮ファイルとして保存します。",
+  "salvar_arquivo.criptografar_titulo": "保存したファイルを暗号化",
+  "salvar_arquivo.criptografar_desc": "パスワードでファイルを保護します。",
+  "salvar_arquivo.destino": "保存先",
+  "salvar_arquivo.alterar_pasta": "フォルダを変更",
+  "salvar_arquivo.sera_salvo": "保存される内容：",
+  "salvar_arquivo.em": "に",
+  "salvar_arquivo.cancelar": "キャンセル",
+  "salvar_arquivo.salvar": "保存"
+
 }

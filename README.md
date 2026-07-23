@@ -41,8 +41,11 @@ O projeto possui suporte para diferentes algoritmos de criptografia, hash e codi
   <li>ChaCha20</li>
 </ul><h3>Hash</h3><ul>
   <li>SHA-256</li>
+  <li>SHA-256-HMAC</li>
   <li>SHA-512</li>
+  <li>SHA-512-HMAC</li>
   <li>MD5</li>
+  <li>MD5-HMAC</li>
 </ul><h3>Codificação</h3><ul>
   <li>Base64</li>
   <li>Hexadecimal</li>

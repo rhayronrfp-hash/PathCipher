@@ -11,6 +11,7 @@
   <link rel='stylesheet' href='Css/bottombar.css'>
   <link rel='stylesheet' href='Css/config.css'>
   <link rel='stylesheet' href='Css/credit.css'>
+  <link rel='stylesheet' href='Css/salvar.css'>
   <link rel='stylesheet' href='Css/Aviso.css'>
   <link rel='stylesheet' href=Css/mobile.css>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -220,25 +221,20 @@
       
   <div class="topbar-project">
     
-  <label for="project-name" id="edita-name" data-i18n="topbar.projeto_label">Project:</label>
-  <input id="project-name" type="text" maxlength="50" value="pipeline" readonly data-i18n-value="topbar.projeto_padrao">
-  
-  <button class="lapis" type="button">
-    <img src="Assets/Icons/lapis.png" alt="Editar" data-i18n-alt="topbar.editar">
-  </button>
-  
+
+
   
 </div>
 
   <div class="topbar-actions">
-
-    <button class="setas" title="Desfazer" data-i18n-title="topbar.desfazer">
+    <div class="grupo-das-setas-nao-aguento-mais-fazer-esse-projetooo">
+    <button class="setas esquerda" title="Desfazer" data-i18n-title="topbar.desfazer">
       <img src='Assets/Icons/seta.png'>
     </button>
-    
-    <button class="setas" title="Refazer" data-i18n-title="topbar.refazer">
+    <button class="setas direita" title="Refazer" data-i18n-title="topbar.refazer">
       <img src='Assets/Icons/seta2.png'>
     </button>
+    </div>
     
 <button class="btn-outline btn-group inverter"><span data-i18n="termo.descriptografia">Decryption</span></button>
   
@@ -246,7 +242,6 @@
 
 <div class="btn-group btn-roxo">
   <button class="btn-outline salvamento" ><span data-i18n="topbar.salvar">Save</span></button>
-  <button class="dropdown-arrow" >▾</button>
 </div>
   </div>
 
@@ -427,8 +422,8 @@
             </label>
 
             <label class="opcao-bolinha gambiarra2">
-                <input type="radio" name="tamanho" value="normal">
-                <span data-i18n="config.tamanho_normal" checked >Normal</span>
+                <input type="radio" name="tamanho" value="normal" checked>
+                <span data-i18n="config.tamanho_normal">Normal</span>
             </label>
 
             <label class="opcao-bolinha gambiarra3">
@@ -473,7 +468,7 @@
             </label>
 
             <label class="opcao-bolinha">
-                <input type="radio" name="distância" value="normal">
+                <input type="radio" name="distância" value="normal" checked>
                 <span data-i18n="config.distancia_normal">Normal</span>
             </label>
 
@@ -672,6 +667,179 @@
 </div>
 
 
+
+<div class="salvar-arquivo-overlay" id="salvar-arquivo-overlay"></div>
+
+<div class="salvar-arquivo-modal" id="salvar-arquivo-modal" role="dialog" aria-modal="true" aria-labelledby="salvar-arquivo-titulo-texto">
+  <div class="salvar-arquivo-container">
+    <div class="salvar-arquivo-cabecalho">
+      <div class="salvar-arquivo-titulo">
+        <h1 id="salvar-arquivo-titulo-texto" data-i18n="salvar_arquivo.titulo">Salvar Arquivo</h1>
+      </div>
+      <button type="button" class="salvar-arquivo-fechar" id="salvar-arquivo-fechar" aria-label="Fechar" data-i18n-title="salvar_arquivo.fechar">×</button>
+    </div>
+
+    <p class="salvar-arquivo-subtitulo" data-i18n="salvar_arquivo.subtitulo">Selecione o que deseja salvar:</p>
+
+    <div class="salvar-arquivo-opcoes" id="salvar-arquivo-opcoes">
+      <label class="opcao-salvar">
+        <span class="opcao-salvar-icones">
+          <span class="icone-slot trio" data-icone="pasta"><img src='Assets/Icons/caminhochavetexto.png'></span>
+        </span>
+        <span class="opcao-salvar-texto">
+          <strong data-i18n="salvar_arquivo.opcao_caminho_chave_texto_titulo">Caminho, chave e texto</strong>
+          <small data-i18n="salvar_arquivo.opcao_caminho_chave_texto_desc">Salva o caminho, a chave e o texto.</small>
+        </span>
+        <input type="radio" name="salvar-arquivo-tipo" value="caminho-chave-texto" checked>
+        <span class="opcao-salvar-radio" aria-hidden="true"></span>
+      </label>
+
+      <label class="opcao-salvar">
+        <span class="opcao-salvar-icones">
+          <span class="icone-slot duo" data-icone="pasta"><img src='Assets/Icons/caminhochave.png'></span>
+        </span>
+        <span class="opcao-salvar-texto">
+          <strong data-i18n="salvar_arquivo.opcao_caminho_chave_titulo">Caminho e chave</strong>
+          <small data-i18n="salvar_arquivo.opcao_caminho_chave_desc">Salva apenas o caminho e a chave.</small>
+        </span>
+        <input type="radio" name="salvar-arquivo-tipo" value="caminho-chave">
+        <span class="opcao-salvar-radio" aria-hidden="true"></span>
+      </label>
+
+      <label class="opcao-salvar">
+        <span class="opcao-salvar-icones">
+          <span class="icone-slot duo" data-icone="pasta"><img src="Assets/Icons/caminhotexto.png"></span>
+        </span>
+        <span class="opcao-salvar-texto">
+          <strong data-i18n="salvar_arquivo.opcao_caminho_texto_titulo">Caminho e texto</strong>
+          <small data-i18n="salvar_arquivo.opcao_caminho_texto_desc">Salva apenas o caminho e o texto.</small>
+        </span>
+        <input type="radio" name="salvar-arquivo-tipo" value="caminho-texto">
+        <span class="opcao-salvar-radio" aria-hidden="true"></span>
+      </label>
+
+      <label class="opcao-salvar">
+        <span class="opcao-salvar-icones">
+          <span class="icone-slot duo" data-icone="chave"><img src='Assets/Icons/chavetexto.png'></span>
+        </span>
+        <span class="opcao-salvar-texto">
+          <strong data-i18n="salvar_arquivo.opcao_chave_texto_titulo">Chave e texto</strong>
+          <small data-i18n="salvar_arquivo.opcao_chave_texto_desc">Salva apenas a chave e o texto.</small>
+        </span>
+        <input type="radio" name="salvar-arquivo-tipo" value="chave-texto">
+        <span class="opcao-salvar-radio" aria-hidden="true"></span>
+      </label>
+
+      <label class="opcao-salvar">
+        <span class="opcao-salvar-icones">
+          <span class="icone-slot solo" data-icone="pasta"><img src="Assets/Icons/caminho.png"></span>
+        </span>
+        <span class="opcao-salvar-texto">
+          <strong data-i18n="salvar_arquivo.opcao_caminho_titulo">Caminho</strong>
+          <small data-i18n="salvar_arquivo.opcao_caminho_desc">Salva apenas o caminho.</small>
+        </span>
+        <input type="radio" name="salvar-arquivo-tipo" value="caminho">
+        <span class="opcao-salvar-radio" aria-hidden="true"></span>
+      </label>
+
+      <label class="opcao-salvar">
+        <span class="opcao-salvar-icones">
+          <span class="icone-slot solo" data-icone="chave"><img src="Assets/Icons/chave.png"></span>
+        </span>
+        <span class="opcao-salvar-texto">
+          <strong data-i18n="salvar_arquivo.opcao_chave_titulo">Chave</strong>
+          <small data-i18n="salvar_arquivo.opcao_chave_desc">Salva apenas a chave.</small>
+        </span>
+        <input type="radio" name="salvar-arquivo-tipo" value="chave">
+        <span class="opcao-salvar-radio" aria-hidden="true"></span>
+      </label>
+
+      <label class="opcao-salvar">
+        <span class="opcao-salvar-icones">
+          <span class="icone-slot solo" data-icone="texto"><img src='Assets/Icons/texto.png'></span>
+        </span>
+        <span class="opcao-salvar-texto">
+          <strong data-i18n="salvar_arquivo.opcao_texto_titulo">Texto</strong>
+          <small data-i18n="salvar_arquivo.opcao_texto_desc">Salva apenas o texto.</small>
+        </span>
+        <input type="radio" name="salvar-arquivo-tipo" value="texto">
+        <span class="opcao-salvar-radio" aria-hidden="true"></span>
+      </label>
+    </div>
+
+    <div class="salvar-arquivo-secao">
+      <h2 data-i18n="salvar_arquivo.secao_nome_formato">Nome e formato</h2>
+
+      <div class="salvar-arquivo-linha-nome">
+        <label class="campo-rotulado campo-nome-grupo-wrap">
+          <span data-i18n="salvar_arquivo.nome_arquivo">Nome do arquivo</span>
+          <div class="campo-nome-grupo">
+            <input type="text" id="salvar-arquivo-nome" value="_PathCipher" autocomplete="off">
+
+            <div class="extensao-menu">
+              <button type="button" id="extensao-btn" class="extensao-btn">
+                <span id="extensao-btn-texto">.path</span>
+                <span class="extensao-seta"></span>
+              </button>
+
+              <input type="hidden" id="salvar-arquivo-extensao" value=".path">
+
+              <div id="extensao-menu" class="extensao-dropdown">
+                <button class="extensao-opcao ativo" data-value=".path">.path</button>
+                <button class="extensao-opcao" data-value=".json">.json</button>
+                <button class="extensao-opcao" data-value=".txt">.txt</button>
+              </div>
+            </div>
+          </div>
+        </label>
+      </div>
+    </div>
+
+
+    <div class="salvar-arquivo-secao" style="margin-bottom:16px;">
+      <h2 data-i18n="salvar_arquivo.destino">Local de destino</h2>
+
+      <div class="salvar-arquivo-caminho">
+        <span class="icone-slot alterar" data-icone="pasta"><img src="Assets/Icons/alterar.png"></span>
+        <span id="salvar-arquivo-caminho-texto">/PathCipher/</span>
+        <button type="button" class="btn-alterar-pasta" id="salvar-arquivo-alterar-pasta" data-i18n="salvar_arquivo.alterar_pasta">Alterar pasta</button>
+      </div>
+    </div>
+
+    <div class="salvar-arquivo-resumo">
+      <span class="icone-slot salvoem" data-icone="info"><img src='Assets/Icons/salvoem.png'></span>
+      <p>
+        <span data-i18n="salvar_arquivo.sera_salvo">Será salvo:</span>
+        <strong id="salvar-arquivo-resumo-tipo">Caminho, Chave e Texto</strong>
+        <span data-i18n="salvar_arquivo.em">em</span><br>
+        <span id="salvar-arquivo-resumo-caminho">/PathCipher/.path</span>
+      </p>
+    </div>
+
+    <div class="salvar-arquivo-rodape">
+      <button type="button" class="btn-cancelar-arquivo" id="salvar-arquivo-cancelar" data-i18n="salvar_arquivo.cancelar">Cancelar</button>
+      <button type="button" class="btn-confirmar-arquivo" id="salvar-arquivo-confirmar" data-i18n="salvar_arquivo.salvar">Salvar</button>
+    </div>
+  </div>
+</div>
+
+<div class="caminho-overlay" id="caminho-overlay"></div>
+
+<div class="caminho-modal" id="caminho-modal" role="dialog" aria-modal="true" aria-labelledby="caminho-modal-titulo">
+  <div class="caminho-cabecalho">
+    <h2 id="caminho-modal-titulo" data-i18n="salvar_arquivo.destino">Local de destino</h2>
+    <button type="button" class="caminho-fechar" id="caminho-fechar" aria-label="Fechar" data-i18n-title="salvar_arquivo.fechar">×</button>
+  </div>
+
+  <label class="campo-rotulado">
+    <input type="text" id="caminho-input" class="caminho-input" autocomplete="off">
+  </label>
+
+  <div class="caminho-rodape">
+    <button type="button" class="btn-cancelar-arquivo" id="caminho-cancelar" data-i18n="salvar_arquivo.cancelar">Cancelar</button>
+    <button type="button" class="btn-confirmar-arquivo" id="caminho-confirmar" data-i18n="salvar_arquivo.salvar">Salvar</button>
+  </div>
+</div>
 
 <script src='Js/Appearance.js'></script>
 <script src='Js/crypto.js'></script>

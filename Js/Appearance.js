@@ -1,4 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const VERSAO = " 1.0";
+  function atualizarVersao() {
+    const elemento = document.querySelector(".creditos-versao-badge");
+    elemento.textContent += VERSAO;
+}
   window.pipeline = [];
   window.idCounter = 0;
   window.blocoArrastado = null;
@@ -75,12 +80,6 @@ function fecharCreditos() {
       renderizarCanvas();
       esconderConfiguracoes();
     });
-  
-const VERSAO = " 1.0";
-function atualizarVersao() {
-    const elemento = document.querySelector(".creditos-versao-badge");
-    elemento.textContent += VERSAO;
-}
 
   window.historicoPipeline = [];
 window.indiceHistorico = -1;
@@ -621,7 +620,7 @@ window.indiceHistorico = -1;
     configurarBotaoChave(div, bloco, true, temaChavePorCor(bloco.cor));
   });
 }
-
+window.atualizarBotoesChave = atualizarBotoesChave;
   function abrirModalChave(id, tipo, label) {
     if (!chaveModal || !chaveOverlay) return;
 
@@ -657,11 +656,10 @@ window.indiceHistorico = -1;
       chaveCampoInput.value = chaveAtual;
       chaveCampoInput.type = "password";
     }
-
+    const registro = encontrarRegistroChave(id);
+    const escopoSalvo = registro?.escopo || "bloco";
     radiosChaveEscopo.forEach((radio) => {
-      radio.checked = radio.value === "bloco";
-    });
-
+    radio.checked = radio.value === escopoSalvo;});
     chaveOverlay.classList.add("ativo");
     chaveModal.classList.add("ativo");
     document.body.style.overflow = "hidden";
@@ -691,36 +689,26 @@ window.indiceHistorico = -1;
     });
   }
 
+
+
+
+
   if (chaveSalvarBtn) {
-    chaveSalvarBtn.addEventListener("click", async () => {
-      if (!blocoChaveAtual) return;
+  chaveSalvarBtn.addEventListener("click", async () => {
+    if (!blocoChaveAtual) return;
 
-      const escopoSelecionado = document.querySelector('input[name="chave-escopo"]:checked');
-      const escopo = escopoSelecionado ? escopoSelecionado.value : "bloco";
-      const chave = chaveCampoInput ? chaveCampoInput.value : "";
+    const escopoSelecionado = document.querySelector('input[name="chave-escopo"]:checked');
+    const escopo = escopoSelecionado ? escopoSelecionado.value : "bloco";
+    const chave = chaveCampoInput ? chaveCampoInput.value : "";
 
-      if (window.aplicarChaveComEscopo) {
-        window.aplicarChaveComEscopo(blocoChaveAtual.id, blocoChaveAtual.tipo, chave, escopo);
-      }
+    if (window.aplicarChaveComEscopo) {
+      await window.aplicarChaveComEscopo(blocoChaveAtual.id, blocoChaveAtual.tipo, chave, escopo);}
 
-      const blocoEl = document.querySelector(`.flow-block[data-id="${blocoChaveAtual.id}"]`);
-      if (blocoEl) {
-        const blocoData = (window.pipeline || []).find(b => b.id === blocoChaveAtual.id);
-        if (blocoData) configurarBotaoChave(blocoEl, blocoData, true, temaChavePorCor(blocoData.cor));
-      }
+    if (window.atualizarBotoesChave) {
+      window.atualizarBotoesChave();}
 
-      if (window.limparCacheOtimizacao) window.limparCacheOtimizacao();
-      if (window.regenerarAncoraReversa) {
-        await window.regenerarAncoraReversa();
-      }
-
-atualizarResultado();
-
-      if (window.salvarEstado) window.salvarEstado();
-
-      fecharModalChave();
-    });
-  }
+    if (window.salvarEstado) window.salvarEstado();
+    fecharModalChave();});}
   
   const rsaOverlay = document.querySelector(".rsa-overlay");
   const rsaModal = document.querySelector(".rsa-modal");
@@ -751,8 +739,7 @@ atualizarResultado();
         priv = obj.privateKey || "";
       }
     } catch(e) {
-      pub = chaveSalva;
-    }
+      pub = chaveSalva;}
 
     rsaPubTextArea.value = pub;
     rsaPrivTextArea.value = priv;
@@ -914,5 +901,6 @@ atualizarResultado();
       if (barras) barras.style.display = "none";}
     if (window.limparCacheOtimizacao) window.limparCacheOtimizacao();
     fecharModalRSA();
-  });});
+atualizarVersao();
+});});
   

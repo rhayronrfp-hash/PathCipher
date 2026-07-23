@@ -133,19 +133,16 @@ function md5Bytes(bytes) {
     return hex;
   }
 
-  return toHexLE(a0) + toHexLE(b0) + toHexLE(c0) + toHexLE(d0);
-}
+  return toHexLE(a0) + toHexLE(b0) + toHexLE(c0) + toHexLE(d0);}
 
 function md5Hex(texto) {
-  return md5Bytes(Array.from(new TextEncoder().encode(texto)));
-}
+  return md5Bytes(Array.from(new TextEncoder().encode(texto)));}
 
 function hexParaBytes(hex) {
   const out = [];
   for (let i = 0; i < hex.length; i += 2) out.push(parseInt(hex.substr(i, 2), 16));
-  return out;
-}
-
+  return out;}
+  
 function hmacHexGenerico(hashBytesFn, blockSize, keyBytes, msgBytes) {
   let key = keyBytes.slice();
   if (key.length > blockSize) key = hexParaBytes(hashBytesFn(key));
@@ -153,7 +150,6 @@ function hmacHexGenerico(hashBytesFn, blockSize, keyBytes, msgBytes) {
 
   const ipad = key.map((b) => b ^ 0x36);
   const opad = key.map((b) => b ^ 0x5c);
-
   const inner = hexParaBytes(hashBytesFn(ipad.concat(msgBytes)));
   return hashBytesFn(opad.concat(inner));
 }
@@ -164,10 +160,8 @@ function md5Transform(texto, chave) {
   const msgBytes = Array.from(new TextEncoder().encode(texto));
   if (chave && chave.length) {
     const keyBytes = Array.from(new TextEncoder().encode(chave));
-    return hmacHexGenerico(md5Bytes, 64, keyBytes, msgBytes);
-  }
-  return md5Bytes(msgBytes);
-}
+    return hmacHexGenerico(md5Bytes, 64, keyBytes, msgBytes);}
+  return md5Bytes(msgBytes);}
 
 function rotl32(x, n) { return ((x << n) | (x >>> (32 - n))) >>> 0; }
 
@@ -175,8 +169,7 @@ function chachaQuarterRound(st, a, b, c, d) {
   st[a] = (st[a] + st[b]) >>> 0; st[d] ^= st[a]; st[d] = rotl32(st[d], 16);
   st[c] = (st[c] + st[d]) >>> 0; st[b] ^= st[c]; st[b] = rotl32(st[b], 12);
   st[a] = (st[a] + st[b]) >>> 0; st[d] ^= st[a]; st[d] = rotl32(st[d], 8);
-  st[c] = (st[c] + st[d]) >>> 0; st[b] ^= st[c]; st[b] = rotl32(st[b], 7);
-}
+  st[c] = (st[c] + st[d]) >>> 0; st[b] ^= st[c]; st[b] = rotl32(st[b], 7);}
 
 const CHACHA_CONST = [0x61707865, 0x3320646e, 0x79622d32, 0x6b206574];
 
@@ -304,12 +297,10 @@ async function rsaEncryptReal(texto, chaveJson) {
       const parsed = JSON.parse(chaveJson);
       publicKeyPem = parsed.publicKey;
     } catch (e) {
-      publicKeyPem = chaveJson;
-    }
+      publicKeyPem = chaveJson;}
 
     if (!publicKeyPem || !publicKeyPem.includes("BEGIN PUBLIC KEY")) {
-      return tCrypto("erro.rsa_publica_invalida", "[RSA Error] Invalid or missing public key.");
-    }
+      return tCrypto("erro.rsa_publica_invalida", "[RSA Error] Invalid or missing public key.");}
 
     const keyBuffer = rsaPemToBuffer(publicKeyPem, "PUBLIC KEY");
     const publicKey = await window.crypto.subtle.importKey(
@@ -326,9 +317,7 @@ async function rsaEncryptReal(texto, chaveJson) {
     return btoa(String.fromCharCode(...new Uint8Array(encrypted)));
   } catch (err) {
     console.error("RSA encryption error:", err);
-    return tCrypto("erro.rsa_falha_criptografia", "[RSA Error] Encryption failed. Check the public key.");
-  }
-}
+    return tCrypto("erro.rsa_falha_criptografia", "[RSA Error] Encryption failed. Check the public key.");}}
 
 async function rsaDecryptReal(textoBase64, chaveJson) {
   if (!textoBase64 || !textoBase64.trim()) return "";
@@ -342,8 +331,7 @@ async function rsaDecryptReal(textoBase64, chaveJson) {
     }
 
     if (!privateKeyPem || !privateKeyPem.includes("BEGIN PRIVATE KEY")) {
-      return tCrypto("erro.rsa_privada_nao_configurada", "[RSA Error] No private key configured.");
-    }
+      return tCrypto("erro.rsa_privada_nao_configurada", "[RSA Error] No private key configured.");}
 
     const keyBuffer = rsaPemToBuffer(privateKeyPem, "PRIVATE KEY");
     const privateKey = await window.crypto.subtle.importKey(

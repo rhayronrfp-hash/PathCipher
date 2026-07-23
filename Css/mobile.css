@@ -92,15 +92,40 @@
   }
 
   .topbar-actions {
-    flex: 1 1 auto;
-    min-width: 0;
-    justify-content: flex-end;
-    gap: 6px;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    padding-bottom: 2px;
-  }
+  flex: 1 1 auto;
+  min-width: 0;
+  justify-content: flex-start;
+  gap: 6px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 2px;
+}
+
+.topbar-actions .salvamento {
+  order: 1;
+}
+
+.topbar-actions .inverter {
+  order: 2;
+  margin-left: 10px;
+}
+
+.grupo-das-setas-nao-aguento-mais-fazer-esse-projetooo {
+  order: 3;
+  margin-right: 0px;
+  margin-left: auto;
+  display: flex;
+  gap: 6px;
+}
+
+.grupo-das-setas-nao-aguento-mais-fazer-esse-projetooo .setas {
+  flex-shrink: 0;
+}
+
+.topbar-actions .setas {
+  order: 3;
+}
 
   .topbar-actions::-webkit-scrollbar {
     display: none;
@@ -247,8 +272,12 @@
   .cartao-painel {
     width: 100%;
     padding: 8px;
+    background-color: #111111;
   }
-
+  .gambiarra {
+    display: none;
+    background: #111111;
+  }
   .top-painel {
     font-size: 11px;
     margin-bottom: 4px;
@@ -266,7 +295,7 @@
     max-height: none;
     overflow: visible;
     padding: 8px 12px calc(90px + env(safe-area-inset-bottom, 0px));
-    background-color: #111219;
+    background-color: #101010;
   }
 
   .sidebar-blocos::before {
@@ -280,7 +309,9 @@
   }
 
   .categoria {
+    background-color: #151515;
     margin-bottom: 8px;
+    box-shadow: 2px 2px 2px 2px black;
   }
 
   .categoria-header {

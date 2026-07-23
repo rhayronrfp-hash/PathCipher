@@ -44,11 +44,10 @@
   "inicio": "开始",
   "final": "结束"
 },
-  "termo": {
-    "descriptografia": "解密",
-    "criptografar": "加密",
-    "criptografia": "密码学"
-  },
+  "termo.criptografar": "加密",
+  "termo.criptografia": "加密",
+  "termo.descriptografar": "解密",
+  "termo.descriptografia": "解密",
   "acao": {
     "copiar": "复制",
     "fechar": "关闭",
@@ -166,7 +165,36 @@
   "ascii_invalido": "[ASCII] 文本无效。",
   "url_invalido": "[URL] 文本无效。",
   "unicode_invalido": "[Unicode] 文本无效。"
-}
-
-
-}
+},
+  "salvar_arquivo.titulo": "保存文件",
+  "salvar_arquivo.fechar": "关闭",
+  "salvar_arquivo.subtitulo": "请选择要保存的内容：",
+  "salvar_arquivo.opcao_caminho_chave_texto_titulo": "路径、密钥和文本",
+  "salvar_arquivo.opcao_caminho_chave_texto_desc": "保存路径、密钥和文本。",
+  "salvar_arquivo.opcao_caminho_chave_titulo": "路径和密钥",
+  "salvar_arquivo.opcao_caminho_chave_desc": "仅保存路径和密钥。",
+  "salvar_arquivo.opcao_caminho_texto_titulo": "路径和文本",
+  "salvar_arquivo.opcao_caminho_texto_desc": "仅保存路径和文本。",
+  "salvar_arquivo.opcao_chave_texto_titulo": "密钥和文本",
+  "salvar_arquivo.opcao_chave_texto_desc": "仅保存密钥和文本。",
+  "salvar_arquivo.opcao_caminho_titulo": "路径",
+  "salvar_arquivo.opcao_caminho_desc": "仅保存路径。",
+  "salvar_arquivo.opcao_chave_titulo": "密钥",
+  "salvar_arquivo.opcao_chave_desc": "仅保存密钥。",
+  "salvar_arquivo.opcao_texto_titulo": "文本",
+  "salvar_arquivo.opcao_texto_desc": "仅保存文本。",
+  "salvar_arquivo.secao_nome_formato": "名称和格式",
+  "salvar_arquivo.nome_arquivo": "文件名",
+  "salvar_arquivo.formato": "格式",
+  "salvar_arquivo.sobrescrever_titulo": "覆盖现有文件",
+  "salvar_arquivo.sobrescrever_desc": "如果文件已存在则替换。",
+  "salvar_arquivo.compactar_titulo": "压缩文件",
+  "salvar_arquivo.compactar_desc": "保存为压缩文件。",
+  "salvar_arquivo.criptografar_titulo": "加密已保存的文件",
+  "salvar_arquivo.criptografar_desc": "使用密码保护文件。",
+  "salvar_arquivo.destino": "保存位置",
+  "salvar_arquivo.alterar_pasta": "更改文件夹",
+  "salvar_arquivo.sera_salvo": "将保存：",
+  "salvar_arquivo.em": "到",
+  "salvar_arquivo.cancelar": "取消",
+  "salvar_arquivo.salvar": "保存"}

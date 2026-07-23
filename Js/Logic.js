@@ -141,12 +141,20 @@ const TEXTOS_MODO = {
   },
 };
 
-function aplicarTextoI18n(elemento, definicao) {
-  if (!elemento || !definicao) return;
-  elemento.textContent = definicao.texto;
-  elemento.setAttribute("data-i18n", definicao.chave);
+function t(key, fallback) {
+  const i18n = window.i18next;
+  if (i18n && typeof i18n.t === "function") {
+    const translated = i18n.t(key);
+    if (translated && translated !== key) return translated;
+  }
+  return fallback;
 }
 
+function aplicarTextoI18n(elemento, definicao) {
+  if (!elemento || !definicao) return;
+  elemento.setAttribute("data-i18n", definicao.chave);
+  elemento.textContent = t(definicao.chave, definicao.texto);
+}
 function aplicarTextosModo(reverse) {
   if (btnInverter) {
     btnInverter.classList.toggle("inverter-ativo", !!reverse);
@@ -158,7 +166,9 @@ function aplicarTextosModo(reverse) {
 
   const textoBotao = textoDoBotaoInverter();
   aplicarTextoI18n(textoBotao || btnInverter, modo.botao);
-
+  if (typeof window.atualizarIdioma === "function") {
+  window.atualizarIdioma();
+}
 }
 
 function copiarPipeline() {

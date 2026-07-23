@@ -40,11 +40,10 @@
     "executar": "Ausführen",
     "salvar": "Speichern"
   },
-  "termo": {
-    "descriptografia": "Entschlüsselung",
-    "criptografia": "Kryptographie",
-    "criptografar": "Verschlüsseln"
-},
+  "termo.criptografar": "Verschlüsseln",
+  "termo.criptografia": "Verschlüsselung",
+  "termo.descriptografar": "Entschlüsseln",
+  "termo.descriptografia": "Entschlüsselung",
       
   "fluxo": {
   "inicio": "Start",
@@ -146,5 +145,38 @@
       "msg_copiado_pub": "Öffentlicher Schlüssel kopiert!",
       "msg_copiado_priv": "Privater Schlüssel kopiert!",
       "erro_gerar": "Fehler beim Generieren der RSA-Schlüssel."
-    }
+    },
+  
+  "salvar_arquivo.titulo": "Datei speichern",
+  "salvar_arquivo.fechar": "Schließen",
+  "salvar_arquivo.subtitulo": "Wähle aus, was du speichern möchtest:",
+  "salvar_arquivo.opcao_caminho_chave_texto_titulo": "Pfad, Schlüssel und Text",
+  "salvar_arquivo.opcao_caminho_chave_texto_desc": "Speichert den Pfad, den Schlüssel und den Text.",
+  "salvar_arquivo.opcao_caminho_chave_titulo": "Pfad und Schlüssel",
+  "salvar_arquivo.opcao_caminho_chave_desc": "Speichert nur den Pfad und den Schlüssel.",
+  "salvar_arquivo.opcao_caminho_texto_titulo": "Pfad und Text",
+  "salvar_arquivo.opcao_caminho_texto_desc": "Speichert nur den Pfad und den Text.",
+  "salvar_arquivo.opcao_chave_texto_titulo": "Schlüssel und Text",
+  "salvar_arquivo.opcao_chave_texto_desc": "Speichert nur den Schlüssel und den Text.",
+  "salvar_arquivo.opcao_caminho_titulo": "Pfad",
+  "salvar_arquivo.opcao_caminho_desc": "Speichert nur den Pfad.",
+  "salvar_arquivo.opcao_chave_titulo": "Schlüssel",
+  "salvar_arquivo.opcao_chave_desc": "Speichert nur den Schlüssel.",
+  "salvar_arquivo.opcao_texto_titulo": "Text",
+  "salvar_arquivo.opcao_texto_desc": "Speichert nur den Text.",
+  "salvar_arquivo.secao_nome_formato": "Name und Format",
+  "salvar_arquivo.nome_arquivo": "Dateiname",
+  "salvar_arquivo.formato": "Format",
+  "salvar_arquivo.sobrescrever_titulo": "Vorhandene Datei überschreiben",
+  "salvar_arquivo.sobrescrever_desc": "Ersetzt sie, wenn die Datei bereits existiert.",
+  "salvar_arquivo.compactar_titulo": "Datei komprimieren",
+  "salvar_arquivo.compactar_desc": "Speichert als komprimierte Datei.",
+  "salvar_arquivo.criptografar_titulo": "Gespeicherte Datei verschlüsseln",
+  "salvar_arquivo.criptografar_desc": "Schützt die Datei mit einem Passwort.",
+  "salvar_arquivo.destino": "Zielort",
+  "salvar_arquivo.alterar_pasta": "Ordner ändern",
+  "salvar_arquivo.sera_salvo": "Gespeichert wird:",
+  "salvar_arquivo.em": "in",
+  "salvar_arquivo.cancelar": "Abbrechen",
+  "salvar_arquivo.salvar": "Speichern"
 }

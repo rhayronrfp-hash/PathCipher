@@ -40,11 +40,10 @@
     "executar": "चलाएँ",
     "salvar": "सहेजें"
   },
-  "termo": {
-    "descriptografia": "डिक्रिप्शन",
-    "criptografia": "एन्क्रिप्शन",
-    "criptografar": "एन्क्रिप्शन"
-  },
+  "termo.criptografar": "एन्क्रिप्ट करें",
+  "termo.criptografia": "एन्क्रिप्शन",
+  "termo.descriptografar": "डिक्रिप्ट करें",
+  "termo.descriptografia": "डिक्रिप्शन",
   "acao": {
     "copiar": "कॉपी करें",
     "fechar": "बंद करें",
@@ -166,7 +165,40 @@
   "ascii_invalido": "[ASCII] अमान्य पाठ।",
   "url_invalido": "[URL] अमान्य पाठ।",
   "unicode_invalido": "[Unicode] अमान्य पाठ।"
-}
+},
+  "salvar_arquivo.titulo": "फ़ाइल सहेजें",
+  "salvar_arquivo.fechar": "बंद करें",
+  "salvar_arquivo.subtitulo": "आप क्या सहेजना चाहते हैं, चुनें:",
+  "salvar_arquivo.opcao_caminho_chave_texto_titulo": "पथ, कुंजी और पाठ",
+  "salvar_arquivo.opcao_caminho_chave_texto_desc": "पथ, कुंजी और पाठ को सहेजता है।",
+  "salvar_arquivo.opcao_caminho_chave_titulo": "पथ और कुंजी",
+  "salvar_arquivo.opcao_caminho_chave_desc": "केवल पथ और कुंजी सहेजता है।",
+  "salvar_arquivo.opcao_caminho_texto_titulo": "पथ और पाठ",
+  "salvar_arquivo.opcao_caminho_texto_desc": "केवल पथ और पाठ सहेजता है।",
+  "salvar_arquivo.opcao_chave_texto_titulo": "कुंजी और पाठ",
+  "salvar_arquivo.opcao_chave_texto_desc": "केवल कुंजी और पाठ सहेजता है।",
+  "salvar_arquivo.opcao_caminho_titulo": "पथ",
+  "salvar_arquivo.opcao_caminho_desc": "केवल पथ सहेजता है।",
+  "salvar_arquivo.opcao_chave_titulo": "कुंजी",
+  "salvar_arquivo.opcao_chave_desc": "केवल कुंजी सहेजता है।",
+  "salvar_arquivo.opcao_texto_titulo": "पाठ",
+  "salvar_arquivo.opcao_texto_desc": "केवल पाठ सहेजता है।",
+  "salvar_arquivo.secao_nome_formato": "नाम और प्रारूप",
+  "salvar_arquivo.nome_arquivo": "फ़ाइल नाम",
+  "salvar_arquivo.formato": "प्रारूप",
+  "salvar_arquivo.sobrescrever_titulo": "मौजूदा फ़ाइल को बदलें",
+  "salvar_arquivo.sobrescrever_desc": "यदि फ़ाइल पहले से मौजूद है, तो उसे बदल देता है।",
+  "salvar_arquivo.compactar_titulo": "फ़ाइल संपीड़ित करें",
+  "salvar_arquivo.compactar_desc": "संपीड़ित फ़ाइल के रूप में सहेजता है।",
+  "salvar_arquivo.criptografar_titulo": "सहेजी गई फ़ाइल को एन्क्रिप्ट करें",
+  "salvar_arquivo.criptografar_desc": "फ़ाइल को पासवर्ड से सुरक्षित करता है।",
+  "salvar_arquivo.destino": "गंतव्य",
+  "salvar_arquivo.alterar_pasta": "फ़ोल्डर बदलें",
+  "salvar_arquivo.sera_salvo": "सहेजा जाएगा:",
+  "salvar_arquivo.em": "में",
+  "salvar_arquivo.cancelar": "रद्द करें",
+  "salvar_arquivo.salvar": "सहेजें"
+
 
 
 

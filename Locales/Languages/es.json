@@ -44,11 +44,10 @@
   "inicio": "Inicio",
   "final": "Final"
 },
-  "termo": {
-    "descriptografia": "Descifrado",
-    "criptografar": "Cifrar",
-    "criptografia": "Criptografía"
-  },
+  "termo.criptografar": "Cifrar",
+  "termo.criptografia": "Cifrado",
+  "termo.descriptografar": "Descifrar",
+  "termo.descriptografia": "Descifrado",
   
   "acao": {
     "copiar": "Copiar",
@@ -165,7 +164,40 @@
   "ascii_invalido": "[ASCII] Texto inválido.",
   "url_invalido": "[URL] Texto inválido.",
   "unicode_invalido": "[Unicode] Texto inválido."
-}
+},
+  "salvar_arquivo.titulo": "Guardar archivo",
+  "salvar_arquivo.fechar": "Cerrar",
+  "salvar_arquivo.subtitulo": "Selecciona lo que deseas guardar:",
+  "salvar_arquivo.opcao_caminho_chave_texto_titulo": "Ruta, clave y texto",
+  "salvar_arquivo.opcao_caminho_chave_texto_desc": "Guarda la ruta, la clave y el texto.",
+  "salvar_arquivo.opcao_caminho_chave_titulo": "Ruta y clave",
+  "salvar_arquivo.opcao_caminho_chave_desc": "Guarda solo la ruta y la clave.",
+  "salvar_arquivo.opcao_caminho_texto_titulo": "Ruta y texto",
+  "salvar_arquivo.opcao_caminho_texto_desc": "Guarda solo la ruta y el texto.",
+  "salvar_arquivo.opcao_chave_texto_titulo": "Clave y texto",
+  "salvar_arquivo.opcao_chave_texto_desc": "Guarda solo la clave y el texto.",
+  "salvar_arquivo.opcao_caminho_titulo": "Ruta",
+  "salvar_arquivo.opcao_caminho_desc": "Guarda solo la ruta.",
+  "salvar_arquivo.opcao_chave_titulo": "Clave",
+  "salvar_arquivo.opcao_chave_desc": "Guarda solo la clave.",
+  "salvar_arquivo.opcao_texto_titulo": "Texto",
+  "salvar_arquivo.opcao_texto_desc": "Guarda solo el texto.",
+  "salvar_arquivo.secao_nome_formato": "Nombre y formato",
+  "salvar_arquivo.nome_arquivo": "Nombre del archivo",
+  "salvar_arquivo.formato": "Formato",
+  "salvar_arquivo.sobrescrever_titulo": "Sobrescribir archivo existente",
+  "salvar_arquivo.sobrescrever_desc": "Lo reemplaza si el archivo ya existe.",
+  "salvar_arquivo.compactar_titulo": "Comprimir archivo",
+  "salvar_arquivo.compactar_desc": "Guarda como archivo comprimido.",
+  "salvar_arquivo.criptografar_titulo": "Cifrar archivo guardado",
+  "salvar_arquivo.criptografar_desc": "Protege el archivo con contraseña.",
+  "salvar_arquivo.destino": "Destino",
+  "salvar_arquivo.alterar_pasta": "Cambiar carpeta",
+  "salvar_arquivo.sera_salvo": "Se guardará:",
+  "salvar_arquivo.em": "en",
+  "salvar_arquivo.cancelar": "Cancelar",
+  "salvar_arquivo.salvar": "Guardar"
+
 
 
 }
