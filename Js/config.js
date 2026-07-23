@@ -70,9 +70,6 @@ function iniciarIdioma() {
       loadPath: "Locales/Languages/{{lng}}.json",
     },})
     .then(() => {
-      console.log("Idioma:", i18next.language);
-      console.log("Recursos:", i18next.store.data);
-      console.log("Tradução de teste:", i18next.t("titulo"));
       atualizarIdioma();
       const idiomaInicial = localStorage.getItem(CHAVE_IDIOMA) || i18next.language || "en";
       idiomaSelecionado = idiomaInicial;
