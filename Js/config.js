@@ -64,7 +64,7 @@ function iniciarIdioma() {
     .use(i18nextHttpBackend)
     .use(i18nextBrowserLanguageDetector)
     .init({
-    lng: localStorage.getItem(CHAVE_IDIOMA) || "en",
+    lng: localStorage.getItem(CHAVE_IDIOMA) || undefined,
     fallbackLng: "en",
     backend: {
       loadPath: "Locales/languages/{{lng}}.json",
