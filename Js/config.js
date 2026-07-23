@@ -65,13 +65,17 @@ function iniciarIdioma() {
     .use(i18nextBrowserLanguageDetector)
     .init({
     lng: localStorage.getItem(CHAVE_IDIOMA) || undefined,
-    fallbackLng: "en",
+    fallbackLng: "pt",
     backend: {
-      loadPath: "Locales/languages/{{lng}}.json",
+      loadPath: "Locales/Languages/{{lng}}.json",
     },})
     .then(() => {
+      console.log("Idioma:", i18next.language);
+       console.log("Tradução:", i18next.t("titulo"));
+       atualizarIdioma();
+
       atualizarIdioma();
-      const idiomaInicial = localStorage.getItem(CHAVE_IDIOMA) || i18next.language || "en";
+      const idiomaInicial = localStorage.getItem(CHAVE_IDIOMA) || i18next.language || "pt";
       idiomaSelecionado = idiomaInicial;
       marcarIdiomaSelecionado(idiomaInicial);
     });}
