@@ -19,9 +19,10 @@ html, body {
   margin: 0;
   width: 100%;
   visibility: hidden;
-
 }
-
+.main {
+  background-color: white !important;
+}
 .right-side {
   flex: 1;
   display: flex;
