@@ -68,7 +68,7 @@ function iniciarIdioma() {
       lng: idiomaSalvo || "en",
       fallbackLng: "en",
       backend: {
-        loadPath: "Locales/languages/{{lng}}.json",
+        loadPath: "Locales/Languages/{{lng}}.json",
       }, 
       
     })
