@@ -7,6 +7,9 @@ const sideIcons = document.querySelectorAll(".side-icon");
 const mainsideicon = document.querySelector(".principal")
 
 function mostrarConfiguracoes() {
+  idiomaSelecionado = localStorage.getItem(CHAVE_IDIOMA) || i18next.language || "pt";
+  marcarIdiomaSelecionado(idiomaSelecionado);
+  carregarPreferenciasBlocos();
   fundoConfig.classList.add("ativo");
   janelaConfig.classList.add("ativo");
   document.body.style.overflow = "hidden";
