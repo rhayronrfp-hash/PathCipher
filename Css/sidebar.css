@@ -21,7 +21,11 @@
   background-color: #111219;
   display: flex;
   flex-direction: column;
+  scrollbar-width: none;    
+  -ms-overflow-style: none;  
 }
+.sidebar::-webkit-scrollbar {
+  display: none;      }
 
 .sidebar-topo {
   display: flex;

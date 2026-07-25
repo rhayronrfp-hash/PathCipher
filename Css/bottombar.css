@@ -17,8 +17,12 @@
   background-color: #1a1b26;
   border-radius: 8px;
   padding: 14px;
+  scrollbar-width: none;    
+  -ms-overflow-style: none;  
 }
 
+cartao-painel::-webkit-scrollbar {
+  display: none;      }
 .top-painel {
   display: flex;
   align-items: center;
