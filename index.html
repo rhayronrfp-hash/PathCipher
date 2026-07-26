@@ -818,9 +818,11 @@
 <script src='Js/warn.js'></script>
 <script src='Js/config.js'></script>
 <script>
-window.addEventListener("load", () => {
+function revelarPagina() {
   document.body.style.visibility = "visible";
-});
+}
+document.addEventListener("DOMContentLoaded", revelarPagina);
+setTimeout(revelarPagina, 2500);
 </script>
 </body>
 </html>
