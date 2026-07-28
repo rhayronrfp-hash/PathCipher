@@ -449,12 +449,17 @@ window.indiceHistorico = -1;
   
   
   function habilitarArraste(elemento, bloco) {
+    let timerArraste = null;
+
     elemento.addEventListener("pointerdown", (e) => {
       if (e.target.closest(".flow-remove")) return;
 
-      blocoArrastado = bloco;
-      elemento.classList.add("arrastando");
-      elemento.setPointerCapture(e.pointerId);
+      clearTimeout(timerArraste);
+      timerArraste = setTimeout(() => {
+        blocoArrastado = bloco;
+        elemento.classList.add("arrastando");
+        elemento.setPointerCapture(e.pointerId);
+      }, 700);
     });
 
     elemento.addEventListener("pointermove", (e) => {
@@ -478,6 +483,7 @@ window.indiceHistorico = -1;
     });
 
     elemento.addEventListener("pointerup", (e) => {
+      clearTimeout(timerArraste);
       if (!blocoArrastado) return;
       const alvo = document.elementFromPoint(e.clientX, e.clientY);
       const blocoAlvo = alvo?.closest(".flow-block");
@@ -494,6 +500,14 @@ window.indiceHistorico = -1;
       }
 
       blocoArrastado = null;
+    });
+
+    elemento.addEventListener("pointercancel", () => {
+      clearTimeout(timerArraste);
+      blocoArrastado = null;
+      document.querySelectorAll(".flow-block").forEach((el) => {
+        el.classList.remove("drag-over", "arrastando");
+      });
     });
   }
   window.addEventListener("load", () => {
