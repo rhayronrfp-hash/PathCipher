@@ -9,20 +9,32 @@
   -webkit-appearance: none;
   appearance: none;
 }
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
 .app {
   display: flex;
   height: 100%;
-}
-html, body {
-  font-family: 'Inter', system-ui, sans-serif;
-  height: 100%;
-  margin: 0;
   width: 100%;
-  visibility: hidden;
 }
+
 .main {
   background-color: white !important;
 }
+
 .right-side {
   flex: 1;
   display: flex;
@@ -32,10 +44,13 @@ html, body {
 .topbar {
   width: 100%;
   height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
   color: white;
   background-color: #111219;
   border: 1px solid rgba(229, 231, 235, 0.12);
-
 }
 
 .grupo-das-setas-nao-aguento-mais-fazer-esse-projetooo {
@@ -48,8 +63,16 @@ html, body {
 
 .topbar-project {
   display: flex;
-  gap: 8px;
   align-items: center;
+  gap: 8px;
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #111219;
+  flex: 1;
 }
 
 .setas {
@@ -59,32 +82,13 @@ html, body {
   flex-shrink: 0;
 }
 
-.setas:active{
+.setas:active {
   transform: scale(1.2);
 }
 
 .setas img {
   width: 28px;
   height: 28px;
-  column-gap: 3px;
-}
-
-
-.topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 20px;
-  color: white;
-  background-color: #111219;
-}
-
-.topbar-actions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: #111219;
-  flex: 1;
 }
 
 .btn-group {
@@ -97,12 +101,12 @@ html, body {
 
 .btn-roxo {
   display: flex;
-  font-family: "Inter";
   align-items: center;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  background: #2ecc71;
   border-radius: 6px;
   overflow: hidden;
-  background: #2ecc71;
-  font-weight: 600;
 }
 
 .btn-roxo .btn-outline {
@@ -117,36 +121,34 @@ html, body {
   cursor: pointer;
   color: white;
   background-color: #111219;
-}  
+  border: none;
+}
+
 .salvamento {
   background-color: #2ecc71;
 }
+
 .salvamento:active {
-  background-color: #2CC46D;
+  background-color: #2cc46d;
 }
 
 .executar {
   display: none;
-  opacity: 100%;
+  opacity: 1;
   font-size: 15px;
   height: 30px;
   color: white;
-  background: #2ecc71; /* um dos verdes mais fodas que tem é esse aquikkkk*/
+  background: #2ecc71;
   cursor: pointer;
   border: none;
   padding: 8px 20px;
   border-radius: 6px;
 }
 
-
-
 .executar:active {
   transform: scale(0.97);
-  background: #2CC46E;
+  background: #2cc46e;
 }
-
-
-
 
 .inverter {
   background: #2c3e9b;
@@ -164,13 +166,12 @@ html, body {
   cursor: pointer;
 }
 
-
 .inverter:active {
   transform: scale(0.97);
 }
 
 .inverter.inverter-ativo {
-  background: #632C9B;
+  background: #632c9b;
 }
 
 .inverter.inverter-ativo:active {
