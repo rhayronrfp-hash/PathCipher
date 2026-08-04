@@ -10,6 +10,23 @@ function mostrarConfiguracoes() {
   idiomaSelecionado = localStorage.getItem(CHAVE_IDIOMA) || i18next.language || "pt";
   marcarIdiomaSelecionado(idiomaSelecionado);
   carregarPreferenciasBlocos();
+
+  if (window.toggleRemoverAviso && window.avisoFoiRemovidoPeloUsuario) {
+    window.toggleRemoverAviso.checked = window.avisoFoiRemovidoPeloUsuario();
+  }
+
+  const checkboxMostrarLinhas = document.querySelector(".mostrar-linha");
+  if (checkboxMostrarLinhas && window.obterPreferenciaMostrarLinhas) {
+    checkboxMostrarLinhas.checked = window.obterPreferenciaMostrarLinhas();
+  }
+
+  if (window.obterPreferenciaTema) {
+    const temaSalvo = window.obterPreferenciaTema();
+    document.querySelectorAll('input[name="tema"]').forEach((radio) => {
+      radio.checked = radio.value === temaSalvo;
+    });
+  }
+
   fundoConfig.classList.add("ativo");
   janelaConfig.classList.add("ativo");
   document.body.style.overflow = "hidden";
