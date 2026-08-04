@@ -7,7 +7,7 @@ const sideIcons = document.querySelectorAll(".side-icon");
 const mainsideicon = document.querySelector(".principal")
 
 function mostrarConfiguracoes() {
-  idiomaSelecionado = localStorage.getItem(CHAVE_IDIOMA) || i18next.language || "pt";
+  idiomaSelecionado = (localStorage.getItem(CHAVE_IDIOMA) || i18next.language || "pt").split('-')[0];
   marcarIdiomaSelecionado(idiomaSelecionado);
   carregarPreferenciasBlocos();
 
@@ -91,7 +91,7 @@ function iniciarIdioma() {
     },})
     .then(() => {
       atualizarIdioma();
-      const idiomaInicial = localStorage.getItem(CHAVE_IDIOMA) || i18next.language || "en";
+      const idiomaInicial = (localStorage.getItem(CHAVE_IDIOMA) || i18next.language || "en").split('-')[0];
       idiomaSelecionado = idiomaInicial;
       marcarIdiomaSelecionado(idiomaInicial);
     });}
@@ -216,4 +216,5 @@ window.carregarPreferenciasBlocos = carregarPreferenciasBlocos;
 
 document.addEventListener("DOMContentLoaded", () => {
   iniciarIdioma();
+  
   carregarPreferenciasBlocos();});
